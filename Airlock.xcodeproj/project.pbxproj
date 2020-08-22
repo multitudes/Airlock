@@ -11,6 +11,7 @@
 		45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDF24F1050F001C6F83 /* ContentView.swift */; };
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
 		45D4CCE524F10511001C6F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */; };
+		45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCED24F10641001C6F83 /* Color+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		45D4CCE124F10511001C6F83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45D4CCE624F10511001C6F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D4CCED24F10641001C6F83 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
+				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
 				45D4CCE124F10511001C6F83 /* Assets.xcassets */,
 				45D4CCE624F10511001C6F83 /* Info.plist */,
@@ -67,6 +70,14 @@
 				45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		45D4CCEC24F10628001C6F83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				45D4CCED24F10641001C6F83 /* Color+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
+				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
