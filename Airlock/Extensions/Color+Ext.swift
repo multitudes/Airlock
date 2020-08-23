@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 // This extension will create predefined static colors that can be used in my app like: Color.lightRed or Color.darkRed. I use a custom init to create colors from decimal values between 0-255
+// I made these colors accessible with a white text as foreground
+// see https://contrast-ratio.com/#%23e5145f-on-%23FFFdFb
 extension Color {
     public static var outlineLightRed: Color {
         return Color(hex: "FF5898")
