@@ -15,26 +15,33 @@ struct ActivityRingView: View {
     var body: some View {
         
         ZStack {
-            
-            Circle()
-                .stroke(Color.outlineLightRed, lineWidth: frameSize! / 5)
-            Circle()
-                .trim(from: 0.0, to: progress)
-                .stroke(
-                    Color.white,
-                    style: StrokeStyle(lineWidth: frameSize! / 5, lineCap: .round)
-                ).rotationEffect(.degrees(-90))
-            Circle()
-                .frame(width: frameSize! / 5 , height: frameSize! / 5)
-                .foregroundColor(progress != 0.0 ? .white : Color.clear  )
-                .offset(y: -frameSize! / 2)
-            Circle()
-                .border(Color.clear, width: 0)
-                .frame(width: frameSize! / 5, height: frameSize! / 5)
-                .offset(y: -frameSize! / 2)
-                .foregroundColor(progress >= 0.95 ? Color.white : Color.clear)
-                .rotationEffect(Angle.degrees(360 * Double(progress)))
-                .shadow(color: progress > 0.95 ? Color.black.opacity(0.3): Color.clear, radius: 1, x: 1, y: 0)
+            ZStack {
+                
+                Circle()
+                    .stroke(Color.outlineLightRed, lineWidth: frameSize! / 5)
+                Circle()
+                    .trim(from: 0.0, to: progress)
+                    .stroke(
+                        Color.white,
+                        style: StrokeStyle(lineWidth: frameSize! / 5, lineCap: .round)
+                    )
+                    .border(Color.clear, width: 0)
+                    .rotationEffect(.degrees(-90))
+                Circle()
+                    .border(Color.clear, width: 0)
+                    .frame(width: frameSize! / 5  , height: frameSize! / 5)
+                    .foregroundColor(progress != 0.0 ? .white : Color.clear  )
+                    .offset(y: -(frameSize! / 2 )   )
+                Circle()
+                    .border(Color.clear, width: 0)
+                    .frame(width: frameSize! / 5, height: frameSize! / 5)
+                    .offset(y: -frameSize! / 2 )
+                    .foregroundColor(progress >= 0.95 ? Color.white : Color.clear)
+                    .rotationEffect(Angle.degrees(360 * Double(progress)))
+                    .shadow(color: progress >= 0.94 ? Color.black.opacity(0.3): Color.clear, radius: frameSize! / 250 , x: frameSize! / 150, y: 0)
+                
+                
+            }.frame(idealWidth: frameSize!, idealHeight: frameSize!, alignment: .center)
             
             Button(action: {
                 printHello()
@@ -62,7 +69,7 @@ struct ActivityRingView: View {
                     .accessibility(label: Text("Start two minutes"))
                 }
             })
-        }.frame(idealWidth: frameSize, idealHeight: frameSize, alignment: .center)
+        }
     }
     
     
@@ -72,7 +79,7 @@ struct ActivityRingView: View {
 }
 
 struct ContentView: View {
-    @State private var progress: CGFloat = 0.99
+    @State private var progress: CGFloat = 0.95
     
     var body: some View {
         ZStack {
@@ -92,12 +99,12 @@ struct ContentView: View {
                     .frame(minWidth: geometry.size.width, alignment: .center)
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
-                ActivityRingView(progress: $progress, frameSize: geometry.size.width / 2 )
+                ActivityRingView(progress: $progress, frameSize: geometry.size.width / 1.5 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
             }
             
-
+            
         }
         
     }
