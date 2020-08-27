@@ -8,30 +8,14 @@
 import SwiftUI
 
 struct ActivityRingView: View {
+    @State private var timerIsOn: Bool = false
     @Binding var progress: CGFloat
     
     var body: some View {
-        VStack(alignment: .center, spacing: 40) {
         
-                Text("Two Minutes Meditation")
-                    .font(Font.system(size: 60))
-                    .fontWeight(.black)
-                    .foregroundColor(.white)
-                    .bold()
-                    .layoutPriority(1)
-                    .lineLimit(2)
-                    .frame(maxWidth: 350, alignment: .center)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-
-                Text("Observe your breath")
-                    .frame(minWidth: 300, alignment: .center)
-                    .font(.title)
-                    .foregroundColor(Color.lightTitle)
-                    .layoutPriority(1)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.5)
+        Text("kjhasdf").hidden()
             ZStack {
+
                 Circle()
                     .stroke(Color.outlineLightRed, lineWidth: 30)
                 Circle()
@@ -51,10 +35,22 @@ struct ActivityRingView: View {
                     .foregroundColor(progress >= 0.95 ? Color.white : Color.clear)
                     .rotationEffect(Angle.degrees(360 * Double(progress)))
                     .shadow(color: progress > 0.95 ? Color.black.opacity(0.3): Color.clear, radius: 1, x: 1, y: 0)
-                
+
                 Button(action: {
                     printHello()
+                    timerIsOn = true
                 }, label: {
+                    if !timerIsOn {
+                        ZStack {
+                            Circle()
+                                .frame(width: 250, height: 250)
+                                .foregroundColor(progress == 0.0 ? .buttonLightRed : Color.clear)
+                            Text("Start")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                        }
+                        .accessibility(label: Text("Start two minutes"))
+                    }
                     ZStack {
                         Circle()
                             .frame(width: 250, height: 250)
@@ -63,11 +59,12 @@ struct ActivityRingView: View {
                             .font(.largeTitle)
                             .foregroundColor(.white)
                     }
-                    
+                    .accessibility(label: Text("Start two minutes"))
+
                 })
             }.frame(idealWidth:300, idealHeight: 300, alignment: .center)
-            }
-        }
+    }
+     
         
     func printHello() {
         print("hello")
@@ -81,6 +78,22 @@ struct ContentView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.gradientStartRed, Color.gradientEndRed]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            
+            GeometryReader { geometry in
+                
+                Text("Two Minutes Meditation")
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .foregroundColor(.white)
+                    .bold()
+                    .layoutPriority(1)
+                    .lineLimit(2)
+                    .position(x: geometry.size.width / 2 , y: geometry.size.height / 10)
+                    .frame(minWidth: geometry.size.width, alignment: .center)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+            }
+            
             ActivityRingView(progress: $progress)
                 .fixedSize()
         }
