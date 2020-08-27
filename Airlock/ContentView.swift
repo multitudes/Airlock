@@ -13,44 +13,33 @@ struct ActivityRingView: View {
     
     var body: some View {
         
-        Text("kjhasdf").hidden()
-            ZStack {
-
-                Circle()
-                    .stroke(Color.outlineLightRed, lineWidth: 30)
-                Circle()
-                    .trim(from: 0.0, to: progress)
-                    .stroke(
-                        Color.white,
-                        style: StrokeStyle(lineWidth: 30, lineCap: .round)
-                    ).rotationEffect(.degrees(-90))
-                Circle()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(progress != 0.0 ? .white : Color.clear  )
-                    .offset(y: -150)
-                Circle()
-                    .border(Color.clear, width: 0)
-                    .frame(width: 30, height: 30)
-                    .offset(y: -150)
-                    .foregroundColor(progress >= 0.95 ? Color.white : Color.clear)
-                    .rotationEffect(Angle.degrees(360 * Double(progress)))
-                    .shadow(color: progress > 0.95 ? Color.black.opacity(0.3): Color.clear, radius: 1, x: 1, y: 0)
-
-                Button(action: {
-                    printHello()
-                    timerIsOn = true
-                }, label: {
-                    if !timerIsOn {
-                        ZStack {
-                            Circle()
-                                .frame(width: 250, height: 250)
-                                .foregroundColor(progress == 0.0 ? .buttonLightRed : Color.clear)
-                            Text("Start")
-                                .font(.largeTitle)
-                                .foregroundColor(.white)
-                        }
-                        .accessibility(label: Text("Start two minutes"))
-                    }
+        ZStack {
+            
+            Circle()
+                .stroke(Color.outlineLightRed, lineWidth: 30)
+            Circle()
+                .trim(from: 0.0, to: progress)
+                .stroke(
+                    Color.white,
+                    style: StrokeStyle(lineWidth: 30, lineCap: .round)
+                ).rotationEffect(.degrees(-90))
+            Circle()
+                .frame(width: 30, height: 30)
+                .foregroundColor(progress != 0.0 ? .white : Color.clear  )
+                .offset(y: -150)
+            Circle()
+                .border(Color.clear, width: 0)
+                .frame(width: 30, height: 30)
+                .offset(y: -150)
+                .foregroundColor(progress >= 0.95 ? Color.white : Color.clear)
+                .rotationEffect(Angle.degrees(360 * Double(progress)))
+                .shadow(color: progress > 0.95 ? Color.black.opacity(0.3): Color.clear, radius: 1, x: 1, y: 0)
+            
+            Button(action: {
+                printHello()
+                timerIsOn = true
+            }, label: {
+                if !timerIsOn {
                     ZStack {
                         Circle()
                             .frame(width: 250, height: 250)
@@ -60,12 +49,22 @@ struct ActivityRingView: View {
                             .foregroundColor(.white)
                     }
                     .accessibility(label: Text("Start two minutes"))
-
-                })
-            }.frame(idealWidth:300, idealHeight: 300, alignment: .center)
+                } else {
+                    ZStack {
+                        Circle()
+                            .frame(width: 250, height: 250)
+                            .foregroundColor(progress == 0.0 ? .buttonLightRed : Color.clear)
+                        Text("Start")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+                    .accessibility(label: Text("Start two minutes"))
+                }
+            })
+        }.frame(idealWidth:300, idealHeight: 300, alignment: .center)
     }
-     
-        
+    
+    
     func printHello() {
         print("hello")
     }
