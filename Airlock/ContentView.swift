@@ -16,10 +16,11 @@ struct ActivityRingView: View {
         
         ZStack {
             ZStack {
-                
+                // the light red shadow
                 Circle()
                     .stroke(Color.outlineLightRed, lineWidth: frameSize! / 6)
                     .opacity(0.3)
+                // the white progress circle
                 Circle()
                     .trim(from: 0.0, to: progress / 2.0)
                     .stroke(
@@ -28,7 +29,8 @@ struct ActivityRingView: View {
                     )
                     .border(Color.clear, width: 0)
                     .rotationEffect(.degrees(-90))
-                    .animation(progress / 2 >= 1.8 ? .easeInOut(duration: 10) :  .easeInOut(duration: 0.1))
+
+                // the rounded start
                 Circle()
                     .border(Color.clear, width: 0)
                     .frame(width: frameSize! / 6  , height: frameSize! / 6)
@@ -38,9 +40,9 @@ struct ActivityRingView: View {
                     .border(Color.clear, width: 0)
                     .frame(width: frameSize! / 6, height: frameSize! / 6)
                     .offset(y: -frameSize! / 2 )
-                    .foregroundColor(progress / 2 >= 0.95 ? Color.white : Color.clear)
+                    .foregroundColor(progress / 2 >= 0.97 ? Color.white : Color.clear)
                     .rotationEffect(Angle.degrees(360 * Double(progress / 120)))
-                    .shadow(color: progress / 2 >= 0.94 ? Color.black.opacity(0.3): Color.clear, radius: frameSize! / 250 , x: frameSize! / 150, y: 0)
+                    .shadow(color: progress / 2 >= 0.97 ? Color.black.opacity(0.2): Color.clear, radius: frameSize! / 250 , x: frameSize! / 150, y: 0)
                 
             }.frame(idealWidth: frameSize!, idealHeight: frameSize!, alignment: .center)
         }
@@ -95,7 +97,7 @@ struct PushButton: View {
                 .clipShape(Capsule())
                 .foregroundColor(.white)
                 .shadow(color: Color.red ,radius: isOn ? 50 : 5)
-                .animation(.easeInOut(duration: 0.8))
+                .animation(.easeOut(duration: 0.8))
                 
         }).accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
     }

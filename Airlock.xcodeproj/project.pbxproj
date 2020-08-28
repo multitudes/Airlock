@@ -17,6 +17,8 @@
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
 		45D4CCE524F10511001C6F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */; };
 		45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCED24F10641001C6F83 /* Color+Ext.swift */; };
+		45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA5A7924F947E8006318B6 /* playsound.swift */; };
+		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45D4CCE624F10511001C6F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D4CCED24F10641001C6F83 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		45EA5A7924F947E8006318B6 /* playsound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playsound.swift; sourceTree = "<group>"; };
+		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
+				45EA5A7B24F94C19006318B6 /* gong.m4a */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
+				45EA5A7924F947E8006318B6 /* playsound.swift */,
 				454CBB6524F916AF001015F5 /* ModalAlertView.swift */,
 				454CBB6124F8FD42001015F5 /* TabOne.swift */,
 				454CBB5F24F8FCEB001015F5 /* TabTwo.swift */,
@@ -153,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D4CCE524F10511001C6F83 /* Preview Assets.xcassets in Resources */,
+				45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */,
 				45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +173,7 @@
 			files = (
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
+				45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */,
 				454CBB6224F8FD42001015F5 /* TabOne.swift in Sources */,
 				454CBB6024F8FCEB001015F5 /* TabTwo.swift in Sources */,
 				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
@@ -229,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -284,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
