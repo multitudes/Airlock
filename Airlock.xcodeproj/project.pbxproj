@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454CBB6024F8FCEB001015F5 /* TabTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB5F24F8FCEB001015F5 /* TabTwo.swift */; };
+		454CBB6224F8FD42001015F5 /* TabOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6124F8FD42001015F5 /* TabOne.swift */; };
+		454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6324F90778001015F5 /* BackgroundGradient.swift */; };
+		454CBB6624F916AF001015F5 /* ModalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6524F916AF001015F5 /* ModalAlertView.swift */; };
+		454CBB6824F92BBC001015F5 /* CompletionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6724F92BBC001015F5 /* CompletionPopup.swift */; };
 		45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */; };
 		45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDF24F1050F001C6F83 /* ContentView.swift */; };
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		454CBB5F24F8FCEB001015F5 /* TabTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTwo.swift; sourceTree = "<group>"; };
+		454CBB6124F8FD42001015F5 /* TabOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabOne.swift; sourceTree = "<group>"; };
+		454CBB6324F90778001015F5 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
+		454CBB6524F916AF001015F5 /* ModalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalAlertView.swift; sourceTree = "<group>"; };
+		454CBB6724F92BBC001015F5 /* CompletionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionPopup.swift; sourceTree = "<group>"; };
 		45D4CCDA24F1050F001C6F83 /* Airlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlockApp.swift; sourceTree = "<group>"; };
 		45D4CCDF24F1050F001C6F83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +67,11 @@
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
+				454CBB6524F916AF001015F5 /* ModalAlertView.swift */,
+				454CBB6124F8FD42001015F5 /* TabOne.swift */,
+				454CBB5F24F8FCEB001015F5 /* TabTwo.swift */,
+				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
+				454CBB6724F92BBC001015F5 /* CompletionPopup.swift */,
 				45D4CCE124F10511001C6F83 /* Assets.xcassets */,
 				45D4CCE624F10511001C6F83 /* Info.plist */,
 				45D4CCE324F10511001C6F83 /* Preview Content */,
@@ -151,7 +166,12 @@
 			files = (
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
+				454CBB6224F8FD42001015F5 /* TabOne.swift in Sources */,
+				454CBB6024F8FCEB001015F5 /* TabTwo.swift in Sources */,
 				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
+				454CBB6624F916AF001015F5 /* ModalAlertView.swift in Sources */,
+				454CBB6824F92BBC001015F5 /* CompletionPopup.swift in Sources */,
+				454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

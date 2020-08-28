@@ -28,7 +28,7 @@ struct ActivityRingView: View {
                     )
                     .border(Color.clear, width: 0)
                     .rotationEffect(.degrees(-90))
-                    //.animation(Animation.linear(duration: 10))
+                    .animation(progress / 2 >= 1.8 ? .easeInOut(duration: 10) :  .easeInOut(duration: 0.1))
                 Circle()
                     .border(Color.clear, width: 0)
                     .frame(width: frameSize! / 6  , height: frameSize! / 6)
@@ -42,83 +42,8 @@ struct ActivityRingView: View {
                     .rotationEffect(Angle.degrees(360 * Double(progress / 120)))
                     .shadow(color: progress / 2 >= 0.94 ? Color.black.opacity(0.3): Color.clear, radius: frameSize! / 250 , x: frameSize! / 150, y: 0)
                 
-                
             }.frame(idealWidth: frameSize!, idealHeight: frameSize!, alignment: .center)
-            
-            
         }
-    }
-    
-    func printHello() {
-        print("hello")
-    }
-}
-
-struct TabOne: View {
-    
-    @State var progress: CGFloat = 0.0
-    @State var isOn: Bool = false
-    
-    var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.gradientStartRed, Color.gradientEndRed]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            GeometryReader { geometry in
-               
-                if isOn {
-                    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
-                    Text("on! \(progress)")
-                        .onReceive(timer) { _ in
-                            if progress < 2 {
-                                progress += 0.1
-                            } else {
-                                progress = 0.0
-                                isOn = false
-                            }
-                        }.frame(minWidth: geometry.size.width, alignment: .center)
-                }
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                     // code
-//                    }) {
-//
-//                        Image(systemName: "line.horizontal.3")
-//                            .foregroundColor(.white)
-//                            .font(.title)
-//                            .padding()
-//                    }
-//                }
-                
-                Text("Two Minutes Meditation")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .foregroundColor(.white)
-                    .bold()
-                    .layoutPriority(1)
-                    .lineLimit(2)
-                    .position(x: geometry.size.width / 2 , y: geometry.size.height / 10)
-                    .frame(minWidth: geometry.size.width, alignment: .center)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
-                    .fixedSize()
-                    .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
-                PushButton(isOn: $isOn, size: geometry.size.width)
-                    .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.6)
-                    .animation(.easeInOut(duration: 0.5))
-                
-            }
-            
-        }
-    }
-}
-
-struct TabTwo: View {
-    
-    var body: some View {
-    Text("not yet!")
     }
 }
 
@@ -135,8 +60,8 @@ struct ContentView: View {
             }.tag(1)
             TabTwo().tabItem {
                 VStack {
-                Image(systemName: "gear")
-                Text("Settings")
+                    Image(systemName: "gear")
+                    Text("Settings")
                 }
             }.tag(2)
         }
@@ -148,14 +73,19 @@ struct ContentView: View {
 
 struct PushButton: View {
     @Binding var isOn: Bool
+    @Binding var progress: CGFloat
+    @State private var showPopup = true
+    
     let title: String = "Start"
     var size: CGFloat
     var onColors = [Color.gradientStartRed, Color.buttonLightRed]
     
     var body: some View {
         Button(action: {
-            self.isOn.toggle()
-
+            isOn.toggle()
+            if !isOn {
+                progress = 0.0
+            }
         }, label: {
             Text(isOn ? "Cancel" : "Start")
                 .font(.largeTitle)
@@ -164,8 +94,9 @@ struct PushButton: View {
                 .background(LinearGradient(gradient: Gradient(colors: onColors ), startPoint: .top, endPoint: .bottom))
                 .clipShape(Capsule())
                 .foregroundColor(.white)
-                .shadow(color: Color.red ,radius: 5)
-                .animation(.easeInOut(duration: 0.7))
+                .shadow(color: Color.red ,radius: isOn ? 50 : 5)
+                .animation(.easeInOut(duration: 0.8))
+                
         }).accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
     }
 }
@@ -173,5 +104,6 @@ struct PushButton: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
