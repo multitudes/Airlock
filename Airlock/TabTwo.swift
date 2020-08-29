@@ -45,7 +45,9 @@ struct TabTwo: View {
     
     var body: some View {
         NavigationView {
+           
             ZStack{
+                
                 BackgroundGradient().opacity(0.2)
                 GeometryReader { geometry in
                     
@@ -83,9 +85,8 @@ struct TabTwo: View {
                         
                         Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
                         {
-                            //Text("Dark Mode Settings").font(.subheadline)
-                            if Device.name.contains("iPhone") {
-                                Toggle(isOn: $vibrateIsOn, label: {
+                         if Device.name.contains("iPhone") {
+                            Toggle(isOn: $settings.vibrate, label: {
                                     Text("Vibrate")
                                     
                                 })
@@ -97,7 +98,8 @@ struct TabTwo: View {
                         
                     }
                     
-                }//.clipShape(RoundedRectangle(cornerRadius: 25.0)).padding(40)
+                }
+                
             }
             .navigationBarTitle("Settings")
             .navigationBarItems(trailing:

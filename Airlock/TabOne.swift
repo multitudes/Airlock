@@ -4,12 +4,17 @@
 //
 //  Created by Laurent B on 28/08/2020.
 //
-
+import AVFoundation
 import SwiftUI
 
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+}
 
 struct TabOne: View {
-    
+    @EnvironmentObject var settings: UserSettings
     @State var progress: CGFloat = 0.0
     @State var isOn: Bool = false
     @State private var showPopup = false
@@ -46,7 +51,13 @@ struct TabOne: View {
                                 isOn = false
                                 // present pop over
                                 showPopup = true
-                                playSound(sound: "gong.m4a")
+                                if settings.vibrate == false {
+                                    playSound(sound: "gong.m4a")
+                                } else {
+                                    UIDevice.vibrate()
+                                    print("vibrating!")
+                                }
+                                
                             }
                         }.frame(minWidth: geometry.size.width, alignment: .center)
                 }
