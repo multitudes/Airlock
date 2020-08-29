@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct TabTwo: View {
+    @EnvironmentObject var settings: UserSettings
     @State var toggleIsOn: Bool = false
     init(){
             UITableView.appearance().backgroundColor = .clear
         }
     var body: some View {
+        NavigationView {
         ZStack{
             BackgroundGradient()
             GeometryReader { geometry in
@@ -27,10 +29,18 @@ struct TabTwo: View {
                     ) {
                         Text("About This App").font(.title)
                         Text("Dark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode SettingsDark Mode Settings")
-                        
+                        NavigationLink(destination: VolumeSettingView()) {
+                            Text("Volume settings")
+                        }
+                        .listRowBackground(BackgroundGradient().opacity(0.8))
+                        .onAppear( perform: {
+                            UITableView.appearance().backgroundColor = .clear
+                            })
                         //Toggle()
                     }.listRowBackground(BackgroundGradient().opacity(0.8))
-                    
+                    .onAppear( perform: {
+                        UITableView.appearance().backgroundColor = .clear
+                        })
                     Section(header: Text(""), footer: Text("ok").bold() )
                      {
                         Text("Dark Mode Settings").font(.title)
@@ -44,7 +54,7 @@ struct TabTwo: View {
             }.clipShape(RoundedRectangle(cornerRadius: 25.0)).padding(40)
         }
         
-    }
+    }}
 }
 
 struct TabTwo_Previews: PreviewProvider {

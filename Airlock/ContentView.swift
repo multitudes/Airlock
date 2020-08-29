@@ -50,6 +50,7 @@ struct ActivityRingView: View {
 }
 
 struct ContentView: View {
+    @EnvironmentObject var settings: UserSettings
     @State private var selectedTab = 1 // Set which tab is active
     var body: some View {
         
