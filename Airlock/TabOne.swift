@@ -15,6 +15,7 @@ extension UIDevice {
 
 struct TabOne: View {
     @EnvironmentObject var settings: UserSettings
+    
     @State var progress: CGFloat = 0.0
     @State var isOn: Bool = false
     @State private var showPopup = false
@@ -50,7 +51,9 @@ struct TabOne: View {
                                 
                                 isOn = false
                                 // present pop over
-                                showPopup = true
+                                withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                    showPopup = true
+                                }
                                 if settings.vibrate == false {
                                     playSound(sound: "gong.m4a")
                                 } else {
@@ -63,22 +66,21 @@ struct TabOne: View {
                 }
                 
                 
-                Text("Two Minutes Meditation")
+                Text(isOn ? "Observe Your Breath " : "Two Minutes Meditation")
                     .font(.largeTitle)
                     .fontWeight(.black)
                     .foregroundColor(.white)
                     .bold()
-                    .layoutPriority(1)
-                    .lineLimit(2)
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 10)
                     .frame(minWidth: geometry.size.width, alignment: .center)
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
+                    .animation(.easeIn)
                 ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
-                    .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.6)
+                    .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
                
                 if showPopup {
                     
@@ -86,11 +88,10 @@ struct TabOne: View {
                     
                     ZStack {
                         Color.black
-                            .opacity(0.4)
+                            .opacity(0.7)
                             .edgesIgnoringSafeArea(.all)
                             .onTapGesture {
                                 reset()
-                             
                             }
                         
                         VStack(spacing: 20) {
@@ -102,17 +103,16 @@ struct TabOne: View {
                                         dismissCount -= 1
                                     } else {
                                         reset()
-
+                                        stopSound()
                                     }
                                 }
                         
                         }
             
                         .frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
-                        .background(RoundedRectangle(cornerRadius: 20).fill(Color.blue))
-                        
-                        .offset(x: showPopup ? 0 : -400)
-                        .animation(.default, value: true)
+                        .background(RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.blue))
+
                     }
                 }
                 
@@ -124,9 +124,11 @@ struct TabOne: View {
     private func reset() {
         isOn = false
         progress = 0.0
-        showPopup = false
-        dismissCount = 3.0
-        stopSound()
+        withAnimation(Animation.easeOut(duration: 0.2)) {
+            showPopup = false
+        }
+        dismissCount = 4.0
+        
     }
 }
 

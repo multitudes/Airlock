@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftUI
+import AVFoundation
+
 
 struct Device {
     
@@ -28,15 +30,14 @@ struct Device {
 }
 
 struct TabTwo: View {
+    
+    @EnvironmentObject var settings: UserSettings
+    
     //@Binding var isPresented: Bool
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: UserSettings
     @State var toggleIsOn: Bool = false
     @State var vibrateIsOn: Bool = false
-    //settings.vibrate = vibrateIsOn
 
-    
-    
     init(){
         UITableView.appearance().backgroundColor = .clear
         print(Device.name)
@@ -52,11 +53,7 @@ struct TabTwo: View {
                 GeometryReader { geometry in
                     
                     Form {
-                        Section(header: Text("General")
-//                                    .foregroundColor(.white)
-//                                    .font(.largeTitle)
-//                                    .bold()
-//                                    .padding()
+                        Section(header: Text("General"), footer: Text("©Laurent Brusa v1.0 2020")
                         ) {
                             NavigationLink(destination: AboutThisApp()) {
                                 HStack {
@@ -68,33 +65,55 @@ struct TabTwo: View {
                                 HStack {
                                     Image(systemName: "hand.thumbsup").padding(5)
                                     Text("Recommend App")
-                                }.font(.subheadline)
+                                }
                             }
                             NavigationLink(destination: AboutThisApp()) {
                                 HStack {
                                     Image(systemName: "star").padding(5)
                                     Text("Rate App")
-                                }.font(.subheadline)
+                                }
+                            }
+                            NavigationLink(destination: AboutThisApp()) {
+                                HStack {
+                                    Image(systemName: "bubble.left").padding(5)
+                                    Text("Feedback")
+                                }
+                            }
+                            NavigationLink(destination: AboutThisApp()) {
+                                HStack {
+                                    Image(systemName: "doc.text.magnifyingglass").padding(5)
+                                    Text("Privacy")
+                                }
                             }
                         }
+                        
                         .listRowBackground(BackgroundGradient().opacity(0.8))
-                        .onAppear( perform: {
-                            UITableView.appearance().backgroundColor = .clear
-                        })
+//                        .onAppear( perform: {
+//                            UITableView.appearance().backgroundColor = .clear
+//                        })
                         
                         
-                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
-                        {
-                         if Device.name.contains("iPhone") {
-                            Toggle(isOn: $settings.vibrate, label: {
-                                    Text("Vibrate")
-                                    
-                                })
-                            }
-                            Toggle(isOn: $toggleIsOn, label: {
-                                Text("DarkMode")
-                            })
-                        }.listRowBackground(BackgroundGradient().opacity(0.8))
+//                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+//                        {
+//                        if Device.name.contains("iPhone") {
+//                            Toggle(isOn: $settings.vibrate, label: {
+//                                    Text("Vibrate")
+//
+//                                })
+//                            }
+//                        Toggle(isOn: $toggleIsOn, label: {
+//                                Text("DarkMode")
+//                            })
+                        
+                            // volume doesnt seeem to do anything
+//                            Stepper(onIncrement: {
+//                                (settings.volume += 0.1)
+//                            }, onDecrement: {
+//                                (settings.volume -= 0.1)
+//                            }){Text("Volume: \(settings.volume)")}
+                        
+                    //    }
+                    //.listRowBackground(BackgroundGradient().opacity(0.8))
                         
                     }
                     

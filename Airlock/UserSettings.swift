@@ -9,6 +9,6 @@ import Foundation
 import SwiftUI
 
 class UserSettings: ObservableObject {
-    @Published var volume: CGFloat = 0
+    @Published var volume: Float = 0.5
     @Published var vibrate: Bool = false
 }

@@ -5,13 +5,14 @@
 //  Created by Laurent B on 28/08/2020.
 //
 
-import Foundation
 import AVFoundation
 
-var audioPlayer: AVAudioPlayer?
 
+var audioPlayer: AVAudioPlayer?
+    
 func playSound(sound: String) {
-    audioPlayer?.volume = 5
+    audioPlayer?.volume = 0.0
+        //settings.volume
     let path = Bundle.main.path(forResource: sound, ofType: nil)!
     let url = URL(fileURLWithPath: path)
 
@@ -22,6 +23,6 @@ func playSound(sound: String) {
         print("couldn't load file :(")
     }
 }
-func stopSound() {
+ func stopSound() {
     audioPlayer?.stop()
 }
