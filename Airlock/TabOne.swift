@@ -75,7 +75,6 @@ struct TabOne: View {
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
                 ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
-                    
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
@@ -91,6 +90,7 @@ struct TabOne: View {
                             .edgesIgnoringSafeArea(.all)
                             .onTapGesture {
                                 reset()
+                             
                             }
                         
                         VStack(spacing: 20) {
@@ -102,19 +102,20 @@ struct TabOne: View {
                                         dismissCount -= 1
                                     } else {
                                         reset()
+
                                     }
                                 }
                         
                         }
             
-                        .frame(width: 300, height: 300)
+                        .frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
                         .background(RoundedRectangle(cornerRadius: 20).fill(Color.blue))
-                        .padding(.horizontal, 20)
-                        .shadow(radius: 20)
+                        
                         .offset(x: showPopup ? 0 : -400)
-                        .animation(.default)
+                        .animation(.default, value: true)
                     }
                 }
+                
             }
            
            
