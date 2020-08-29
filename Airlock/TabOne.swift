@@ -45,7 +45,7 @@ struct TabOne: View {
                     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
                     Text("")
                         .onReceive(timer) { _ in
-                            if progress < 2 {
+                            if progress < 3 {
                                 progress += 0.1
                             } else {
                                 

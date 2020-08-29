@@ -22,7 +22,7 @@ struct ActivityRingView: View {
                     .opacity(0.3)
                 // the white progress circle
                 Circle()
-                    .trim(from: 0.0, to: progress / 2.0)
+                    .trim(from: 0.0, to: progress / 3.0)
                     .stroke(
                         Color.white,
                         style: StrokeStyle(lineWidth: frameSize! / 6, lineCap: .round)
@@ -40,9 +40,9 @@ struct ActivityRingView: View {
                     .border(Color.clear, width: 0)
                     .frame(width: frameSize! / 6, height: frameSize! / 6)
                     .offset(y: -frameSize! / 2 )
-                    .foregroundColor(progress / 2 >= 0.97 ? Color.white : Color.clear)
+                    .foregroundColor(progress / 3 >= 0.97 ? Color.white : Color.clear)
                     .rotationEffect(Angle.degrees(360 * Double(progress / 120)))
-                    .shadow(color: progress / 2 >= 0.97 ? Color.black.opacity(0.2): Color.clear, radius: frameSize! / 250 , x: frameSize! / 150, y: 0)
+                    .shadow(color: progress / 3 >= 0.97 ? Color.black.opacity(0.2): Color.clear, radius: frameSize! / 250 , x: frameSize! / 250, y: 0)
                 
             }.frame(idealWidth: frameSize!, idealHeight: frameSize!, alignment: .center)
         }
