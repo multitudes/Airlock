@@ -49,6 +49,7 @@ struct SettingsView: View {
     @State var vibrateIsOn: Bool = false
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
+    @State var alertNoMail = false
     
     var isPhone: Bool {
         Device.name.contains("iPhone")
@@ -98,65 +99,71 @@ struct SettingsView: View {
                             }
                         }
                         
-                         
+                        
                         Button(action: {
                             isShowingMailView = true
                         }) {
                             HStack {
                                 Image(systemName: "bubble.left").padding(5)
                                 Text("Feedback")
+                            }.onTapGesture {
+                                MFMailComposeViewController.canSendMail() ? self.isShowingMailView.toggle() : self.alertNoMail.toggle()
                             }
-                        }
-                        .disabled(!MFMailComposeViewController.canSendMail())
-                        .sheet(isPresented: $isShowingMailView) {
+                            //            .disabled(!MFMailComposeViewController.canSendMail())
+                            .sheet(isPresented: $isShowingMailView) {
+                                MailView(result: self.$result)
+                            }
+                            .alert(isPresented: self.$alertNoMail) {
+                                Alert(title: Text("Please set up your email account on your Apple device to send a feedback"))
+                            }
                             MailView(result: self.$result)
-                        }
-                        
-                        NavigationLink(destination: AboutThisApp()) {
-                            HStack {
-                                Image(systemName: "doc.text.magnifyingglass").padding(5)
-                                Text("Privacy")
                             }
-                        }
-                    }.listRowBackground(BackgroundGradient().opacity(0.8))
-                    
-                    if isPhone{
-                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
-                        {
                             
-                            Toggle(isOn: $settings.vibrate, label: {
+                            NavigationLink(destination: AboutThisApp()) {
                                 HStack {
-                                    Image(systemName: "speaker.slash").padding(5)
-                                    Text("Vibrate Only")
+                                    Image(systemName: "doc.text.magnifyingglass").padding(5)
+                                    Text("Privacy")
                                 }
-                            })
+                            }
+                        }.listRowBackground(BackgroundGradient().opacity(0.8))
+                        
+                        if isPhone{
+                            Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+                            {
+                                
+                                Toggle(isOn: $settings.vibrate, label: {
+                                    HStack {
+                                        Image(systemName: "speaker.slash").padding(5)
+                                        Text("Vibrate Only")
+                                    }
+                                })
+                            }
+                            .listRowBackground(BackgroundGradient().opacity(0.8))
                         }
-                        .listRowBackground(BackgroundGradient().opacity(0.8))
                     }
+                    
                 }
+                .navigationBarTitle("Settings")
+                .navigationBarItems(trailing:
+                                        Button("Done") {
+                                            presentationMode.wrappedValue.dismiss()
+                                        }.foregroundColor(Color.gradientStartRed.opacity(0.8))
+                )
                 
-            }
-            .navigationBarTitle("Settings")
-            .navigationBarItems(trailing:
-                                    Button("Done") {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }.foregroundColor(Color.gradientStartRed.opacity(0.8))
-            )
-            
-        }.accentColor(Color.gradientStartRed.opacity(0.8))
+            }.accentColor(Color.gradientStartRed.opacity(0.8))
+        }
     }
-}
-
-
-struct TabTwo_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-            .preferredColorScheme(.light)
+    
+    
+    struct TabTwo_Previews: PreviewProvider {
+        static var previews: some View {
+            SettingsView()
+                .preferredColorScheme(.light)
+        }
     }
-}
-struct TabTwo_Previews_dark: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-            .preferredColorScheme(.dark)
+    struct TabTwo_Previews_dark: PreviewProvider {
+        static var previews: some View {
+            SettingsView()
+                .preferredColorScheme(.dark)
+        }
     }
-}
