@@ -20,7 +20,7 @@ struct SettingsButton: View {
 
         }.sheet(isPresented: $showModal) {
             SettingsView()
-           }
+           }.accessibility(label:Text("Settings"))
     }
 }
 

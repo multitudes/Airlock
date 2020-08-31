@@ -29,7 +29,7 @@ struct Device {
 
 struct ActivityViewController: UIViewControllerRepresentable {
     typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void
-    var activityItems: [Any]
+    var activityItems: [Any] = [URL(string: "https://www.apple.com")!]
     var applicationActivities: [UIActivity]? = nil
     let excludedActivityTypes: [UIActivity.ActivityType]? = nil
     let callback: Callback? = nil
