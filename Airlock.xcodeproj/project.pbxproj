@@ -24,7 +24,6 @@
 		45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA5A7924F947E8006318B6 /* playsound.swift */; };
 		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 		45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039324FD0BBC00ED5BE4 /* MailView.swift */; };
-		45EB039624FD17D700ED5BE4 /* RecommendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039524FD17D700ED5BE4 /* RecommendApp.swift */; };
 		45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2898E24FD19C9003370EF /* PrivacyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		45EA5A7924F947E8006318B6 /* playsound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playsound.swift; sourceTree = "<group>"; };
 		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 		45EB039324FD0BBC00ED5BE4 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
-		45EB039524FD17D700ED5BE4 /* RecommendApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendApp.swift; sourceTree = "<group>"; };
 		45F2898E24FD19C9003370EF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +94,6 @@
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
-				45EB039524FD17D700ED5BE4 /* RecommendApp.swift */,
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
 				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
@@ -130,7 +127,7 @@
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
-				45EA5A7924F947E8006318B6 /* playsound.swift */,
+				45F2899024FD4BF7003370EF /* Utilities */,
 				45D4CCE124F10511001C6F83 /* Assets.xcassets */,
 				45D4CCE624F10511001C6F83 /* Info.plist */,
 				45D4CCE324F10511001C6F83 /* Preview Content */,
@@ -152,6 +149,14 @@
 				45D4CCED24F10641001C6F83 /* Color+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		45F2899024FD4BF7003370EF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				45EA5A7924F947E8006318B6 /* playsound.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +231,6 @@
 			files = (
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
-				45EB039624FD17D700ED5BE4 /* RecommendApp.swift in Sources */,
 				45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */,
 				45D333E524FD0149001E8EC1 /* TitleView.swift in Sources */,
 				45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */,
