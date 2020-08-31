@@ -29,7 +29,7 @@ struct MainView: View {
                 
                 SettingsButton(showModal: $showModal)
                     .position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
-                    .foregroundColor(.white)
+                    //.foregroundColor(.white)
                     .font(Font.system(size: 10 + geometry.size.width * 0.03))
                     .ignoresSafeArea()
                     .padding(.top, 10)

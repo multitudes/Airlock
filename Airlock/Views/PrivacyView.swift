@@ -16,7 +16,7 @@ struct PrivacyView: View {
             //Text("Information we collect:\n").font(.subheadline)
             Text("The \"Two Minutes Meditation\" App does not store any personal information about you.")
             Spacer()
-        }.font(.body).padding(20).foregroundColor(Color.gradientStartRed)
+        }.font(.body).padding(20)
         .multilineTextAlignment(.center)
         
 

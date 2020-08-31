@@ -14,6 +14,7 @@ struct AirlockApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(settings)
+            
         }
     }
 }

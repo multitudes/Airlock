@@ -48,7 +48,8 @@ struct MailView: UIViewControllerRepresentable {
         let mail = MFMailComposeViewController()
         mail.mailComposeDelegate = context.coordinator
         mail.setToRecipients(["laurentbrusa@me.com"])
-                mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+        mail.title = "Feedback to \"Two Minutes Meditation\""
+        mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
         return mail
     }
 

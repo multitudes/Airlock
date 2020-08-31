@@ -96,10 +96,10 @@
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
-				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45EB039524FD17D700ED5BE4 /* RecommendApp.swift */,
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
+				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45D333E624FD034A001E8EC1 /* Buttons */,
 			);
 			path = Views;

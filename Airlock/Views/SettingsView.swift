@@ -108,7 +108,6 @@ struct SettingsView: View {
                             }.onTapGesture {
                                 MFMailComposeViewController.canSendMail() ? self.isShowingMailView.toggle() : self.alertNoMail.toggle()
                             }
-                            //            .disabled(!MFMailComposeViewController.canSendMail())
                             .sheet(isPresented: $isShowingMailView) {
                                 MailView(result: self.$result)
                             }
@@ -147,10 +146,11 @@ struct SettingsView: View {
             .navigationBarItems(trailing:
                                     Button("Done") {
                                         presentationMode.wrappedValue.dismiss()
-                                    }.foregroundColor(Color.gradientStartRed.opacity(0.8))
+                                    }.accentColor(.primary)
+                                    .foregroundColor(.primary)
             )
             
-        }.accentColor(Color.gradientStartRed.opacity(0.8))
+        }.foregroundColor(.primary)
     }
 }
 
