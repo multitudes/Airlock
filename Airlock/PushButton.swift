@@ -10,7 +10,6 @@ import SwiftUI
 struct PushButton: View {
     @Binding var isOn: Bool
     @Binding var progress: CGFloat
-    @State private var showPopup = true
     
     let title: String = "Start"
     var size: CGFloat
