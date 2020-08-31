@@ -1,5 +1,5 @@
 //
-//  TabOne.swift
+//  MainView.swift
 //  Airlock
 //
 //  Created by Laurent B on 28/08/2020.
@@ -13,7 +13,7 @@ extension UIDevice {
     }
 }
 
-struct TabOne: View {
+struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     
     @State var progress: CGFloat = 0.0
@@ -110,15 +110,15 @@ struct TabOne: View {
 
 
 
-struct TabOne_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        TabOne()
+        MainView()
             .preferredColorScheme(.light)
     }
 }
-struct TabOne_Previews_dark: PreviewProvider {
+struct MainView_Previews_dark: PreviewProvider {
     static var previews: some View {
-        TabOne()
+        MainView()
             .preferredColorScheme(.dark)
     }
 }

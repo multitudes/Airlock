@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 import AVFoundation
-
+import MessageUI
 
 struct Device {
     
@@ -27,20 +27,41 @@ struct Device {
     }
 }
 
+struct ActivityViewController: UIViewControllerRepresentable {
+    
+    var activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
+    
+}
+
 struct SettingsView: View {
     
     @EnvironmentObject var settings: UserSettings
     @Environment(\.presentationMode) var presentationMode
     @State var toggleIsOn: Bool = false
     @State var vibrateIsOn: Bool = false
+    @State var result: Result<MFMailComposeResult, Error>? = nil
+    @State var isShowingMailView = false
+    
     var isPhone: Bool {
         Device.name.contains("iPhone")
     }
     init(){
         UITableView.appearance().backgroundColor = .clear
-    //    print(Device.name)
-      //  print(Device.osVersion)
+        //    print(Device.name)
+        //  print(Device.osVersion)
     }
+    
+    @State private var isRecommendAppPresented: Bool = false
+    
+    
     
     var body: some View {
         NavigationView {
@@ -55,38 +76,59 @@ struct SettingsView: View {
                                 Text("About This App")
                             }
                         }
-                        NavigationLink(destination: AboutThisApp()) {
+                        
+                        Button(action: {
+                            self.isRecommendAppPresented = true
+                        }, label: {
                             HStack {
                                 Image(systemName: "hand.thumbsup").padding(5)
                                 Text("Recommend App")
-                            }
-                        }
-                        NavigationLink(destination: AboutThisApp()) {
+                            }.sheet(isPresented: $isRecommendAppPresented, onDismiss: {
+                                print("Dismiss")
+                            }, content: {
+                                ActivityViewController(activityItems: [URL(string: "https://www.apple.com")!])
+                            })
+                        })
+                        
+                        
+                        Link(destination: URL(string: "https://www.apple.com/")!) {
                             HStack {
                                 Image(systemName: "star").padding(5)
                                 Text("Rate App")
                             }
                         }
-                        NavigationLink(destination: AboutThisApp()) {
+                        
+                         
+                        Button(action: {
+                            isShowingMailView = true
+                        }) {
                             HStack {
                                 Image(systemName: "bubble.left").padding(5)
                                 Text("Feedback")
                             }
                         }
+                        .disabled(!MFMailComposeViewController.canSendMail())
+                        .sheet(isPresented: $isShowingMailView) {
+                            MailView(result: self.$result)
+                        }
+                        
                         NavigationLink(destination: AboutThisApp()) {
                             HStack {
                                 Image(systemName: "doc.text.magnifyingglass").padding(5)
                                 Text("Privacy")
                             }
                         }
-                    }
-                    .listRowBackground(BackgroundGradient().opacity(0.8))
+                    }.listRowBackground(BackgroundGradient().opacity(0.8))
+                    
                     if isPhone{
                         Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
                         {
                             
                             Toggle(isOn: $settings.vibrate, label: {
-                                Text("Vibrate")
+                                HStack {
+                                    Image(systemName: "speaker.slash").padding(5)
+                                    Text("Vibrate Only")
+                                }
                             })
                         }
                         .listRowBackground(BackgroundGradient().opacity(0.8))

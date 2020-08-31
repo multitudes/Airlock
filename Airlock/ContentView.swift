@@ -12,8 +12,7 @@ struct ContentView: View {
     @EnvironmentObject var settings: UserSettings
 
     var body: some View {
-            TabOne()
-                
+            MainView()
     }
 }
 
