@@ -124,7 +124,7 @@ struct SettingsView: View {
                                 Text("Privacy")
                             }
                         }
-                    }.listRowBackground(BackgroundGradient().opacity(0.8))
+                    }.listRowBackground(BackgroundGradient().opacity(0.2))
                     
                     if isPhone{
                         Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
@@ -137,12 +137,13 @@ struct SettingsView: View {
                                 }
                             })
                         }
-                        .listRowBackground(BackgroundGradient().opacity(0.8))
+                        .listRowBackground(BackgroundGradient().opacity(0.2))
                     }
-                }
+                }.font(.body)
                 
             }
-            .navigationBarTitle("Settings")
+            .navigationBarTitle("Settings").accentColor(.primary)
+            .foregroundColor(.primary)
             .navigationBarItems(trailing:
                                     Button("Done") {
                                         presentationMode.wrappedValue.dismiss()
@@ -150,7 +151,8 @@ struct SettingsView: View {
                                     .foregroundColor(.primary)
             )
             
-        }.foregroundColor(.primary)
+        }.accentColor(.primary)
+        .foregroundColor(.primary)
     }
 }
 
