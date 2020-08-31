@@ -75,10 +75,14 @@ struct MainView: View {
                                 reset()
                             }
                         VStack(spacing: 20) {
+                            Spacer(minLength: 2.0)
                             Text("Done!")
-                                .font(.title)
-                                .padding()
-                                
+                                .font(.largeTitle).bold()
+                            Spacer(minLength: 4.0)
+                            Text("Dismissing in :")
+                            Text("\(Int(dismissCount))")
+                            Spacer(minLength: 2.0)
+            
                                 .onReceive(timer) { _ in
                                     if dismissCount > 0 {
                                         dismissCount -= 1
@@ -87,10 +91,16 @@ struct MainView: View {
                                         stopSound()
                                     }
                                 }
-                        }
-                        .frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
-                        .background(RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.blue))
+                        }.frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.white, lineWidth: 10)
+                                .frame(width: geometry.size.width / 1.2 - 50, height: geometry.size.width / 1.2 - 50))
+                                .background(RoundedRectangle(cornerRadius: 20)
+                                                .fill(Color.gradientStartRed))
+                                
+                            
                     }
                 }
             }
@@ -102,8 +112,8 @@ struct MainView: View {
         withAnimation(Animation.easeOut(duration: 0.2)) {
             showPopup = false
         }
-        dismissCount = 4.0
-        
+        dismissCount = 5.0
+        stopSound()
     }
 }
 
