@@ -28,12 +28,16 @@ struct Device {
 }
 
 struct ActivityViewController: UIViewControllerRepresentable {
-    
+    typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void
     var activityItems: [Any]
     var applicationActivities: [UIActivity]? = nil
+    let excludedActivityTypes: [UIActivity.ActivityType]? = nil
+    let callback: Callback? = nil
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
         let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        controller.excludedActivityTypes = excludedActivityTypes
+        controller.completionWithItemsHandler = callback
         return controller
     }
     
@@ -49,6 +53,7 @@ struct SettingsView: View {
     @State var vibrateIsOn: Bool = false
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
+    @State private var isRecommendAppPresented: Bool = false
     @State var alertNoMail = false
     
     var isPhone: Bool {
@@ -59,10 +64,6 @@ struct SettingsView: View {
         //    print(Device.name)
         //  print(Device.osVersion)
     }
-    
-    @State private var isRecommendAppPresented: Bool = false
-    
-    
     
     var body: some View {
         NavigationView {
@@ -84,11 +85,9 @@ struct SettingsView: View {
                             HStack {
                                 Image(systemName: "hand.thumbsup").padding(5)
                                 Text("Recommend App")
-                            }.sheet(isPresented: $isRecommendAppPresented, onDismiss: {
-                                print("Dismiss")
-                            }, content: {
+                            }.sheet(isPresented: $isRecommendAppPresented) {
                                 ActivityViewController(activityItems: [URL(string: "https://www.apple.com")!])
-                            })
+                            }
                         })
                         
                         
@@ -118,53 +117,53 @@ struct SettingsView: View {
                             }
                             
                         }
-                            
-                            
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "doc.text.magnifyingglass").padding(5)
-                                    Text("Privacy")
-                                }
-                            }
-                        }.listRowBackground(BackgroundGradient().opacity(0.8))
                         
-                        if isPhone{
-                            Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
-                            {
-                                
-                                Toggle(isOn: $settings.vibrate, label: {
-                                    HStack {
-                                        Image(systemName: "speaker.slash").padding(5)
-                                        Text("Vibrate Only")
-                                    }
-                                })
+                        
+                        NavigationLink(destination: PrivacyView()) {
+                            HStack {
+                                Image(systemName: "doc.text.magnifyingglass").padding(5)
+                                Text("Privacy")
                             }
-                            .listRowBackground(BackgroundGradient().opacity(0.8))
                         }
-                    }
+                    }.listRowBackground(BackgroundGradient().opacity(0.8))
                     
+                    if isPhone{
+                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+                        {
+                            
+                            Toggle(isOn: $settings.vibrate, label: {
+                                HStack {
+                                    Image(systemName: "speaker.slash").padding(5)
+                                    Text("Vibrate Only")
+                                }
+                            })
+                        }
+                        .listRowBackground(BackgroundGradient().opacity(0.8))
+                    }
                 }
-                .navigationBarTitle("Settings")
-                .navigationBarItems(trailing:
-                                        Button("Done") {
-                                            presentationMode.wrappedValue.dismiss()
-                                        }.foregroundColor(Color.gradientStartRed.opacity(0.8))
-                )
                 
-            }.accentColor(Color.gradientStartRed.opacity(0.8))
-        }
+            }
+            .navigationBarTitle("Settings")
+            .navigationBarItems(trailing:
+                                    Button("Done") {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }.foregroundColor(Color.gradientStartRed.opacity(0.8))
+            )
+            
+        }.accentColor(Color.gradientStartRed.opacity(0.8))
     }
-    
-    
-    struct TabTwo_Previews: PreviewProvider {
-        static var previews: some View {
-            SettingsView()
-                .preferredColorScheme(.light)
-        }
+}
+
+
+struct TabTwo_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+            .preferredColorScheme(.light)
     }
-    struct TabTwo_Previews_dark: PreviewProvider {
-        static var previews: some View {
-            SettingsView()
-                .preferredColorScheme(.dark)
-        }
+}
+struct TabTwo_Previews_dark: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+            .preferredColorScheme(.dark)
     }
+}

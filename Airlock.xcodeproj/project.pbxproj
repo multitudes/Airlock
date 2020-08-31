@@ -25,6 +25,7 @@
 		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 		45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039324FD0BBC00ED5BE4 /* MailView.swift */; };
 		45EB039624FD17D700ED5BE4 /* RecommendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039524FD17D700ED5BE4 /* RecommendApp.swift */; };
+		45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2898E24FD19C9003370EF /* PrivacyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 		45EB039324FD0BBC00ED5BE4 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		45EB039524FD17D700ED5BE4 /* RecommendApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendApp.swift; sourceTree = "<group>"; };
+		45F2898E24FD19C9003370EF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
+				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45EB039524FD17D700ED5BE4 /* RecommendApp.swift */,
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
@@ -226,6 +229,7 @@
 				45EB039624FD17D700ED5BE4 /* RecommendApp.swift in Sources */,
 				45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */,
 				45D333E524FD0149001E8EC1 /* TitleView.swift in Sources */,
+				45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */,
 				45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */,
 				45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */,
 				45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */,
