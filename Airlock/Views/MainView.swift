@@ -19,7 +19,7 @@ struct MainView: View {
     @State var progress: CGFloat = 0.0
     @State var isOn: Bool = false
     @State private var showPopup = false
-    @State var dismissCount: CGFloat = 5.0
+    @State var dismissCount: CGFloat = 4.0
     @State var showModal: Bool = false
     
     var body: some View {
@@ -112,7 +112,7 @@ struct MainView: View {
         withAnimation(Animation.easeOut(duration: 0.2)) {
             showPopup = false
         }
-        dismissCount = 5.0
+        dismissCount = 4.0
         stopSound()
     }
 }
