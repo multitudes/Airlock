@@ -37,7 +37,7 @@ struct TabTwo: View {
     @Environment(\.presentationMode) var presentationMode
     @State var toggleIsOn: Bool = false
     @State var vibrateIsOn: Bool = false
-
+    
     init(){
         UITableView.appearance().backgroundColor = .clear
         print(Device.name)
@@ -46,88 +46,63 @@ struct TabTwo: View {
     
     var body: some View {
         NavigationView {
-           
             ZStack{
-                
                 BackgroundGradient().opacity(0.2)
-                GeometryReader { geometry in
-                    
-                    Form {
-                        Section(header: Text("General"), footer: Text("©Laurent Brusa v1.0 2020")
-                        ) {
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "info.circle").padding(5)
-                                    Text("About This App")
-                                }
-                            }
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "hand.thumbsup").padding(5)
-                                    Text("Recommend App")
-                                }
-                            }
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "star").padding(5)
-                                    Text("Rate App")
-                                }
-                            }
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "bubble.left").padding(5)
-                                    Text("Feedback")
-                                }
-                            }
-                            NavigationLink(destination: AboutThisApp()) {
-                                HStack {
-                                    Image(systemName: "doc.text.magnifyingglass").padding(5)
-                                    Text("Privacy")
-                                }
+                Form {
+                    Section(header: Text("General"), footer: Text("©Laurent Brusa v1.0 2020")
+                    ) {
+                        NavigationLink(destination: AboutThisApp()) {
+                            HStack {
+                                Image(systemName: "info.circle").padding(5)
+                                Text("About This App")
                             }
                         }
-                        
-                        .listRowBackground(BackgroundGradient().opacity(0.8))
-//                        .onAppear( perform: {
-//                            UITableView.appearance().backgroundColor = .clear
-//                        })
-                        
-                        
-//                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
-//                        {
-//                        if Device.name.contains("iPhone") {
-//                            Toggle(isOn: $settings.vibrate, label: {
-//                                    Text("Vibrate")
-//
-//                                })
-//                            }
-//                        Toggle(isOn: $toggleIsOn, label: {
-//                                Text("DarkMode")
-//                            })
-                        
-                            // volume doesnt seeem to do anything
-//                            Stepper(onIncrement: {
-//                                (settings.volume += 0.1)
-//                            }, onDecrement: {
-//                                (settings.volume -= 0.1)
-//                            }){Text("Volume: \(settings.volume)")}
-                        
-                    //    }
-                    //.listRowBackground(BackgroundGradient().opacity(0.8))
-                        
+                        NavigationLink(destination: AboutThisApp()) {
+                            HStack {
+                                Image(systemName: "hand.thumbsup").padding(5)
+                                Text("Recommend App")
+                            }
+                        }
+                        NavigationLink(destination: AboutThisApp()) {
+                            HStack {
+                                Image(systemName: "star").padding(5)
+                                Text("Rate App")
+                            }
+                        }
+                        NavigationLink(destination: AboutThisApp()) {
+                            HStack {
+                                Image(systemName: "bubble.left").padding(5)
+                                Text("Feedback")
+                            }
+                        }
+                        NavigationLink(destination: AboutThisApp()) {
+                            HStack {
+                                Image(systemName: "doc.text.magnifyingglass").padding(5)
+                                Text("Privacy")
+                            }
+                        }
                     }
-                    
+                    .listRowBackground(BackgroundGradient().opacity(0.8))
+                    if Device.name.contains("iPhone") {
+                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+                        {
+                            
+                            Toggle(isOn: $settings.vibrate, label: {
+                                Text("Vibrate")
+                            })
+                        }
+                        .listRowBackground(BackgroundGradient().opacity(0.8))
+                    }
                 }
                 
             }
             .navigationBarTitle("Settings")
             .navigationBarItems(trailing:
-            Button("Done") {
-                print("done")
-                presentationMode.wrappedValue.dismiss()
-            })
+                                    Button("Done") {
+                                        print("done")
+                                        presentationMode.wrappedValue.dismiss()
+                                    })
         }.accentColor(Color.gradientStartRed.opacity(0.8))
-        
     }
 }
 

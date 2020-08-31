@@ -14,6 +14,7 @@
 		454CBB6824F92BBC001015F5 /* CompletionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6724F92BBC001015F5 /* CompletionPopup.swift */; };
 		45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B882AC24FA38D800DFE0EA /* UserSettings.swift */; };
 		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
+		45D333E124FCECE5001E8EC1 /* PushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333E024FCECE5001E8EC1 /* PushButton.swift */; };
 		45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */; };
 		45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDF24F1050F001C6F83 /* ContentView.swift */; };
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		454CBB6724F92BBC001015F5 /* CompletionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionPopup.swift; sourceTree = "<group>"; };
 		45B882AC24FA38D800DFE0EA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
+		45D333E024FCECE5001E8EC1 /* PushButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushButton.swift; sourceTree = "<group>"; };
 		45D4CCDA24F1050F001C6F83 /* Airlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlockApp.swift; sourceTree = "<group>"; };
 		45D4CCDF24F1050F001C6F83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
 				45B882AC24FA38D800DFE0EA /* UserSettings.swift */,
 				45EA5A7B24F94C19006318B6 /* gong.m4a */,
+				45D333E024FCECE5001E8EC1 /* PushButton.swift */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
 				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
@@ -188,6 +191,7 @@
 				450A52D924FA3F8B00639785 /* AboutThisApp.swift in Sources */,
 				454CBB6824F92BBC001015F5 /* CompletionPopup.swift in Sources */,
 				454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */,
+				45D333E124FCECE5001E8EC1 /* PushButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
