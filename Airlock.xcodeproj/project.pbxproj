@@ -13,6 +13,7 @@
 		454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6324F90778001015F5 /* BackgroundGradient.swift */; };
 		454CBB6824F92BBC001015F5 /* CompletionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6724F92BBC001015F5 /* CompletionPopup.swift */; };
 		45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B882AC24FA38D800DFE0EA /* UserSettings.swift */; };
+		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
 		45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */; };
 		45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCDF24F1050F001C6F83 /* ContentView.swift */; };
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		454CBB6324F90778001015F5 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		454CBB6724F92BBC001015F5 /* CompletionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionPopup.swift; sourceTree = "<group>"; };
 		45B882AC24FA38D800DFE0EA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
 		45D4CCDA24F1050F001C6F83 /* Airlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlockApp.swift; sourceTree = "<group>"; };
 		45D4CCDF24F1050F001C6F83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				45EA5A7B24F94C19006318B6 /* gong.m4a */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
+				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
 				45EA5A7924F947E8006318B6 /* playsound.swift */,
 				450A52D824FA3F8B00639785 /* AboutThisApp.swift */,
 				454CBB6124F8FD42001015F5 /* TabOne.swift */,
@@ -177,6 +180,7 @@
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
 				45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */,
+				45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */,
 				45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */,
 				454CBB6224F8FD42001015F5 /* TabOne.swift in Sources */,
 				454CBB6024F8FCEB001015F5 /* TabTwo.swift in Sources */,
@@ -241,7 +245,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -296,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
