@@ -19,7 +19,7 @@ struct MainView: View {
     @State var progress: CGFloat = 0.0
     @State var isOn: Bool = false
     @State private var showPopup = false
-    @State var dismissCount: CGFloat = 4.0
+    @State var dismissCount: Int = 4
     @State var showModal: Bool = false
     
     var body: some View {
@@ -36,11 +36,11 @@ struct MainView: View {
                 
                 
                 if isOn {
-                    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+                    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
                     Text("")
                         .onReceive(timer) { _ in
-                            if progress < 3 {
-                                progress += 0.1
+                            if progress < 120 {
+                                progress += 0.01
                             } else {
                                 isOn = false
                                 // present pop over
@@ -58,7 +58,7 @@ struct MainView: View {
                 }
                 
                 TitleView(isOn: isOn, width: geometry.size.width, height: geometry.size.height)
-
+                
                 ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
@@ -80,9 +80,9 @@ struct MainView: View {
                                 .font(.largeTitle).bold()
                             Spacer(minLength: 4.0)
                             Text("Dismissing in :")
-                            Text("\(Int(dismissCount))")
+                            Text("\(dismissCount)")
                             Spacer(minLength: 2.0)
-            
+                                
                                 .onReceive(timer) { _ in
                                     if dismissCount > 0 {
                                         dismissCount -= 1
@@ -97,10 +97,8 @@ struct MainView: View {
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(Color.white, lineWidth: 10)
                                 .frame(width: geometry.size.width / 1.2 - 50, height: geometry.size.width / 1.2 - 50))
-                                .background(RoundedRectangle(cornerRadius: 20)
-                                                .fill(Color.gradientStartRed))
-                                
-                            
+                        .background(RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color.gradientStartRed))
                     }
                 }
             }
@@ -112,7 +110,7 @@ struct MainView: View {
         withAnimation(Animation.easeOut(duration: 0.2)) {
             showPopup = false
         }
-        dismissCount = 4.0
+        dismissCount = 4
         stopSound()
     }
 }
