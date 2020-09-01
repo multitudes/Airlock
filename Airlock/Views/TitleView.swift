@@ -18,6 +18,7 @@ struct TitleView: View {
             .fontWeight(.black)
             .foregroundColor(.white)
             .bold()
+            .padding(.horizontal)
             .position(x: width / 2 , y: height / 10)
             .frame(minWidth: width, alignment: .center)
             .minimumScaleFactor(0.5)
