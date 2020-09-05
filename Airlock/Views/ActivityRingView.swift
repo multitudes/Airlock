@@ -24,7 +24,7 @@ struct ActivityRingView: View {
                 // the light red shadow
                 Circle()
                     .stroke(strokeColor, lineWidth: lineWidth)
-                    .opacity(0.3)
+                    //.opacity(0.3)
                 // the white progress circle
                 Circle()
                     .trim(from: 0.0, to: progress / meditationTime)
