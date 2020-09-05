@@ -23,13 +23,11 @@ struct PushButton: View {
             }
         }, label: {
             Text(isOn ? "Cancel" : "Start")
-                .font(.custom("SF-Pro-Display-Medium", size: 44))
+                .font(.custom("SF-Pro-Text-Medium", size: 44))
                 .foregroundColor(.white)
                 .frame(width: isOn ? size / 2 : size / 2 , height: isOn ? size / 2 : size / 5 )
-               // .background(LinearGradient(gradient: Gradient(colors: onColors ), startPoint: .top, endPoint: .bottom))
                 .clipShape(Capsule())
                 .foregroundColor(.white)
-                //.shadow(color: Color.red ,radius: isOn ? 50 : 5)
                 .animation(.easeOut(duration: 0.8))
                 
         }).accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
