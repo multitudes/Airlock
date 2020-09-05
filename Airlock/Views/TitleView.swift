@@ -19,7 +19,7 @@ struct TitleView: View {
             .foregroundColor(.white)
             .bold()
             .padding(.horizontal)
-            .position(x: width / 2 , y: height / 9)
+            .position(x: width / 2 , y: height / 8)
             .frame(minWidth: width * 0.9, alignment: .center)
             .minimumScaleFactor(0.5)
             .multilineTextAlignment(.center)
