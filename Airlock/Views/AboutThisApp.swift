@@ -13,8 +13,8 @@ struct AboutThisApp: View {
         ScrollView {
             Text("About This App").font(.title).bold()
                 //.padding()
-
-            Text("The concept for this app is simple. It just offers just two minutes of meditation time. You might think it is not enough, and you would be right. The purpose here is not enlightenment, but giving us the chance to come down for a short moment, and start a new activity with a fresh mind.\n\nOften we rush through things in life. From a stressful commute, or intense meeting to another challenging situation. In all these cases, are we aware that we might bring our emotions from the one to the other?\n\nTwo minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again. \nSometimes important decisions and conversations benefit from a fresh and mindful start.")
+            
+            Text("This app is inviting you to close your eyes and observing your breath for two minutes. \nTwo minutes feels like the bare minimum of a unit of time, almost like something you cannot compute because so small.\nBut did you ever realise how long are two minutes when you close your eyes? \n\nThe concept of the app is simple. \nYou press the button and start to meditate for two minutes, giving awareness to your breath, just observing. You might think two minutes is not enough, and you would be right, but the purpose here is not enlightenment, however, but getting the chance to come down for a moment, and get a fresh mind.\n\nOften we rush through things in life. From a stressful commute, an intense meeting to another challenging situation. In all these cases, are we often not aware of how we carry our emotions from place to place, meeting to meeting.\n\nTwo minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again. \n\nSometimes important decisions and conversations benefit from a fresh and mindful start.")
                 .font(.body).padding(20)
           Spacer()
         }
