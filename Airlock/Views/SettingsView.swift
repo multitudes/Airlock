@@ -127,7 +127,7 @@ struct SettingsView: View {
                     }.listRowBackground(BackgroundGradient().opacity(0.2))
                     
                     if isPhone{
-                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+                        Section(header: Text("Settings"), footer: Text("© Laurent Brusa v1.0 2020").bold())
                         {
                             
                             Toggle(isOn: $settings.vibrate, label: {
