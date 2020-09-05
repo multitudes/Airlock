@@ -59,7 +59,7 @@ struct MainView: View {
                 
                 TitleView(isOn: isOn, width: geometry.size.width, height: geometry.size.height)
                 
-                ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
+                ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.4 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
