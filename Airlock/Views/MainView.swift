@@ -98,7 +98,7 @@ struct MainView: View {
                                 .stroke(Color.white, lineWidth: 10)
                                 .frame(width: geometry.size.width / 1.2 - 50, height: geometry.size.width / 1.2 - 50))
                         .background(RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.gradientStartRed))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.gradientStartRed, Color.gradientEndRed]), startPoint: .top, endPoint: .bottom)))
                     }
                 }
             }
