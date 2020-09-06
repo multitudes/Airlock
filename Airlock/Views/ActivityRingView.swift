@@ -12,7 +12,7 @@ struct ActivityRingView: View {
     @Binding var progress: CGFloat
     var meditationTime: CGFloat = 120.0
     var frameSize: CGFloat?
-    var lineWidth: CGFloat { frameSize! / 6 }
+    var lineWidth: CGFloat { frameSize! * 1.07 / 9.93 }
     var strokeColor: Color {
         Color.outlineLightRed
     }
@@ -24,7 +24,6 @@ struct ActivityRingView: View {
                 // the light red shadow
                 Circle()
                     .stroke(strokeColor, lineWidth: lineWidth)
-                    .opacity(0.3)
                 // the white progress circle
                 Circle()
                     .trim(from: 0.0, to: progress / meditationTime)

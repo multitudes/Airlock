@@ -13,15 +13,15 @@ import SwiftUI
 // see https://contrast-ratio.com/#%23e5145f-on-%23FFFdFb
 extension Color {
     public static var outlineLightRed: Color {
-        return Color(hex: "FF5898")
+        return Color(hex: "FF5899")
     }
 
     public static var gradientStartRed: Color {
-        return Color(hex: "E61164")
+        return Color(hex: "F83480")
     }
     
     public static var gradientEndRed: Color {
-        return Color(hex: "E41859")
+        return Color(hex: "FA1859")
     }
     public static var buttonLightRed: Color {
         return Color(hex: "CA4275")

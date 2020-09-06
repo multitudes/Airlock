@@ -59,7 +59,7 @@ struct MainView: View {
                 
                 TitleView(isOn: isOn, width: geometry.size.width, height: geometry.size.height)
                 
-                ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.5 )
+                ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.4 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
@@ -98,7 +98,7 @@ struct MainView: View {
                                 .stroke(Color.white, lineWidth: 10)
                                 .frame(width: geometry.size.width / 1.2 - 50, height: geometry.size.width / 1.2 - 50))
                         .background(RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.gradientStartRed))
+                                        .fill(LinearGradient(gradient: Gradient(colors: [Color.gradientStartRed, Color.gradientEndRed]), startPoint: .top, endPoint: .bottom)))
                     }
                 }
             }

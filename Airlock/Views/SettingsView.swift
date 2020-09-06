@@ -86,12 +86,12 @@ struct SettingsView: View {
                                 Image(systemName: "hand.thumbsup").padding(5)
                                 Text("Recommend App")
                             }.sheet(isPresented: $isRecommendAppPresented) {
-                                ActivityViewController(activityItems: [URL(string: "https://www.apple.com")!])
+                                ActivityViewController(activityItems: [URL(string: "https://testflight.apple.com/join/rfPbYjXH")!])
                             }
                         })
                         
                         
-                        Link(destination: URL(string: "https://www.apple.com/")!) {
+                        Link(destination: URL(string: "https://testflight.apple.com/join/rfPbYjXH")!) {
                             HStack {
                                 Image(systemName: "star").padding(5)
                                 Text("Rate App")
@@ -127,7 +127,7 @@ struct SettingsView: View {
                     }.listRowBackground(BackgroundGradient().opacity(0.2))
                     
                     if isPhone{
-                        Section(header: Text("Settings"), footer: Text("©Laurent Brusa v1.0 2020").bold())
+                        Section(header: Text("Settings"), footer: Text("© Laurent Brusa v1.0 2020").bold())
                         {
                             
                             Toggle(isOn: $settings.vibrate, label: {
