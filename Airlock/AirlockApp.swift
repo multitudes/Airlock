@@ -12,7 +12,8 @@ struct AirlockApp: App {
     var settings = UserSettings()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PreLaunch()
+            //ContentView()
                 .environmentObject(settings)
             
         }

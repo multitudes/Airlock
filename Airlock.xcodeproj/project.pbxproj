@@ -12,6 +12,7 @@
 		454CBB6024F8FCEB001015F5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB5F24F8FCEB001015F5 /* SettingsView.swift */; };
 		454CBB6224F8FD42001015F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6124F8FD42001015F5 /* MainView.swift */; };
 		454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6324F90778001015F5 /* BackgroundGradient.swift */; };
+		455C7080250613F8006CC191 /* PreLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455C707F250613F8006CC191 /* PreLaunch.swift */; };
 		45A7D7A4250510FF00E77144 /* testview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7D7A3250510FF00E77144 /* testview.swift */; };
 		45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B882AC24FA38D800DFE0EA /* UserSettings.swift */; };
 		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
@@ -35,6 +36,7 @@
 		454CBB5F24F8FCEB001015F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		454CBB6124F8FD42001015F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		454CBB6324F90778001015F5 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
+		455C707F250613F8006CC191 /* PreLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLaunch.swift; sourceTree = "<group>"; };
 		45A7D7A3250510FF00E77144 /* testview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
 		45B882AC24FA38D800DFE0EA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				45D333E824FD03BC001E8EC1 /* Model */,
 				45D333E724FD03A5001E8EC1 /* Sounds */,
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
+				455C707F250613F8006CC191 /* PreLaunch.swift */,
 				45D4CCDF24F1050F001C6F83 /* ContentView.swift */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45F2899024FD4BF7003370EF /* Utilities */,
@@ -245,6 +248,7 @@
 				45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */,
 				45B882AD24FA38D800DFE0EA /* UserSettings.swift in Sources */,
 				45D333E324FCF299001E8EC1 /* SettingsButton.swift in Sources */,
+				455C7080250613F8006CC191 /* PreLaunch.swift in Sources */,
 				454CBB6224F8FD42001015F5 /* MainView.swift in Sources */,
 				454CBB6024F8FCEB001015F5 /* SettingsView.swift in Sources */,
 				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
