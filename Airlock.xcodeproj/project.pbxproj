@@ -23,6 +23,7 @@
 		45D4CCE224F10511001C6F83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE124F10511001C6F83 /* Assets.xcassets */; };
 		45D4CCE524F10511001C6F83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */; };
 		45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4CCED24F10641001C6F83 /* Color+Ext.swift */; };
+		45DA416E251CD30700757A6E /* demoCloudsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */; };
 		45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA5A7924F947E8006318B6 /* playsound.swift */; };
 		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 		45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039324FD0BBC00ED5BE4 /* MailView.swift */; };
@@ -48,6 +49,7 @@
 		45D4CCE424F10511001C6F83 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45D4CCE624F10511001C6F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D4CCED24F10641001C6F83 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoCloudsAnimation.swift; sourceTree = "<group>"; };
 		45EA5A7924F947E8006318B6 /* playsound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playsound.swift; sourceTree = "<group>"; };
 		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 		45EB039324FD0BBC00ED5BE4 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45D333E624FD034A001E8EC1 /* Buttons */,
 				45A7D7A3250510FF00E77144 /* testview.swift */,
+				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DA416E251CD30700757A6E /* demoCloudsAnimation.swift in Sources */,
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
 				45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */,

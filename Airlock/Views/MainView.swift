@@ -33,14 +33,13 @@ struct MainView: View {
                     .ignoresSafeArea()
                     .padding(.top, 10)
                 
-                
-                
                 if isOn {
                     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
                     Text("")
                         .onReceive(timer) { _ in
                             if progress < 120 {
                                 progress += 0.01
+                                
                             } else {
                                 isOn = false
                                 // present pop over
@@ -64,6 +63,9 @@ struct MainView: View {
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
                     .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
+
+                demoCloudsAnimation(progress: $progress, geo: geometry)
+                
                 
                 if showPopup {
                     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
