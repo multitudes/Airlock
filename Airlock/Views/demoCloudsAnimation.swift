@@ -8,24 +8,56 @@
 import SwiftUI
 
 
-struct demoCloudsAnimation: View {
-
-    @Binding var progress: CGFloat
-    let geo: GeometryProxy
+struct Cloud: View {
     
-
-    var startingY: CGFloat { CGFloat.random(in: -geo.size.height...150) }
-    
-    var positionX: CGFloat { -50 - geo.size.width }
-    @State var offset: CGSize = CGSize(width: -150, height: -50)
+    var change: Bool = true
+    let offset: CGFloat
+    let altitudeCloud: CGFloat
 
     var body: some View {
-        VStack {
-            Text("Progress \(geo.size.width)")
-            Image(systemName: "cloud").foregroundColor(.white).font(.system(size: 60))
-                .offset(CGSize(width: progress * 10 - 50, height: startingY))
-        }.animation(.easeIn)
+        Image(systemName: "cloud")
+            .foregroundColor(.primary)
+            .font(Font.system(size: 40 + offset * 2 * 0.03))
+            .frame(width: 200, height: 200)
+            .offset(y: altitudeCloud)
+    }
+}
 
+struct demoCloudsAnimation: View {
+    //  let geo: GeometryProxy
+    @State var change: Bool = true
+    let offset: CGFloat // will get the offset for my geo
+    
+    // taking the width and dividing it by ten points per second I get the duration for my animation
+    var duration: Double {
+        if !change {
+            return 0
+        }
+        return Double((offset + offset ) / 10)
     }
 
+    var body: some View {
+        ZStack {
+            Cloud(change: change, offset: offset, altitudeCloud: offset)
+                .offset(x: change ? offset + 40 : -offset - 40)
+                .animation(.easeOut(duration: duration))
+//            Cloud(change: change, offset: offset)
+//                .offset(x: change ? offset + 40 : -offset - 40)
+//                .animation(.easeOut(duration: duration))
+
+            Button("Change") {
+                self.change.toggle()
+            }
+        }
+        
+        
+    }
+    
+}
+
+struct demoCloudsAnimation_Previews: PreviewProvider {
+    static var previews: some View {
+        demoCloudsAnimation(offset: 160)
+        
+    }
 }

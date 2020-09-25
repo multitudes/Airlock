@@ -30,7 +30,6 @@ struct MainView: View {
                 SettingsButton(showModal: $showModal)
                     .position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
                     .font(Font.system(size: 10 + geometry.size.width * 0.03))
-                    .ignoresSafeArea()
                     .padding(.top, 10)
                 
                 if isOn {
@@ -64,7 +63,7 @@ struct MainView: View {
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
                     .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
 
-                demoCloudsAnimation(progress: $progress, geo: geometry)
+             //   demoCloudsAnimation(progress: $progress, geo: geometry)
                 
                 
                 if showPopup {
