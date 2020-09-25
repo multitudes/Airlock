@@ -8,18 +8,30 @@
 import SwiftUI
 
 
-struct Cloud: View {
+struct Cloud: View, Hashable, Equatable {
+    static func == (lhs: Cloud, rhs: Cloud) -> Bool {
+        lhs.altitude == rhs.altitude
+    }
+    var duration: Double {
+        if !change {
+            return 0
+        }
+        return Double((240 ) / 10)
+    }
     
-    var change: Bool = true
-    let offset: CGFloat
-    let altitudeCloud: CGFloat
-
+    var change: Bool
+    //let offset: CGFloat
+    let altitude: CGFloat
+    let delay: Double
     var body: some View {
         Image(systemName: "cloud")
             .foregroundColor(.primary)
-            .font(Font.system(size: 40 + offset * 2 * 0.03))
+            .font(Font.system(size: 40 + 200 * 2 * 0.03))
             .frame(width: 200, height: 200)
-            .offset(y: altitudeCloud)
+            .offset(y: altitude)
+            .offset(x: change ? 200 + 40 : -200 - 40)
+            .animation(Animation.linear(duration: duration).delay(delay))
+        
     }
 }
 
@@ -29,22 +41,20 @@ struct demoCloudsAnimation: View {
     let offset: CGFloat // will get the offset for my geo
     
     // taking the width and dividing it by ten points per second I get the duration for my animation
-    var duration: Double {
-        if !change {
-            return 0
-        }
-        return Double((offset + offset ) / 10)
-    }
-
+    
+    
+    var altitudes : [CGFloat] = [100, 150, -50 , 55, 105, 111, -100, 21, -55, -21
+    ]
+    var delays : [Double] = [1, 2, 3 , 4, 5, 6, 7, 8, 9, 10
+    ]
+    
     var body: some View {
         ZStack {
-            Cloud(change: change, offset: offset, altitudeCloud: offset)
-                .offset(x: change ? offset + 40 : -offset - 40)
-                .animation(.easeOut(duration: duration))
-//            Cloud(change: change, offset: offset)
-//                .offset(x: change ? offset + 40 : -offset - 40)
-//                .animation(.easeOut(duration: duration))
-
+            ForEach(0...9, id: \.self) { i in
+                Cloud(change: change, altitude: altitudes[i] , delay: delays[i])
+            }
+            
+            
             Button("Change") {
                 self.change.toggle()
             }
