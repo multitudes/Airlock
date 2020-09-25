@@ -25,3 +25,10 @@ struct SettingsButton: View {
 }
 
 
+
+struct SettingsButton_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsButton(showModal: .constant(true))
+        
+    }
+}
