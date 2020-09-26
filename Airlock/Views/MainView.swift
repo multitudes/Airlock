@@ -62,13 +62,12 @@ struct MainView: View {
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
                     .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
-
-                Image(systemName: "cloud.fill")                .font(.system(size: 200))                .foregroundColor(.white)                .opacity(0.7)
-                    .offset(x: isOn ? progress * 40 - 840 : -1000, y: 200)
-                   // .animation(.linear(duration: 20))
-                Image(systemName: "cloud.fill")                .font(.system(size: 200))                .foregroundColor(.white)                .opacity(0.7)
-                    .offset(x: isOn ? progress * 30 - 1000 : -1000, y: 0)
-                    //.animation(Animation.linear(duration: 20).delay(3))
+                
+                
+                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
+                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
+                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
+            
                 
                 if showPopup {
                     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
