@@ -27,24 +27,18 @@ struct MainView: View {
             ZStack {
                 BackgroundGradient()
                 
-                SettingsButton(showModal: $showModal, geo: geometry)
-
+                SettingsButton(showModal: $showModal)
+                    .position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
+                    .font(Font.system(size: 10 + geometry.size.width * 0.03))
+                    .padding(.top, 10)
+                
                 if isOn {
                     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-                    ZStack {
-                        
-                        Color.black
-                            .opacity(0.7)
-                            .edgesIgnoringSafeArea(.all)
-                            .onTapGesture {
-                                reset()
-                                }
-                    }.animation(.easeIn(duration: 1))
-                    
                     Text("")
                         .onReceive(timer) { _ in
                             if progress < 120 {
                                 progress += 0.01
+                                
                             } else {
                                 isOn = false
                                 // present pop over
@@ -61,12 +55,16 @@ struct MainView: View {
                         }.frame(minWidth: geometry.size.width, alignment: .center)
                 }
                 
-                TitleView(isOn: isOn, geo: geometry)
+                TitleView(isOn: isOn, width: geometry.size.width, height: geometry.size.height)
                 
                 ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.4 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
                 
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
+
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
                     .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
                 
@@ -125,6 +123,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .preferredColorScheme(.light)
     }
 }
 struct MainView_Previews_dark: PreviewProvider {
