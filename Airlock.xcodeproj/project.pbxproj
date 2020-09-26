@@ -100,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
+				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
 				450A52D824FA3F8B00639785 /* AboutThisApp.swift */,
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
@@ -110,7 +111,6 @@
 				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45D333E624FD034A001E8EC1 /* Buttons */,
 				45A7D7A3250510FF00E77144 /* testview.swift */,
-				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
 				45A90C23251E1B7D002BA0A9 /* testSO.swift */,
 			);
 			path = Views;

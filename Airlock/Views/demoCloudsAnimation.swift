@@ -24,8 +24,8 @@ struct Cloud: View, Hashable, Equatable {
     let altitude: CGFloat
     let delay: Double
     var body: some View {
-        Image(systemName: "cloud")
-            .foregroundColor(.primary)
+        Image(systemName: "cloud.fill")
+            .foregroundColor(.white)
             .font(Font.system(size: 40 + 200 * 2 * 0.03))
             .frame(width: 200, height: 200)
             .offset(y: altitude)
@@ -36,27 +36,32 @@ struct Cloud: View, Hashable, Equatable {
 }
 
 struct demoCloudsAnimation: View {
-    //  let geo: GeometryProxy
     @State var change: Bool = true
-    let offset: CGFloat // will get the offset for my geo
+    let offset: CGFloat = 140 // will get the offset for my geo
     
-    // taking the width and dividing it by ten points per second I get the duration for my animation
+    var altitudes = [CGFloat]()
+    var delays : [Double] = [Double]()
     
-    
-    var altitudes : [CGFloat] = [100, 150, -50 , 55, 105, 111, -100, 21, -55, -21
-    ]
-    var delays : [Double] = [1, 2, 3 , 4, 5, 6, 7, 8, 9, 10
-    ]
+    init() {
+        for _ in 0...4 {
+            self.altitudes.append(CGFloat.random(in: -150...150))
+            self.delays.append(Double.random(in: 1...10))
+        }
+    }
     
     var body: some View {
         ZStack {
-            ForEach(0...9, id: \.self) { i in
-                Cloud(change: change, altitude: altitudes[i] , delay: delays[i])
+            VStack{
+                RoundedRectangle(cornerRadius: 25.0)
+                    .foregroundColor(.blue)
+                    .padding(89)
+                    .frame(width: 600, height: 600, alignment: .center)
+                Button("Start") {
+                    self.change.toggle()
+                }
             }
-            
-            
-            Button("Change") {
-                self.change.toggle()
+            ForEach(0...4, id: \.self) { i in
+                Cloud(change: change, altitude: altitudes[i] , delay: delays[i])
             }
         }
         
@@ -67,7 +72,7 @@ struct demoCloudsAnimation: View {
 
 struct demoCloudsAnimation_Previews: PreviewProvider {
     static var previews: some View {
-        demoCloudsAnimation(offset: 160)
+        demoCloudsAnimation()
         
     }
 }
