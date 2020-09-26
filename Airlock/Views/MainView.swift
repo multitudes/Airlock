@@ -60,14 +60,13 @@ struct MainView: View {
                 ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.4 )
                     .fixedSize()
                     .position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
+                
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
+                demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
+
                 PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
                     .position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
-                
-                
-                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
-                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
-                    demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
-            
                 
                 if showPopup {
                     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
