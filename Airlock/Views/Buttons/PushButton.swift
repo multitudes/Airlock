@@ -13,7 +13,7 @@ struct PushButton: View {
     
     let title: String = "Start"
     var size: CGFloat
-    
+    var onColors = [Color.gradientStartRed, Color.buttonLightRed]
     
     var body: some View {
         Button(action: {
@@ -22,7 +22,7 @@ struct PushButton: View {
                 progress = 0.0
             }
         }, label: {
-            Text(isOn ? "" : "Start")
+            Text(isOn ? "Cancel" : "Start")
                 .font(.custom("SF-Pro-Text-Medium", size: 44))
                 .foregroundColor(.white)
                 .frame(width: isOn ? size / 2 : size / 2 , height: isOn ? size / 2 : size / 5 )
