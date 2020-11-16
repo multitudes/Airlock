@@ -22,7 +22,7 @@ struct MainView: View {
     @State var dismissCount: Int = 4
     @State var showModal: Bool = false
 
-	let meditationTimeSeconds: CGFloat = 120
+	let meditationTimeSeconds: CGFloat = 4
 
     var body: some View {
         GeometryReader { geometry in
@@ -92,8 +92,6 @@ struct MainView: View {
                                         dismissCount -= 1
                                     } else {
                                         reset()
-                                        stopSound()
-										AppReviewRequest.requestReviewIfNeeded()
                                     }
                                 }
                         }.frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
@@ -116,7 +114,8 @@ struct MainView: View {
             showPopup = false
         }
         dismissCount = 4
-        stopSound()
+        stopSound()  
+		AppReviewRequest.requestReviewIfNeeded()
     }
 }
 
