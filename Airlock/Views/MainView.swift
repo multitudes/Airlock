@@ -21,8 +21,8 @@ struct MainView: View {
     @State private var showPopup = false
     @State var dismissCount: Int = 4
     @State var showModal: Bool = false
-
-	var meditationTimerSeconds: CGFloat = 120
+	#warning("reset to 120")
+	var meditationTimerSeconds: CGFloat = 2
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -86,14 +86,6 @@ struct MainView: View {
                             Text("Dismissing in :")
                             Text("\(dismissCount)")
                             Spacer(minLength: 2.0)
-                                
-                                .onReceive(timer) { _ in
-                                    if dismissCount > 0 {
-                                        dismissCount -= 1
-                                    } else {
-                                        reset()
-                                    }
-                                }
                         }.frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
                         .foregroundColor(.white)
                         .overlay(
@@ -102,6 +94,13 @@ struct MainView: View {
                                 .frame(width: geometry.size.width / 1.2 - 50, height: geometry.size.width / 1.2 - 50))
                         .background(RoundedRectangle(cornerRadius: 20)
                                         .fill(LinearGradient(gradient: Gradient(colors: [Color.gradientStartRed, Color.gradientEndRed]), startPoint: .top, endPoint: .bottom)))
+						.onReceive(timer) { _ in
+							if dismissCount > 0 {
+								dismissCount -= 1
+							} else {
+								reset()
+							}
+						}
                     }
                 }
             }
