@@ -21,7 +21,8 @@ struct MainView: View {
     @State private var showPopup = false
     @State var dismissCount: Int = 4
     @State var showModal: Bool = false
-    
+
+	var meditationTimerSeconds: CGFloat = 2
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -36,7 +37,7 @@ struct MainView: View {
                     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
                     Text("")
                         .onReceive(timer) { _ in
-                            if progress < 120 {
+                            if progress < meditationTimerSeconds {
                                 progress += 0.01
                                 
                             } else {
@@ -91,7 +92,6 @@ struct MainView: View {
                                         dismissCount -= 1
                                     } else {
                                         reset()
-                                        stopSound()
                                     }
                                 }
                         }.frame(width: geometry.size.width / 1.2, height: geometry.size.width / 1.2)
@@ -108,6 +108,7 @@ struct MainView: View {
         }
     }
     private func reset() {
+		AppReviewRequest.requestReviewIfNeeded()
         isOn = false
         progress = 0.0
         withAnimation(Animation.easeOut(duration: 0.2)) {
