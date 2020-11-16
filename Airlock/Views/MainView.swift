@@ -22,7 +22,7 @@ struct MainView: View {
     @State var dismissCount: Int = 4
     @State var showModal: Bool = false
 
-	var meditationTimerSeconds: CGFloat = 2
+	var meditationTimerSeconds: CGFloat = 120
     var body: some View {
         GeometryReader { geometry in
             ZStack {
