@@ -15,7 +15,7 @@ struct TitleView: View {
     var body: some View {
         Text(isOn ? "Observe Your Breath " : "Two Minutes Meditation")
             //.font(.largeTitle)
-            .font(.custom("SF-Pro-Text-Medium", size: 33 + width / 40))
+			.font(.system(size: 33 + width / 40, weight: .bold, design: .rounded))
             .foregroundColor(.white)
             .bold()
             .padding(.horizontal)
