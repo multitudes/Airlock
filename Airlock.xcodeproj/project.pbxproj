@@ -32,6 +32,7 @@
 		45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA5A7924F947E8006318B6 /* playsound.swift */; };
 		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 		45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039324FD0BBC00ED5BE4 /* MailView.swift */; };
+		45F0E6122566E3A8007ED7D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */; };
 		45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2898E24FD19C9003370EF /* PrivacyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		45EA5A7924F947E8006318B6 /* playsound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playsound.swift; sourceTree = "<group>"; };
 		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 		45EB039324FD0BBC00ED5BE4 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		45F2898E24FD19C9003370EF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 		45D4CCDC24F1050F001C6F83 /* Airlock */ = {
 			isa = PBXGroup;
 			children = (
+				45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */,
 				45D333E924FD03D4001E8EC1 /* Views */,
 				45D333E824FD03BC001E8EC1 /* Model */,
 				45D333E724FD03A5001E8EC1 /* Sounds */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DA416E251CD30700757A6E /* demoCloudsAnimation.swift in Sources */,
+				45F0E6122566E3A8007ED7D6 /* Model.xcdatamodeld in Sources */,
 				459A66162562C40B00F2DCCF /* AppReviewRequest.swift in Sources */,
 				459A66252562EB6200F2DCCF /* EndPopUpView.swift in Sources */,
 				45D4CCE024F1050F001C6F83 /* ContentView.swift in Sources */,
@@ -470,6 +474,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 45D4CCD224F1050F001C6F83 /* Project object */;
 }

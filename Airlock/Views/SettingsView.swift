@@ -55,7 +55,7 @@ struct SettingsView: View {
     @State var isShowingMailView = false
     @State private var isRecommendAppPresented: Bool = false
     @State var alertNoMail = false
-    
+    let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
     var isPhone: Bool {
         Device.name.contains("iPhone")
     }
@@ -86,7 +86,7 @@ struct SettingsView: View {
                                 Image(systemName: "hand.thumbsup").padding(5)
                                 Text("Recommend App")
                             }.sheet(isPresented: $isRecommendAppPresented) {
-                                ActivityViewController(activityItems: [URL(string: "https://testflight.apple.com/join/rfPbYjXH")!])
+                                ActivityViewController(activityItems: [URL(string: myAppStoreURL)!])
                             }
                         })
                         
