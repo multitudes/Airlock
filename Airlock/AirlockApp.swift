@@ -9,13 +9,9 @@ import SwiftUI
 
 @main
 struct AirlockApp: App {
-    var settings = UserSettings()
     var body: some Scene {
         WindowGroup {
-            //ContentView()
             PreLaunch()
-                .environmentObject(settings)
-            
         }
     }
 }

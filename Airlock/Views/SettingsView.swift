@@ -46,11 +46,9 @@ struct ActivityViewController: UIViewControllerRepresentable {
 }
 
 struct SettingsView: View {
-    
-    @EnvironmentObject var settings: UserSettings
+	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @State var toggleIsOn: Bool = false
-    @State var vibrateIsOn: Bool = false
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
     @State private var isRecommendAppPresented: Bool = false
@@ -130,7 +128,7 @@ struct SettingsView: View {
                         Section(header: Text("Settings"), footer: Text("© Laurent Brusa v1.0 2020").bold())
                         {
                             
-                            Toggle(isOn: $settings.vibrate, label: {
+                            Toggle(isOn: $vibrateIsOn, label: {
                                 HStack {
                                     Image(systemName: "speaker.slash").padding(5)
                                     Text("Vibrate Only")
