@@ -10,23 +10,6 @@ import SwiftUI
 import AVFoundation
 import MessageUI
 
-struct Device {
-    
-    static var name: String {
-        struct Singleton {
-            static let deviceName = UIDevice.current.name
-        }
-        return Singleton.deviceName
-    }
-    
-    static var osVersion: String {
-        struct Singleton {
-            static let deviceVersion = UIDevice.current.systemVersion
-        }
-        return Singleton.deviceVersion
-    }
-}
-
 struct ActivityViewController: UIViewControllerRepresentable {
     typealias Callback = (_ activityType: UIActivity.ActivityType?, _ completed: Bool, _ returnedItems: [Any]?, _ error: Error?) -> Void
     var activityItems: [Any] = [URL(string: "https://www.apple.com")!]
@@ -48,16 +31,20 @@ struct ActivityViewController: UIViewControllerRepresentable {
 struct SettingsView: View {
 	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    @State var toggleIsOn: Bool = false
+
+	@State var toggleIsOn: Bool = false
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
     @State private var isRecommendAppPresented: Bool = false
     @State var alertNoMail = false
-    let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
-    var isPhone: Bool {
-        Device.name.contains("iPhone")
+
+	let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
+
+	var isPhone: Bool {
+		UIDevice.current.userInterfaceIdiom == .phone
     }
-    init(){
+
+	init(){
         UITableView.appearance().backgroundColor = .clear
         //    print(Device.name)
         //  print(Device.osVersion)
@@ -124,7 +111,7 @@ struct SettingsView: View {
                         }
                     }.listRowBackground(BackgroundGradient().opacity(0.2))
                     
-                    if isPhone{
+                    if isPhone {
                         Section(header: Text("Settings"), footer: Text("© Laurent Brusa v1.0 2020").bold())
                         {
                             
