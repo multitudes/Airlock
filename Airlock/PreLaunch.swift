@@ -15,7 +15,7 @@ struct PreLaunch: View {
     var body: some View {
         Group {
             if showMainView {
-                ContentView()
+				MainView()
             } else {
                 
                 ZStack {
