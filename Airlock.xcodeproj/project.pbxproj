@@ -111,7 +111,7 @@
 				459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */,
 				459A66242562EB6200F2DCCF /* EndPopUpView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
-				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
+				45F0E61525680C30007ED7D6 /* SettingViews */,
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				45246CBE25039BCF008AEAE9 /* SF-Pro-Text-Medium.otf */,
 				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
@@ -172,6 +172,14 @@
 				45D4CCED24F10641001C6F83 /* Color+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		45F0E61525680C30007ED7D6 /* SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
+			);
+			path = SettingViews;
 			sourceTree = "<group>";
 		};
 		45F2899024FD4BF7003370EF /* Utilities */ = {
