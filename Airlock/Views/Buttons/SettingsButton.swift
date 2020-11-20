@@ -9,21 +9,21 @@ import SwiftUI
 
 struct SettingsButton: View {
 
-    @Binding var showModal: Bool
-    
-    var body: some View {
-        Button(action: {
-            print("Button Pushed")
-            self.showModal = true
-        }) {
-            Image(systemName: "gear").foregroundColor(.white)
+	@Binding var showModal: Bool
 
-        }.sheet(isPresented: $showModal) {
-            SettingsView()
-           }.accessibility(label:Text("Settings"))
-    }
+	var body: some View {
+		Button(action: {
+			print("Button Pushed")
+			self.showModal = true
+		}) {
+			Image(systemName: "gear").foregroundColor(.white)
+
+		}.sheet(isPresented: $showModal) {
+			SettingsView()
+		}
+		.accessibility(label:Text("Settings"))
+	}
 }
-
 
 
 struct SettingsButton_Previews: PreviewProvider {
