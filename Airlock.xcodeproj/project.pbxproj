@@ -102,16 +102,12 @@
 			children = (
 				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
 				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
-				450A52D824FA3F8B00639785 /* AboutThisApp.swift */,
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
 				459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */,
 				459A66242562EB6200F2DCCF /* EndPopUpView.swift */,
 				45D333E424FD0149001E8EC1 /* TitleView.swift */,
 				45F0E61525680C30007ED7D6 /* SettingViews */,
-				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
-				45246CBE25039BCF008AEAE9 /* SF-Pro-Text-Medium.otf */,
 				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
-				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				45D333E624FD034A001E8EC1 /* Buttons */,
 				45A7D7A3250510FF00E77144 /* testview.swift */,
 			);
@@ -137,12 +133,12 @@
 		45D4CCDC24F1050F001C6F83 /* Airlock */ = {
 			isa = PBXGroup;
 			children = (
+				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
+				4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */,
 				45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */,
 				45D333E924FD03D4001E8EC1 /* Views */,
 				45D333E824FD03BC001E8EC1 /* Model */,
 				45D333E724FD03A5001E8EC1 /* Sounds */,
-				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
-				4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */,
 				45D4CCEC24F10628001C6F83 /* Extensions */,
 				45F2899024FD4BF7003370EF /* Utilities */,
 				45D4CCE124F10511001C6F83 /* Assets.xcassets */,
@@ -171,6 +167,9 @@
 		45F0E61525680C30007ED7D6 /* SettingViews */ = {
 			isa = PBXGroup;
 			children = (
+				450A52D824FA3F8B00639785 /* AboutThisApp.swift */,
+				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
+				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
 			);
 			path = SettingViews;
@@ -179,6 +178,7 @@
 		45F2899024FD4BF7003370EF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				45246CBE25039BCF008AEAE9 /* SF-Pro-Text-Medium.otf */,
 				459A66152562C40B00F2DCCF /* AppReviewRequest.swift */,
 				45EA5A7924F947E8006318B6 /* playsound.swift */,
 			);

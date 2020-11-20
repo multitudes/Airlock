@@ -12,15 +12,10 @@ struct PrivacyView: View {
         
         VStack {
             Text("Privacy Policy").font(.title).padding(40)
-
             Text("The \"Two Minutes Meditation\" App does not store any personal information about you.")
             Spacer()
         }.font(.body).padding(20)
         .multilineTextAlignment(.center)
-        
-
-        
-        
     }
 }
 
