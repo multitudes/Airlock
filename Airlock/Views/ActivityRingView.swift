@@ -10,12 +10,11 @@ import SwiftUI
 struct ActivityRingView: View {
     @Binding var timerIsOn: Bool
     @Binding var progress: CGFloat
+
     var meditationTime: CGFloat = 120.0
     var frameSize: CGFloat?
     var lineWidth: CGFloat { frameSize! * 1.07 / 9.93 }
-    var strokeColor: Color {
-        Color.outlineLightRed
-    }
+    var strokeColor: Color { Color.outlineLightRed }
     
     var body: some View {
         

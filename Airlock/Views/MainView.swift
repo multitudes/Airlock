@@ -14,15 +14,17 @@ extension UIDevice {
 }
 
 struct MainView: View {
-	@EnvironmentObject var settings: UserSettings
+	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
 
 	@State var progress: CGFloat = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
-	//#warning("reset to 120")
+
+	//#warning("After testing reset to 120")
 	var meditationTimerSeconds: CGFloat = 120
+	
 	var body: some View {
 		GeometryReader { geometry in
 			ZStack {
@@ -46,7 +48,7 @@ struct MainView: View {
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
 								}
-								if settings.vibrate == false {
+								if vibrateIsOn == false {
 									playSound(sound: "gong.m4a")
 								} else {
 									UIDevice.vibrate()
