@@ -13,17 +13,21 @@ extension UIDevice {
 	}
 }
 
+enum Settings {
+	static let vibrateIsOn = "vibrateIsOn"
+	static let meditationTimerSeconds = "meditationTimerSeconds"
+}
 struct MainView: View {
-	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
-
-	@State var progress: CGFloat = 0.0
+	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
+	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
 
 	//#warning("After testing reset to 120")
-	var meditationTimerSeconds: CGFloat = 120
+//	var meditationTimerSeconds: Double = 120
 	
 	var body: some View {
 		GeometryReader { geometry in
@@ -44,6 +48,7 @@ struct MainView: View {
 
 							} else {
 								isOn = false
+								timer.upstream.connect().cancel()
 								// present pop over
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
@@ -85,6 +90,7 @@ struct MainView: View {
 						if dismissCount > 0 {
 							dismissCount -= 1
 						} else {
+							timer.upstream.connect().cancel()
 							reset()
 						}
 					}
