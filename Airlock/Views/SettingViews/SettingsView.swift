@@ -144,10 +144,10 @@ struct SettingsView: View {
 			}
 			.navigationBarTitle("Settings")
 			.navigationBarItems(trailing:
-									Button("Done") {
-										presentationMode.wrappedValue.dismiss()
-									}
-									.keyboardShortcut(.escape, modifiers: [])
+				Button("Done") {
+					presentationMode.wrappedValue.dismiss()
+				}
+				.keyboardShortcut(.escape, modifiers: [])
 			)
 		}.accentColor(.primary)
 		.foregroundColor(.primary)
