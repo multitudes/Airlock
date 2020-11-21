@@ -44,6 +44,7 @@ struct MainView: View {
 
 							} else {
 								isOn = false
+								timer.upstream.connect().cancel()
 								// present pop over
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
@@ -85,6 +86,7 @@ struct MainView: View {
 						if dismissCount > 0 {
 							dismissCount -= 1
 						} else {
+							timer.upstream.connect().cancel()
 							reset()
 						}
 					}
