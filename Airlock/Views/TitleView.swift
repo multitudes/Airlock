@@ -13,8 +13,7 @@ struct TitleView: View {
     var height: CGFloat
     
     var body: some View {
-        Text(isOn ? "Observe Your Breath " : "Two Minutes Meditation")
-            //.font(.largeTitle)
+        Text(isOn ? "Observe Your Breath" : "Two Minutes Meditation ")
 			.font(.system(size: 33 + width / 40, weight: .bold, design: .rounded))
             .foregroundColor(.white)
             .bold()
