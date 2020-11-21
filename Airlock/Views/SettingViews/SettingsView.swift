@@ -110,7 +110,6 @@ struct SettingsView: View {
 							.alert(isPresented: self.$alertNoMail) {
 								Alert(title: Text("Please set up your email account on your Apple device to send a feedback"))
 							}
-							
 						}
 						
 						
