@@ -46,8 +46,6 @@ struct SettingsView: View {
 	
 	init(){
 		UITableView.appearance().backgroundColor = .clear
-		//    print(Device.name)
-		//  print(Device.osVersion)
 	}
 	
 	var body: some View {
@@ -110,7 +108,6 @@ struct SettingsView: View {
 							.alert(isPresented: self.$alertNoMail) {
 								Alert(title: Text("Please set up your email account on your Apple device to send a feedback"))
 							}
-							
 						}
 						
 						
@@ -145,15 +142,13 @@ struct SettingsView: View {
 				}.font(.body)
 				
 			}
-			.navigationBarTitle("Settings").accentColor(.primary)
-			.foregroundColor(.primary)
+			.navigationBarTitle("Settings")
 			.navigationBarItems(trailing:
 									Button("Done") {
 										presentationMode.wrappedValue.dismiss()
-									}.accentColor(.primary)
-									.foregroundColor(.primary)
+									}
+									.keyboardShortcut(.escape, modifiers: [])
 			)
-			
 		}.accentColor(.primary)
 		.foregroundColor(.primary)
 	}
