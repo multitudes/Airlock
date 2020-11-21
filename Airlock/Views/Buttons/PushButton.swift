@@ -30,7 +30,7 @@ struct PushButton: View {
                 progress = 0.0
             }
         }, label: {
-            Text(isOn ? "Cancel" : "Start")
+            Text(isOn ? "Cancel" : "  Start  ") // the whitespaces in "Start" are there to avoid animation irregularities
                 .font(.system(size: 44, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
                 .frame(width: isOn ? size / 2 : size / 2 , height: isOn ? size / 2 : size / 5 )
