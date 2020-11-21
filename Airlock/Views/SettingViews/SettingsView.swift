@@ -46,8 +46,6 @@ struct SettingsView: View {
 	
 	init(){
 		UITableView.appearance().backgroundColor = .clear
-		//    print(Device.name)
-		//  print(Device.osVersion)
 	}
 	
 	var body: some View {
@@ -144,15 +142,13 @@ struct SettingsView: View {
 				}.font(.body)
 				
 			}
-			.navigationBarTitle("Settings").accentColor(.primary)
-			.foregroundColor(.primary)
+			.navigationBarTitle("Settings")
 			.navigationBarItems(trailing:
 									Button("Done") {
 										presentationMode.wrappedValue.dismiss()
-									}.accentColor(.primary)
-									.foregroundColor(.primary)
+									}
+									.keyboardShortcut(.escape, modifiers: [])
 			)
-			
 		}.accentColor(.primary)
 		.foregroundColor(.primary)
 	}

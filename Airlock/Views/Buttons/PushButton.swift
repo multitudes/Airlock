@@ -38,6 +38,7 @@ struct PushButton: View {
                 .foregroundColor(.white)
                 .animation(.easeOut(duration: 0.8))
                 
-        }).accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
+        }).keyboardShortcut(" ", modifiers: [])
+		.accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
     }
 }

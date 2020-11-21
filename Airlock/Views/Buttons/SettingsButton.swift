@@ -22,6 +22,7 @@ struct SettingsButton: View {
 			SettingsView()
 		}
 		.accessibility(label:Text("Settings"))
+		.keyboardShortcut(",", modifiers: [.command])
 	}
 }
 
