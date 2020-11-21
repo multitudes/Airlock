@@ -25,20 +25,20 @@ struct PushButton: View {
     var body: some View {
         Button(action: {
             isOn.toggle()
-			log("Button pressed")
+			//log("Button pressed")
             if !isOn {
                 progress = 0.0
             }
         }, label: {
             Text(isOn ? "Cancel" : "  Start  ") // the whitespaces in "Start" are there to avoid animation irregularities
-                .font(.system(size: 44, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
-                .frame(width: isOn ? size / 2 : size / 2 , height: isOn ? size / 2 : size / 5 )
-                .clipShape(Capsule())
-                .foregroundColor(.white)
-                .animation(.easeOut(duration: 0.8))
-                
-        }).keyboardShortcut(" ", modifiers: [])
+		})
+		.font(.system(size: 44, weight: .bold, design: .rounded))
+		.foregroundColor(.white)
+		.animation(.easeOut(duration: 0.8))
+		.keyboardShortcut(.space, modifiers: [])
 		.accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
+		.contextMenu {
+			Button(action: {}, label: { Text("Easter Egg coming to you")})
+		}
     }
 }
