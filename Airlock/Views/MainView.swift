@@ -20,6 +20,7 @@ enum Settings {
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
@@ -40,12 +41,11 @@ struct MainView: View {
 					.padding(.top, 10)
 
 				if isOn {
-					let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+					let timer = Timer.publish(every: 0.01, tolerance: 0.1, on: .main, in: .common).autoconnect()
 					Text("")
 						.onReceive(timer) { _ in
 							if progress < meditationTimerSeconds {
 								progress += 0.01
-
 							} else {
 								isOn = false
 								timer.upstream.connect().cancel()
@@ -77,14 +77,13 @@ struct MainView: View {
 					.position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
 
 				if showPopup {
-					let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+					let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
 					ZStack {
 						OpaqueOverlayView()
 							.onTapGesture {
 								reset()
 							}
 						EndPopUpView(dismissCount: dismissCount, width: geometry.size.width)
-
 					}
 					.onReceive(timer) { _ in
 						if dismissCount > 0 {
