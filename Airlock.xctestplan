@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "C929A119-1BAA-47EC-9369-E10AB6DEAC14",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Airlock.xcodeproj",
+        "identifier" : "454FCBCD256C3D77007EA242",
+        "name" : "AirlockTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Airlock.xcodeproj",
+        "identifier" : "454FCBDD256C3D87007EA242",
+        "name" : "AirlockUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
