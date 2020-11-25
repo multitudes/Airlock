@@ -15,8 +15,6 @@ func log(_ message: String, _ file: String = #file, _ line:Int = #line, _ functi
 }
 
 struct PushButton: View {
-	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
-
 	@Binding var isOn: Bool
 	@Binding var progress: Double
 
@@ -37,15 +35,7 @@ struct PushButton: View {
 		.contentShape(RoundedRectangle(cornerRadius: 20))
 		.animation(.easeOut(duration: 0.8))
 		.keyboardShortcut(.space, modifiers: [])
-		.accessibility(label: isOn ? Text("Cancel") : Text("Start 2 minutes meditation"))
-		.contextMenu {
-			if !isOn {
-				Text("You can choose between:")
-				Button("Standard: 2 minutes"){ meditationTimerSeconds = MeditationTime.twoMin.rawValue}
-				Button("Medium: 20 minutes"){ meditationTimerSeconds = MeditationTime.twentyMin.rawValue }
-				Button("Longer: 60 minutes!"){ meditationTimerSeconds = MeditationTime.oneHour.rawValue }
-			}
-		}
+		.accessibility(label: isOn ? Text("Cancel") : Text("Start meditation"))
 	}
 }
 

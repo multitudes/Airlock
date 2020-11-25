@@ -60,7 +60,7 @@ struct MainView: View {
 									print("vibrating!")
 								}
 							}
-						}.frame(minWidth: geometry.size.width, alignment: .center)
+						}
 				}
 
 				TitleView(isOn: isOn, width: geometry.size.width, height: geometry.size.height)
@@ -68,10 +68,18 @@ struct MainView: View {
 				ActivityRingView(timerIsOn: $isOn, progress: $progress, frameSize: geometry.size.width / 1.4 )
 					.fixedSize()
 					.position(x: geometry.size.width / 2 , y: geometry.size.height / 2)
+				Group {
+					demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
+					demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
+					demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
+				}
 
-				demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(2) )
-				demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(6))
-				demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
+				// maybe will add later but feels redundant
+//				TimeIndicator(isOn: isOn)
+//					.position(x: geometry.size.width * 0.08, y: geometry.size.width * 0.03)
+//					.font(Font.system(size: 10 + geometry.size.width * 0.03))
+//					.padding( .top, 10)
+//					.padding( .leading, 10)
 
 				PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
 					.position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
