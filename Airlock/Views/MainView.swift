@@ -13,10 +13,13 @@ extension UIDevice {
 	}
 }
 
+
 enum Settings {
 	static let vibrateIsOn = "vibrateIsOn"
 	static let meditationTimerSeconds = "meditationTimerSeconds"
 }
+
+
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
@@ -74,13 +77,6 @@ struct MainView: View {
 					demoCloudsAnimation(change: $isOn, screenWidth: geometry.size.width, delay: .constant(30))
 				}
 
-				// maybe will add later but feels redundant
-//				TimeIndicator(isOn: isOn)
-//					.position(x: geometry.size.width * 0.08, y: geometry.size.width * 0.03)
-//					.font(Font.system(size: 10 + geometry.size.width * 0.03))
-//					.padding( .top, 10)
-//					.padding( .leading, 10)
-
 				PushButton(isOn: $isOn, progress: $progress, size: geometry.size.width)
 					.position(x: geometry.size.width / 2 , y: isOn ? geometry.size.height / 2 : geometry.size.height / 2 + geometry.size.height / 2.5)
 
@@ -105,6 +101,7 @@ struct MainView: View {
 			}
 		}
 	}
+
 	private func reset() {
 		AppReviewRequest.requestReviewIfNeeded()
 		isOn = false
@@ -125,6 +122,7 @@ struct MainView_Previews: PreviewProvider {
 			.preferredColorScheme(.light)
 	}
 }
+
 struct MainView_Previews_dark: PreviewProvider {
 	static var previews: some View {
 		MainView()
