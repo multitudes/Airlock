@@ -13,10 +13,13 @@ extension UIDevice {
 	}
 }
 
+
 enum Settings {
 	static let vibrateIsOn = "vibrateIsOn"
 	static let meditationTimerSeconds = "meditationTimerSeconds"
 }
+
+
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
@@ -98,6 +101,7 @@ struct MainView: View {
 			}
 		}
 	}
+
 	private func reset() {
 		AppReviewRequest.requestReviewIfNeeded()
 		isOn = false
@@ -118,6 +122,7 @@ struct MainView_Previews: PreviewProvider {
 			.preferredColorScheme(.light)
 	}
 }
+
 struct MainView_Previews_dark: PreviewProvider {
 	static var previews: some View {
 		MainView()
