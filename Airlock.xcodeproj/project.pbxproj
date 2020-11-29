@@ -15,6 +15,9 @@
 		454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454CBB6324F90778001015F5 /* BackgroundGradient.swift */; };
 		454FCBD1256C3D77007EA242 /* AirlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454FCBD0256C3D77007EA242 /* AirlockTests.swift */; };
 		454FCBE1256C3D87007EA242 /* AirlockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454FCBE0256C3D87007EA242 /* AirlockUITests.swift */; };
+		455036C425740D370094B95D /* Airlock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 455036C225740D370094B95D /* Airlock.xcdatamodeld */; };
+		455036CC25740E800094B95D /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455036CB25740E800094B95D /* LogView.swift */; };
+		455036F2257414EC0094B95D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455036F1257414EC0094B95D /* Persistence.swift */; };
 		4580BAA5251CED2C00F7FDA0 /* PreLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */; };
 		459A66162562C40B00F2DCCF /* AppReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66152562C40B00F2DCCF /* AppReviewRequest.swift */; };
 		459A66252562EB6200F2DCCF /* EndPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66242562EB6200F2DCCF /* EndPopUpView.swift */; };
@@ -32,7 +35,6 @@
 		45EA5A7A24F947E8006318B6 /* playsound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA5A7924F947E8006318B6 /* playsound.swift */; };
 		45EA5A7C24F94C19006318B6 /* gong.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 45EA5A7B24F94C19006318B6 /* gong.m4a */; };
 		45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB039324FD0BBC00ED5BE4 /* MailView.swift */; };
-		45F0E6122566E3A8007ED7D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */; };
 		45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2898E24FD19C9003370EF /* PrivacyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,9 @@
 		454FCBE0256C3D87007EA242 /* AirlockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlockUITests.swift; sourceTree = "<group>"; };
 		454FCBE2256C3D87007EA242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454FCBEB256C3DDC007EA242 /* Airlock.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Airlock.xctestplan; sourceTree = "<group>"; };
+		455036C325740D370094B95D /* Airlock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Airlock.xcdatamodel; sourceTree = "<group>"; };
+		455036CB25740E800094B95D /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		455036F1257414EC0094B95D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLaunch.swift; sourceTree = "<group>"; };
 		459A66152562C40B00F2DCCF /* AppReviewRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReviewRequest.swift; sourceTree = "<group>"; };
 		459A66242562EB6200F2DCCF /* EndPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPopUpView.swift; sourceTree = "<group>"; };
@@ -86,7 +91,6 @@
 		45EA5A7924F947E8006318B6 /* playsound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playsound.swift; sourceTree = "<group>"; };
 		45EA5A7B24F94C19006318B6 /* gong.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.m4a; sourceTree = "<group>"; };
 		45EB039324FD0BBC00ED5BE4 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
-		45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		45F2898E24FD19C9003370EF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,8 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
+				455036C225740D370094B95D /* Airlock.xcdatamodeld */,
+				455036F1257414EC0094B95D /* Persistence.swift */,
 				4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */,
-				45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */,
 				45D333E924FD03D4001E8EC1 /* Views */,
 				45D333E824FD03BC001E8EC1 /* Model */,
 				45D333E724FD03A5001E8EC1 /* Sounds */,
@@ -237,6 +242,7 @@
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
+				455036CB25740E800094B95D /* LogView.swift */,
 			);
 			path = SettingViews;
 			sourceTree = "<group>";
@@ -399,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DA416E251CD30700757A6E /* demoCloudsAnimation.swift in Sources */,
-				45F0E6122566E3A8007ED7D6 /* Model.xcdatamodeld in Sources */,
 				459A66162562C40B00F2DCCF /* AppReviewRequest.swift in Sources */,
 				459A66252562EB6200F2DCCF /* EndPopUpView.swift in Sources */,
 				45D4CCDE24F1050F001C6F83 /* AirlockApp.swift in Sources */,
@@ -408,13 +413,16 @@
 				45F2898F24FD19C9003370EF /* PrivacyView.swift in Sources */,
 				45EB039424FD0BBC00ED5BE4 /* MailView.swift in Sources */,
 				45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */,
+				455036CC25740E800094B95D /* LogView.swift in Sources */,
 				45D333E324FCF299001E8EC1 /* SettingsButton.swift in Sources */,
 				4580BAA5251CED2C00F7FDA0 /* PreLaunch.swift in Sources */,
 				454CBB6224F8FD42001015F5 /* MainView.swift in Sources */,
 				454CBB6024F8FCEB001015F5 /* SettingsView.swift in Sources */,
 				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
+				455036F2257414EC0094B95D /* Persistence.swift in Sources */,
 				45A7D7A4250510FF00E77144 /* testview.swift in Sources */,
 				459A66292562EE3500F2DCCF /* OpaqueOverlayView.swift in Sources */,
+				455036C425740D370094B95D /* Airlock.xcdatamodeld in Sources */,
 				450A52D924FA3F8B00639785 /* AboutThisApp.swift in Sources */,
 				454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */,
 				45293ED9256E95BF00072FEA /* TimeIndicator.swift in Sources */,
@@ -728,14 +736,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		45F0E6102566E3A7007ED7D6 /* Model.xcdatamodeld */ = {
+		455036C225740D370094B95D /* Airlock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */,
+				455036C325740D370094B95D /* Airlock.xcdatamodel */,
 			);
-			currentVersion = 45F0E6112566E3A8007ED7D6 /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = ../Model.xcdatamodeld;
+			currentVersion = 455036C325740D370094B95D /* Airlock.xcdatamodel */;
+			path = Airlock.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
