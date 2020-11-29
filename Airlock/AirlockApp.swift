@@ -16,8 +16,8 @@ struct AirlockApp: App {
 
     var body: some Scene {
         WindowGroup {
-           // PreLaunch()
-			LogView()
+           PreLaunch()
+			//LogView()
 				.environment(\.managedObjectContext, persistenceController.container.viewContext)
 
         }

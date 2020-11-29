@@ -119,6 +119,15 @@ struct SettingsView: View {
 						}
 						.accessibilityElement(children: .ignore)
 						.accessibility(label: Text("Data Privacy"))
+
+						NavigationLink(destination: LogView()) {
+							HStack {
+								Image(systemName: "list.bullet.rectangle").padding(5)
+								Text("Logs")
+							}
+						}
+						.accessibilityElement(children: .ignore)
+						.accessibility(label: Text("Logs"))
 					}.listRowBackground(BackgroundGradient().opacity(0.2))
 					
 					if isPhone {
