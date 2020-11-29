@@ -8,8 +8,6 @@
 import SwiftUI
 import CoreData
 
-
-
 @main
 struct AirlockApp: App {
 	let persistenceController = PersistenceController.shared

@@ -8,33 +8,32 @@
 import SwiftUI
 
 struct PreLaunch: View {
-    
-    @State var showMainView = false
-    @State var opacity: Double = 0
-    
-    var body: some View {
-        Group {
-            if showMainView {
+	
+	@State var showMainView = false
+	@State var opacity: Double = 0
+	
+	var body: some View {
+		Group {
+			if showMainView {
 				MainView()
-            } else {
-                
-                ZStack {
-                    BackgroundGradient()
-                        .opacity(opacity)
-                }
-            }
-        }.onAppear {
-            withAnimation(.linear(duration: 3)) {
-                opacity = 1
-                showMainView = true
-            }
-
-        }
-    }
+			} else {
+				ZStack {
+					BackgroundGradient()
+						.opacity(opacity)
+				}
+			}
+		}.onAppear {
+			withAnimation(.linear(duration: 1)) {
+				opacity = 1
+				showMainView = true
+			}
+			
+		}
+	}
 }
 
 struct PreLaunch_Previews: PreviewProvider {
-    static var previews: some View {
-        PreLaunch()
-    }
+	static var previews: some View {
+		PreLaunch()
+	}
 }
