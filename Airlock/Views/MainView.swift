@@ -23,7 +23,7 @@ enum Settings {
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
-	@FetchRequest(entity: Log.entity(), sortDescriptors: []) var log: FetchedResults<Log>
+	//@FetchRequest(entity: Log.entity(), sortDescriptors: []) var log: FetchedResults<Log>
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false

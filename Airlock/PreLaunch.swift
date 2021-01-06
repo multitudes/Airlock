@@ -24,7 +24,7 @@ struct PreLaunch: View {
                 }
             }
         }.onAppear {
-            withAnimation(.linear(duration: 3)) {
+            withAnimation(.linear(duration: 2)) {
                 opacity = 1
                 showMainView = true
             }
