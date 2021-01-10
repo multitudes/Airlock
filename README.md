@@ -24,3 +24,21 @@ Often we rush through things in life. From a stressful commute, an intense meeti
 In all these cases, are we often not aware of how we carry our emotions from place to place, meeting to meeting.  
 Two minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again.   
 Sometimes important decisions and conversations benefit from a fresh and mindful start.
+
+## Adding a log feature with Core Data
+
+I want to add the possibility to track the meditations and keep them in history. Also I want the user to be able to enter a text based feedback or thought, once a day.  
+
+The first thing to do is designing the data model. I will keep it simple. It is an array of Items. Every item is a meditation and has a date, an optional thought and the length of the meditation, which is optional too, in case the user decides to add a thought indipendently of the meditation. I am thinking of limiting the thoughts to one a day. So the only real mandatory value is the date, with either a thought or a meditation length in minutes.  
+
+### In the Core Data dashboard
+I press Cmd+N to create a new file, then select Data Model and name it `Main.xcdatamodeld`, add an entity Item and the attributes as above. 
+
+- “myText”, with the type String.
+- “timeMeditated”, with the type Integer 16.
+- “creationDate”, with the type Date.
+
+
+
+
+
