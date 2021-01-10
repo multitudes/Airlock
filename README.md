@@ -148,13 +148,9 @@ I add this computed property. Keeping in mind it is expensive to create a format
 var itemDate: String {
 		let date = creationDate ?? Date()
 		let formatter = DateFormatter()
-				formatter.locale = .autoupdatingCurrent
-				print(formatter.locale.identifier)
-		//formatter.timeZone = TimeZone(secondsFromGMT: timezone)
-		formatter.setLocalizedDateFormatFromTemplate("EEEE, MMMM d, h:mm a")
+		formatter.locale = .autoupdatingCurrent
+		formatter.setLocalizedDateFormatFromTemplate("EEEE, MMM d, h:mm a")
 		return formatter.string(from: date)
 	}
 ```
-
-
 
