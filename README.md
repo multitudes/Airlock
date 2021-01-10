@@ -38,7 +38,83 @@ I press Cmd+N to create a new file, then select Data Model and name it `Main.xcd
 - “timeMeditated”, with the type Integer 16.
 - “creationDate”, with the type Date.
 
+## Managing data access
 
+Make a new class called DataController, that will be responsible for setting up Core Data and also handling most of our interactions with it.  
 
+```swift
+import CoreData 
+import SwiftUI
+
+class DataController: ObservableObject {
+	let container: NSPersistentCloudKitContainer
+  
+}
+```
+
+It is conform to `ObservableObject` so any SwiftUI view can create an instance and watch it if needed. Add an instance of `NSPersistentCloudKitContainer`, This is responsible for loading and managing local data using Core Data, but also synchronizing that data with iCloud. 
+
+add an initializer and basic save and delete func.
+```swift
+	init() {
+		container = NSPersistentCloudKitContainer(name: "Main")
+		container.loadPersistentStores { storeDescription, error in
+			if let error = error { fatalError("\(error.localizedDescription)") }
+		}
+	}
+  
+  func save() {
+		if container.viewContext.hasChanges {
+			try? container.viewContext.save()
+		}
+	}
+
+	func delete(_ object: NSManagedObject) {
+		container.viewContext.delete(object)
+	}
+
+func deleteAll() {
+		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
+		let batchdeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+		_ = try? container.viewContext.execute(batchdeleteRequest)
+	}
+
+```
+view context is a really important concept in Core Data, because it’s effectively the pool of data that has been loaded from disk. We already created and loaded our persistent store, which is the underlying database data that exists in long-term storage. When we create instances of Item we need to tell which view context they are inside.
+
+## Add to the environment
+In @main create `@StateObject var dataController: DataController`.
+Our app will create and own the data controller, ensuring it stays alive for the duration of our app’s runtime.  
+We need an initializer that creates a new DataController object and places it into the StateObject property wrapper:
+```swift
+init() {
+	let dataController = DataController()
+	_dataController = StateObject(wrappedValue: dataController)
+}
+```
+Or use `@StateObject var dataController = DataController()`.  
+Send our data controller’s view context into the SwiftUI environment using a special key called `.managedObjectContext`. This is because every time SwiftUI wants to query Core Data it needs to know where to look for all the data, so this effectively connects Core Data to SwiftUI.  
+```swift
+ContentView()
+	.environment(\.managedObjectContext, dataController.container.viewContext)
+	.environmentObject(dataController)
+```
+
+### Taking care of the Core Data optionality
+Since everything is an optional in Core data I prefer add an extension to the synthetized Class to get my properties. This is just a getter.
+``` swift
+extension Item {
+	var itemText: String {
+		myText ?? "New Item"
+	}
+	var itemLength: Int {
+		Int(timeMeditated)
+	}
+	var itemDate: Date {
+		creationDate ?? Date()
+	}
+}
+```
 
 
