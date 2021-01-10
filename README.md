@@ -117,4 +117,31 @@ extension Item {
 }
 ```
 
+## In my View
+ 
+``` swift
+struct ContentView: View {
+	@EnvironmentObject var dataController: DataController
+	let items: FetchRequest<Item>
+
+	init() {
+		let request: NSFetchRequest<Item> = Item.fetchRequest()
+		request.sortDescriptors = [
+			NSSortDescriptor(keyPath: \Item.creationDate, ascending: false)
+		]
+		request.fetchLimit = 10
+		items = FetchRequest(fetchRequest: request)
+	}
+	var body: some View {
+		List {
+		ForEach(self.items.wrappedValue) { item in
+			Text(item.itemText)
+				.padding()
+		}
+	}
+}
+```
+
+
+
 
