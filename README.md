@@ -144,7 +144,7 @@ struct ContentView: View {
 
 ## Display the date
 I add this computed property. Keeping in mind it is expensive to create a formatter, I will put this in my dataController
-```
+```swift
 var itemDate: String {
 		let date = creationDate ?? Date()
 		let formatter = DateFormatter()
