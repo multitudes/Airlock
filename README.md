@@ -145,15 +145,15 @@ struct ContentView: View {
 ## Display the date
 I add this computed property. Keeping in mind it is expensive to create a formatter, I will put this in my dataController
 ```
-var datetime: String {
-	let date = Date()
-	let formatter = DateFormatter()
-			formatter.locale = .autoupdatingCurrent
-			print(formatter.locale.identifier)
-	//formatter.timeZone = TimeZone(secondsFromGMT: timezone)
-	formatter.setLocalizedDateFormatFromTemplate("EEEE, MMMM d, h:mm a")
-	return formatter.string(from: date)
-}
+var itemDate: String {
+		let date = creationDate ?? Date()
+		let formatter = DateFormatter()
+				formatter.locale = .autoupdatingCurrent
+				print(formatter.locale.identifier)
+		//formatter.timeZone = TimeZone(secondsFromGMT: timezone)
+		formatter.setLocalizedDateFormatFromTemplate("EEEE, MMMM d, h:mm a")
+		return formatter.string(from: date)
+	}
 ```
 
 
