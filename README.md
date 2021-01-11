@@ -25,6 +25,11 @@ In all these cases, are we often not aware of how we carry our emotions from pla
 Two minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again.   
 Sometimes important decisions and conversations benefit from a fresh and mindful start.
 
+## Work in Progress
+
+This app is being developed in SwiftUI mostly for learning purposes. I am testing and adding new features like Core Data and Combine and will try to document the journey below.  
+
+
 ## Adding a log feature with Core Data
 
 I want to add the possibility to track the meditations and keep them in history. Also I want the user to be able to enter a text based feedback or thought, once a day.  
