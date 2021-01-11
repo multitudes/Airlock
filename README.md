@@ -7,7 +7,13 @@ https://testflight.apple.com/join/rfPbYjXH
 
 The concept of the app is simple. 
 
-We are inviting you to close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you close your eyes?
+We are inviting you to close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you try to focus on your breath?  
+In the app two more settings are available by long pressing on the title.  
+You can select 20 min or one hour. At the end of the meditation time there will be a soft bell sound or a vibration (on iPhone only).
+
+There are different animations in the app. The buttons, the ring slowly closing when the timer progresses and some clouds floating around when the meditation is in progress, in case you were peeking.
+
+There is a full fledged settings page and there will be the possibility to log the times of the meditation, currently in the works.
 
 <br>
 <p align="center">
