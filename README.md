@@ -167,6 +167,7 @@ var itemDate: String {
 
 ## The UI
 
-This is an example of the finished UI, allowing me to add a comment with a TextEditor, delete it or reset. All entries are stored in Core Data.
+This is an example of the finished UI, allowing me to add a comment with a TextEditor, delete it or reset. All entries are stored in Core Data and displayed in a List View. There is a max character count with the countdown displayed in a footer. If the max lines is reached this will be displayed too.  
+The placeholder text disappear when the editor is tapped.
 
-<img src="screens/history.gif" width="230"  title="Airlock">
+<img src="screens/history.gif" width="400"  title="Airlock">
