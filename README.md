@@ -165,3 +165,8 @@ var itemDate: String {
 	}
 ```
 
+## The UI
+
+This is an example of the finished UI, allowing me to add a comment with a TextEditor, delete it or reset. All entries are stored in Core Data.
+
+<img src="screens/history.gif" width="230"  title="Airlock">
