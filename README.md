@@ -7,7 +7,13 @@ https://testflight.apple.com/join/rfPbYjXH
 
 The concept of the app is simple. 
 
-We are inviting you to close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you close your eyes?
+We are inviting you to close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you try to focus on your breath?  
+In the app two more settings are available by long pressing on the title.  
+You can select 20 min or one hour. At the end of the meditation time there will be a soft bell sound or a vibration (on iPhone only).
+
+There are different animations in the app. The buttons, the ring slowly closing when the timer progresses and some clouds floating around when the meditation is in progress, in case you were peeking.
+
+There is a full fledged settings page and there will be the possibility to log the times of the meditation, currently in the works.
 
 <br>
 <p align="center">
@@ -24,6 +30,11 @@ Often we rush through things in life. From a stressful commute, an intense meeti
 In all these cases, are we often not aware of how we carry our emotions from place to place, meeting to meeting.  
 Two minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again.   
 Sometimes important decisions and conversations benefit from a fresh and mindful start.
+
+# ToDo - Work in Progress
+
+This app is being developed in SwiftUI mostly for learning purposes. I am testing and adding new features like Core Data and Combine and will try to document the journey below.  
+
 
 ## Adding a log feature with Core Data
 
@@ -154,3 +165,9 @@ var itemDate: String {
 	}
 ```
 
+## The UI
+
+This is an example of the finished UI, allowing me to add a comment with a TextEditor, delete it or reset. All entries are stored in Core Data and displayed in a List View. There is a max character count with the countdown displayed in a footer. If the max lines is reached this will be displayed too.  
+The placeholder text disappear when the editor is tapped.
+
+<img src="screens/history.gif" width="400"  title="Airlock">
