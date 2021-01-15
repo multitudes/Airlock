@@ -31,7 +31,7 @@ In all these cases, are we often not aware of how we carry our emotions from pla
 Two minutes of observing your breath are what you need to collect your thought, examine yourself and your sensation, re-base and be ready again.   
 Sometimes important decisions and conversations benefit from a fresh and mindful start.
 
-## Work in Progress
+# ToDo - Work in Progress
 
 This app is being developed in SwiftUI mostly for learning purposes. I am testing and adding new features like Core Data and Combine and will try to document the journey below.  
 
