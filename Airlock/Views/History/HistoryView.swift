@@ -26,7 +26,6 @@ struct HistoryView: View {
 	}
 	
 	var body: some View {
-		NavigationView {
 			List {
 				ForEach(items.wrappedValue) { item in
 					Section(header: HistorySectionView(item: item)) {
@@ -45,33 +44,35 @@ struct HistoryView: View {
 				}
 			}
 			.listStyle(InsetGroupedListStyle())
-			.navigationTitle("History")
+			.navigationBarTitle("History", displayMode: .inline)
+			.navigationViewStyle(StackNavigationViewStyle())
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: {
-						isPresented = true
-					}, label: {
-						Image(systemName: "plus")
-					}
-					)}
-				ToolbarItem(placement: .navigationBarLeading) {
 					Button(action: {
 						showingResetConfirm = true
 					}, label: {
 						Text("Reset")
 					})
-					.disabled(items.wrappedValue.isEmpty)
-				}
+					.disabled(items.wrappedValue.isEmpty)}
 			}
-			.sheet(isPresented: $isPresented) {
-				NavigationView {
-					AddTextView()
-				}
-			}
+//				ToolbarItem(placement: .navigationBarLeading) {
+//					Button(action: {
+//						showingResetConfirm = true
+//					}, label: {
+//						Text("Reset")
+//					})
+//					.disabled(items.wrappedValue.isEmpty)
+//				}
+//			//}
+//			.sheet(isPresented: $isPresented) {
+//				NavigationView {
+//					AddTextView()
+//				}
+//			}
 			.alert(isPresented: $showingResetConfirm) {
 				Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
 			}
-		}
+
 	}
 	
 	func reset() {

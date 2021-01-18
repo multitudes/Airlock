@@ -47,7 +47,6 @@ struct AddTextView: View {
 			Form {
 				Section(header: HeaderTextView, footer: FooterTextView) {
 					TextEditor(text: $inputText)
-						.foregroundColor(Color.gray)
 						.font(.custom("HelveticaNeue", size: 13))
 						.foregroundColor(self.inputText == placeholder ? .gray : .primary)
 						.frame(height: 230, alignment: .leading)

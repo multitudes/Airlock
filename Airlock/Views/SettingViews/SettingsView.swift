@@ -29,6 +29,8 @@ struct ActivityViewController: UIViewControllerRepresentable {
 }
 
 struct SettingsView: View {
+	@EnvironmentObject var dataController: DataController
+
 	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
 	@Environment(\.presentationMode) var presentationMode
 	
@@ -37,7 +39,7 @@ struct SettingsView: View {
 	@State var isShowingMailView = false
 	@State private var isRecommendAppPresented: Bool = false
 	@State var alertNoMail = false
-	
+
 	let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
 	
 	var isPhone: Bool {
@@ -119,7 +121,17 @@ struct SettingsView: View {
 						}
 						.accessibilityElement(children: .ignore)
 						.accessibility(label: Text("Data Privacy"))
-					}.listRowBackground(BackgroundGradient().opacity(0.2))
+
+						NavigationLink(destination: HistoryView()) {
+							HStack {
+								Image(systemName: "list.bullet.rectangle").padding(5)
+								Text("Logs")
+							}
+						}
+						.accessibilityElement(children: .ignore)
+						.accessibility(label: Text("Logs"))
+					}
+					.listRowBackground(BackgroundGradient().opacity(0.2))
 					
 					if isPhone {
 						Section(header: Text("Settings"), footer:
@@ -144,10 +156,10 @@ struct SettingsView: View {
 			}
 			.navigationBarTitle("Settings")
 			.navigationBarItems(trailing:
-				Button("Done") {
-					presentationMode.wrappedValue.dismiss()
-				}
-				.keyboardShortcut(.escape, modifiers: [])
+									Button("Done") {
+										presentationMode.wrappedValue.dismiss()
+									}
+									.keyboardShortcut(.escape, modifiers: [])
 			)
 		}.accentColor(.primary)
 		.foregroundColor(.primary)
@@ -158,12 +170,6 @@ struct SettingsView: View {
 struct TabTwo_Previews: PreviewProvider {
 	static var previews: some View {
 		SettingsView()
-			.preferredColorScheme(.light)
 	}
 }
-struct TabTwo_Previews_dark: PreviewProvider {
-	static var previews: some View {
-		SettingsView()
-			.preferredColorScheme(.dark)
-	}
-}
+
