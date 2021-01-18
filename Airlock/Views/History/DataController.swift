@@ -28,11 +28,11 @@ class DataController: ObservableObject {
 		}
 	}
 
-	func addItem(with text: String) throws {
+	func addItem(with text: String, duration: Int16) throws {
 		let viewContext = container.viewContext
 		let item = Item(context: viewContext)
 		item.creationDate = Date()
-		item.timeMeditated = 0
+		item.timeMeditated = duration
 		item.myText = text
 		try viewContext.save()
 	}

@@ -13,6 +13,7 @@ struct AddTextView: View {
 	//let item: Item
 	@EnvironmentObject var dataController: DataController
 	@Environment(\.managedObjectContext) var managedObjectContext
+	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
 
 	var date = Date()
 	var length: Int16 = 0
@@ -72,7 +73,7 @@ struct AddTextView: View {
 			ToolbarItem(placement: .navigationBarTrailing) {
 				Button {
 					lastMeditationDate = Date().addingTimeInterval(-1000000)
-					try? dataController.addItem(with: inputText)
+					try? dataController.addItem(with: inputText, duration: Int16(lastMeditationDuration))
 					dataController.objectWillChange.send()
 					presentationMode.wrappedValue.dismiss()
 				} label: {

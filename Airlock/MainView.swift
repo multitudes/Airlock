@@ -44,8 +44,11 @@ struct MainView: View {
 	@AppStorage("username") var username: String = "Anonymous"
 
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
-	//@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
+	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
+	@EnvironmentObject var dataController: DataController
+	@Environment(\.managedObjectContext) var managedObjectContext
 
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
@@ -54,8 +57,7 @@ struct MainView: View {
 	@State var showModal: Bool = false
 	@State var showAddNote: Bool = false
 	@State var isPresentingHistoryView = false
-	@EnvironmentObject var dataController: DataController
-	@Environment(\.managedObjectContext) var managedObjectContext
+
 
 	var noItems: Bool {
 		dataController.itemCount() == 0
@@ -66,7 +68,7 @@ struct MainView: View {
 	}
 
 	//#warning("After testing reset to 120")
-	var meditationTimerSeconds: Double = 4
+	//var meditationTimerSeconds: Double = 4
 	
 	var body: some View {
 		GeometryReader { geometry in
@@ -78,7 +80,6 @@ struct MainView: View {
 						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
 						Spacer()
 						NoteButton(showNote: $showAddNote)
-							.disabled(!addIsEnabled)
 						SettingsButton(showModal: $showModal)
 							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
 
@@ -156,6 +157,7 @@ struct MainView: View {
 		AppReviewRequest.requestReviewIfNeeded()
 		isOn = false
 		lastMeditationDate = Date()
+		lastMeditationDuration = Int(meditationTimerSeconds/60)
 		withAnimation(Animation.easeOut(duration: 1.2)){
 			showPopup = false
 		}

@@ -13,7 +13,6 @@ struct HistoryView: View {
 	@Environment(\.presentationMode) var presentationMode
 	let items: FetchRequest<Item>
 	
-	@State private var isPresented = false
 	@State private var showingResetConfirm = false
 	
 	init() {
@@ -66,11 +65,7 @@ struct HistoryView: View {
 					})
 				}
 			}
-//			.sheet(isPresented: $isPresented) {
-//				NavigationView {
-//					AddTextView()
-//				}
-//			}
+
 			.alert(isPresented: $showingResetConfirm) {
 				Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
 			}

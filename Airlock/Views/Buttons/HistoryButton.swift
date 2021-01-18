@@ -17,12 +17,13 @@ struct HistoryButton: View {
 		dataController.itemCount() == 0
 	}
 	var body: some View {
+		if !noItems {
 		Button(action: {
 			self.isPresentingHistoryView = true
 		}) {
-			if !noItems {
+
 			Image(systemName: "doc.plaintext.fill").foregroundColor(.white)
-			}
+
 		}
 		.fullScreenCover(isPresented: $isPresentingHistoryView) {
 			NavigationView {
@@ -33,6 +34,7 @@ struct HistoryButton: View {
 		}
 		.accessibility(label:Text("Show my history"))
 		.keyboardShortcut("h", modifiers: [.command])
+		}
 	}
 }
 
