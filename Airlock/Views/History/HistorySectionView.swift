@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-extension HistoryView {
-	init(){
-		UITableView.appearance().backgroundColor = .secondarySystemBackground
-	}
-}
+
 
 struct HistorySectionView: View {
 	@EnvironmentObject var dataController: DataController

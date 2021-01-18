@@ -17,6 +17,7 @@ struct HistoryView: View {
 	@State private var showingResetConfirm = false
 	
 	init() {
+		UITableView.appearance().backgroundColor = .secondarySystemBackground
 		let request: NSFetchRequest<Item> = Item.fetchRequest()
 		request.sortDescriptors = [
 			NSSortDescriptor(keyPath: \Item.creationDate, ascending: false)
@@ -44,8 +45,8 @@ struct HistoryView: View {
 				}
 			}
 			.listStyle(InsetGroupedListStyle())
-			.navigationBarTitle("History", displayMode: .inline)
-			.navigationViewStyle(StackNavigationViewStyle())
+			.navigationBarTitle("History")
+
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button(action: {
@@ -54,16 +55,15 @@ struct HistoryView: View {
 						Text("Reset")
 					})
 					.disabled(items.wrappedValue.isEmpty)}
+
+				ToolbarItem(placement: .navigationBarLeading) {
+					Button(action: {
+						presentationMode.wrappedValue.dismiss()
+					}, label: {
+						Text("Done")
+					})
+				}
 			}
-//				ToolbarItem(placement: .navigationBarLeading) {
-//					Button(action: {
-//						showingResetConfirm = true
-//					}, label: {
-//						Text("Reset")
-//					})
-//					.disabled(items.wrappedValue.isEmpty)
-//				}
-//			//}
 //			.sheet(isPresented: $isPresented) {
 //				NavigationView {
 //					AddTextView()
@@ -78,7 +78,7 @@ struct HistoryView: View {
 	func reset() {
 		dataController.objectWillChange.send()
 		try? dataController.deleteAll()
-		presentationMode.wrappedValue.dismiss()
+		//presentationMode.wrappedValue.dismiss()
 	}
 }
 

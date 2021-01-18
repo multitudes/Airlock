@@ -40,6 +40,7 @@ struct SettingsView: View {
 	@State private var isRecommendAppPresented: Bool = false
 	@State var alertNoMail = false
 
+
 	let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
 	
 	var isPhone: Bool {
@@ -122,14 +123,14 @@ struct SettingsView: View {
 						.accessibilityElement(children: .ignore)
 						.accessibility(label: Text("Data Privacy"))
 
-						NavigationLink(destination: HistoryView()) {
-							HStack {
-								Image(systemName: "list.bullet.rectangle").padding(5)
-								Text("Logs")
-							}
-						}
-						.accessibilityElement(children: .ignore)
-						.accessibility(label: Text("Logs"))
+//						NavigationLink(destination: HistoryView()) {
+//							HStack {
+//								Image(systemName: "list.bullet.rectangle").padding(5)
+//								Text("Logs")
+//							}
+//						}
+//						.accessibilityElement(children: .ignore)
+//						.accessibility(label: Text("Logs"))
 					}
 					.listRowBackground(BackgroundGradient().opacity(0.2))
 					

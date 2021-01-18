@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsButton: View {
-	@EnvironmentObject var dataController: DataController
 	@Binding var showModal: Bool
 
 	var body: some View {
@@ -18,7 +17,6 @@ struct SettingsButton: View {
 			Image(systemName: "gear").foregroundColor(.white)
 		}.sheet(isPresented: $showModal) {
 			SettingsView()
-				.environmentObject(dataController)
 		}
 		.accessibility(label:Text("Settings"))
 		.keyboardShortcut(",", modifiers: [.command])

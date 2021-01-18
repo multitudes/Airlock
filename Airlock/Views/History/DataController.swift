@@ -11,6 +11,11 @@ import SwiftUI
 class DataController: ObservableObject {
 	let container: NSPersistentCloudKitContainer
 
+	func itemCount() -> Int {
+		let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+		return (try? container.viewContext.count(for: fetchRequest)) ?? 0
+	}
+	
 	init(inMemory: Bool = false) {
 		container = NSPersistentCloudKitContainer(name: "Main")
 		if inMemory {
@@ -80,4 +85,6 @@ class DataController: ObservableObject {
 		_ = try? container.viewContext.execute(batchdeleteRequest)
 		try viewContext.save()
 	}
+
+	
 }

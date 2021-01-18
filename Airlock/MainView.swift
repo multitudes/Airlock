@@ -5,7 +5,9 @@
 //  Created by Laurent B on 28/08/2020.
 //
 import AVFoundation
+import CoreData
 import SwiftUI
+
 
 extension UIDevice {
 	static func vibrate() {
@@ -28,7 +30,15 @@ struct MainView: View {
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
-	@State var showNote: Bool = false
+	@State var showAddNote: Bool = false
+	@State var isPresentingHistoryView = false
+	@EnvironmentObject var dataController: DataController
+	@Environment(\.managedObjectContext) var managedObjectContext
+
+	var noItems: Bool {
+		dataController.itemCount() == 0
+	}
+
 	//#warning("After testing reset to 120")
 //	var meditationTimerSeconds: Double = 120
 	
@@ -39,7 +49,11 @@ struct MainView: View {
 
 				VStack {
 					HStack {
-						NoteButton(showNote: $showNote)
+						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
+
+
+						Spacer()
+						NoteButton(showNote: $showAddNote)
 						SettingsButton(showModal: $showModal)
 							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
 

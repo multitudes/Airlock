@@ -30,6 +30,7 @@
 		459A66252562EB6200F2DCCF /* EndPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66242562EB6200F2DCCF /* EndPopUpView.swift */; };
 		459A66292562EE3500F2DCCF /* OpaqueOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */; };
 		45A7D7A4250510FF00E77144 /* testview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7D7A3250510FF00E77144 /* testview.swift */; };
+		45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB333F25B5CBE000778CE4 /* HistoryButton.swift */; };
 		45BD1A2D25B5A7C70013B73F /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD1A2C25B5A7C70013B73F /* NoteButton.swift */; };
 		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
 		45D333E124FCECE5001E8EC1 /* PushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333E024FCECE5001E8EC1 /* PushButton.swift */; };
@@ -92,6 +93,7 @@
 		459A66242562EB6200F2DCCF /* EndPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPopUpView.swift; sourceTree = "<group>"; };
 		459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueOverlayView.swift; sourceTree = "<group>"; };
 		45A7D7A3250510FF00E77144 /* testview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
+		45BB333F25B5CBE000778CE4 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = "/Volumes/orico/Dhamma dvara/APPs/Airlock/Airlock/Views/Buttons/HistoryButton.swift"; sourceTree = "<absolute>"; };
 		45BD1A2C25B5A7C70013B73F /* NoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
 		45D333E024FCECE5001E8EC1 /* PushButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushButton.swift; sourceTree = "<group>"; };
@@ -173,9 +175,10 @@
 		45D333E624FD034A001E8EC1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				45BB333F25B5CBE000778CE4 /* HistoryButton.swift */,
+				45BD1A2C25B5A7C70013B73F /* NoteButton.swift */,
 				45D333E024FCECE5001E8EC1 /* PushButton.swift */,
 				45D333E224FCF299001E8EC1 /* SettingsButton.swift */,
-				45BD1A2C25B5A7C70013B73F /* NoteButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				45293ED9256E95BF00072FEA /* TimeIndicator.swift in Sources */,
 				4587595725B5ABDC00B61CD9 /* TextView.swift in Sources */,
 				4587595A25B5ABDC00B61CD9 /* DataController.swift in Sources */,
+				45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */,
 				4587594525B5AB5900B61CD9 /* AddTextView.swift in Sources */,
 				45D333E124FCECE5001E8EC1 /* PushButton.swift in Sources */,
 				4587595925B5ABDC00B61CD9 /* HistorySectionView.swift in Sources */,
