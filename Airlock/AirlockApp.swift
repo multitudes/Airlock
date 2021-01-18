@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct AirlockApp: App {
+	@StateObject var dataController: DataController
+
+	init() {
+		let dataController = DataController()
+		_dataController = StateObject(wrappedValue: dataController)
+	}
+
     var body: some Scene {
         WindowGroup {
             PreLaunch()
+				.environment(\.managedObjectContext, dataController.container.viewContext)
+				.environmentObject(dataController)
         }
     }
 }
+
+

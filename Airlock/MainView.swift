@@ -23,13 +23,12 @@ enum Settings {
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
-	//@FetchRequest(entity: Log.entity(), sortDescriptors: []) var log: FetchedResults<Log>
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
-
+	@State var showNote: Bool = false
 	//#warning("After testing reset to 120")
 //	var meditationTimerSeconds: Double = 120
 	
@@ -38,10 +37,20 @@ struct MainView: View {
 			ZStack {
 				BackgroundGradient()
 
-				SettingsButton(showModal: $showModal)
-					.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
+				VStack {
+					HStack {
+						NoteButton(showNote: $showNote)
+						SettingsButton(showModal: $showModal)
+							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
+
+					}
+					.frame(maxWidth: .infinity, alignment: .trailing)
 					.font(Font.system(size: 10 + geometry.size.width * 0.03))
-					.padding(.top, 10)
+					.padding([.horizontal], 10 + geometry.size.width * 0.03)
+					.padding(.top, 5 + geometry.size.width * 0.01)
+
+				}
+				.frame(maxHeight: .infinity, alignment: .top)
 
 				if isOn {
 					let timer = Timer.publish(every: 0.01, tolerance: 0.1, on: .main, in: .common).autoconnect()
@@ -123,9 +132,9 @@ struct MainView_Previews: PreviewProvider {
 	}
 }
 
-struct MainView_Previews_dark: PreviewProvider {
-	static var previews: some View {
-		MainView()
-			.preferredColorScheme(.dark)
-	}
-}
+//struct MainView_Previews_dark: PreviewProvider {
+//	static var previews: some View {
+//		MainView()
+//			.preferredColorScheme(.dark)
+//	}
+//}
