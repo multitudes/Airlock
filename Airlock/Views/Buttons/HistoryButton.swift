@@ -12,12 +12,16 @@ struct HistoryButton: View {
 	@EnvironmentObject var dataController: DataController
 	@Environment(\.managedObjectContext) var managedObjectContext
 	@Binding var isPresentingHistoryView: Bool
-	
+	var noItems: Bool {
+		dataController.itemCount() == 0
+	}
 	var body: some View {
 		Button(action: {
 			self.isPresentingHistoryView = true
 		}) {
+			if !noItems {
 			Image(systemName: "doc.plaintext.fill").foregroundColor(.white)
+			}
 		}
 		.fullScreenCover(isPresented: $isPresentingHistoryView) {
 			NavigationView {

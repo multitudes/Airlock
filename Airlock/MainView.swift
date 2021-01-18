@@ -50,7 +50,7 @@ struct MainView: View {
 				VStack {
 					HStack {
 						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
-
+							
 
 						Spacer()
 						NoteButton(showNote: $showAddNote)

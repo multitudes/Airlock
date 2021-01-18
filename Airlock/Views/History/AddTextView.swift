@@ -71,6 +71,7 @@ struct AddTextView: View {
 			ToolbarItem(placement: .navigationBarTrailing) {
 				Button {
 					try? dataController.addItem(with: inputText)
+					dataController.objectWillChange.send()
 					presentationMode.wrappedValue.dismiss()
 				} label: {
 					Text("Add")

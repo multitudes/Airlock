@@ -41,22 +41,24 @@ struct HistoryView: View {
 						let item = items.wrappedValue[offset]
 						dataController.delete(item)
 					}
+					dataController.objectWillChange.send()
 					dataController.save()
+
 				}
 			}
 			.listStyle(InsetGroupedListStyle())
 			.navigationBarTitle("History")
 
 			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: {
-						showingResetConfirm = true
-					}, label: {
-						Text("Reset")
-					})
-					.disabled(items.wrappedValue.isEmpty)}
+//				ToolbarItem(placement: .navigationBarTrailing) {
+//					Button(action: {
+//						showingResetConfirm = true
+//					}, label: {
+//						Text("Reset")
+//					})
+//					.disabled(items.wrappedValue.isEmpty)}
 
-				ToolbarItem(placement: .navigationBarLeading) {
+				ToolbarItem(placement: .navigationBarTrailing) {
 					Button(action: {
 						presentationMode.wrappedValue.dismiss()
 					}, label: {
