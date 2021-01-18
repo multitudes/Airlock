@@ -15,16 +15,38 @@ extension UIDevice {
 	}
 }
 
-
 enum Settings {
 	static let vibrateIsOn = "vibrateIsOn"
 	static let meditationTimerSeconds = "meditationTimerSeconds"
+	static let lastMeditationDate = "lastMeditationDate"
 }
 
+extension Date: RawRepresentable {
+	public init?(rawValue: String) {
+		guard let data = rawValue.data(using: .utf8),
+			  let result = try? JSONDecoder().decode(Date.self, from: data)
+		else {
+			return nil
+		}
+		self = result
+	}
+	public var rawValue: String {
+		guard let data = try? JSONEncoder().encode(self),
+			  let result = String(data: data, encoding: .utf8)
+		else {
+			return "[]"
+		}
+		return result
+	}
+}
 
 struct MainView: View {
+	@AppStorage("username") var username: String = "Anonymous"
+
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
-	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	//@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
+
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
@@ -39,8 +61,12 @@ struct MainView: View {
 		dataController.itemCount() == 0
 	}
 
+	var addIsEnabled: Bool {
+		Calendar.current.isDateInToday(lastMeditationDate)
+	}
+
 	//#warning("After testing reset to 120")
-//	var meditationTimerSeconds: Double = 120
+	var meditationTimerSeconds: Double = 4
 	
 	var body: some View {
 		GeometryReader { geometry in
@@ -50,10 +76,9 @@ struct MainView: View {
 				VStack {
 					HStack {
 						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
-							
-
 						Spacer()
 						NoteButton(showNote: $showAddNote)
+							.disabled(!addIsEnabled)
 						SettingsButton(showModal: $showModal)
 							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
 
@@ -79,11 +104,13 @@ struct MainView: View {
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
 								}
-								if vibrateIsOn == false {
-									playSound(sound: "gong.m4a")
-								} else {
+								if vibrateIsOn == true && UIDevice.current.name == "iPhone" {
 									UIDevice.vibrate()
+								} else {
+									playSound(sound: "gong.m4a")
+
 									print("vibrating!")
+									print(UIDevice.current.name)
 								}
 							}
 						}
@@ -128,6 +155,7 @@ struct MainView: View {
 	private func reset() {
 		AppReviewRequest.requestReviewIfNeeded()
 		isOn = false
+		lastMeditationDate = Date()
 		withAnimation(Animation.easeOut(duration: 1.2)){
 			showPopup = false
 		}

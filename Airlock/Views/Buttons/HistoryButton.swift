@@ -12,6 +12,7 @@ struct HistoryButton: View {
 	@EnvironmentObject var dataController: DataController
 	@Environment(\.managedObjectContext) var managedObjectContext
 	@Binding var isPresentingHistoryView: Bool
+	
 	var noItems: Bool {
 		dataController.itemCount() == 0
 	}

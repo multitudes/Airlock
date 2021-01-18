@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddTextView: View {
+	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date()
 	@Environment(\.presentationMode) var presentationMode
 	//let item: Item
 	@EnvironmentObject var dataController: DataController
@@ -70,6 +71,7 @@ struct AddTextView: View {
 		.toolbar {
 			ToolbarItem(placement: .navigationBarTrailing) {
 				Button {
+					lastMeditationDate = Date().addingTimeInterval(-1000000)
 					try? dataController.addItem(with: inputText)
 					dataController.objectWillChange.send()
 					presentationMode.wrappedValue.dismiss()

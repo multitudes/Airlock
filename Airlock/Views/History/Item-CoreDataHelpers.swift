@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 
 extension Item {
+
+	var isToday: Bool {
+		let date = creationDate ?? Date()
+		return Calendar.current.isDateInToday(date)
+	}
+
 	var itemText: String {
 		myText ?? ""
 	}
