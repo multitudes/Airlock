@@ -120,6 +120,8 @@ struct SettingsView: View {
 							}
 						}
 					}
+					.textCase(nil)
+					.font(.body)
 					
 					Section(header: Text("Data")){
 						Button(action: {}, label: {
@@ -128,14 +130,15 @@ struct SettingsView: View {
 						Button("Delete All Data") {
 							showingResetConfirm.toggle()
 						}
-						//.disabled(items.wrappedValue.isEmpty)}
+						.disabled(dataController.itemCount() == 0)
 						.accentColor(.red)
 					}
+					.textCase(nil)
+					.font(.body)
 					
 					if isPhone {
 						Section(header: Text("Settings"), footer:
-									Text("© Laurent Brusa v1.0 2020")
-									.bold()
+									Text("© Laurent Brusa v1.0 2021").padding(.vertical)
 									.accessibility(label: Text("©Laurent Brusa")))
 						{
 							Toggle(isOn: $vibrateIsOn,
@@ -147,13 +150,10 @@ struct SettingsView: View {
 									}
 								   })
 						}
+						.textCase(nil)
+						.font(.body)
 					}
 				}
-			}
-			.font(.body)
-			
-			.alert(isPresented: $showingResetConfirm) {
-				Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
 			}
 			.listStyle(InsetGroupedListStyle())
 			.background(Color.systemGroupedBackground)
@@ -165,13 +165,14 @@ struct SettingsView: View {
 									.keyboardShortcut(.return, modifiers: [.command])
 			)
 		}
+		.alert(isPresented: $showingResetConfirm) {
+			Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
+		}
 	}
 	func reset() {
 		dataController.objectWillChange.send()
 		try? dataController.deleteAll()
 		//presentationMode.wrappedValue.dismiss()
-		
-		
 	}
 }
 
