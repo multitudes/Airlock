@@ -41,10 +41,8 @@ extension Date: RawRepresentable {
 }
 
 struct MainView: View {
-	@AppStorage("username") var username: String = "Anonymous"
-
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
-	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	//@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
 	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
 	@EnvironmentObject var dataController: DataController
@@ -59,16 +57,8 @@ struct MainView: View {
 	@State var isPresentingHistoryView = false
 
 
-	var noItems: Bool {
-		dataController.itemCount() == 0
-	}
-
-	var addIsEnabled: Bool {
-		Calendar.current.isDateInToday(lastMeditationDate)
-	}
-
 	//#warning("After testing reset to 120")
-	//var meditationTimerSeconds: Double = 4
+	var meditationTimerSeconds: Double = 4
 	
 	var body: some View {
 		GeometryReader { geometry in
@@ -105,12 +95,11 @@ struct MainView: View {
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
 								}
-								if vibrateIsOn == true && UIDevice.current.name == "iPhone" {
+								if vibrateIsOn == true && UIDevice.current.name.contains("iPhone") {
 									UIDevice.vibrate()
+									print("vibrating!")
 								} else {
 									playSound(sound: "gong.m4a")
-
-									print("vibrating!")
 									print(UIDevice.current.name)
 								}
 							}
@@ -176,9 +165,3 @@ struct MainView_Previews: PreviewProvider {
 	}
 }
 
-//struct MainView_Previews_dark: PreviewProvider {
-//	static var previews: some View {
-//		MainView()
-//			.preferredColorScheme(.dark)
-//	}
-//}

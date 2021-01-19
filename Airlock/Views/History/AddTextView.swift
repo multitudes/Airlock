@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddTextView: View {
+	@AppStorage("addIsEnabled") var addIsEnabled2: Bool = false
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date()
 	@Environment(\.presentationMode) var presentationMode
 	//let item: Item

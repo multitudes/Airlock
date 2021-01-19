@@ -8,38 +8,25 @@
 import SwiftUI
 
 struct NoteButton: View {
-	@State private var animation = 0.0
 
 	@Environment(\.managedObjectContext) var managedObjectContext
 	@Binding var showNote: Bool
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
-
+	
 	var addIsEnabled: Bool {
 		Calendar.current.isDateInToday(lastMeditationDate)
 	}
 
 	var body: some View {
-		if addIsEnabled {
 		Button(action: {
 			self.showNote = true
 		}) {
-				Image(systemName: "pencil.tip.crop.circle.badge.plus").foregroundColor(.white)
+				Image(systemName: "pencil.tip.crop.circle.badge.plus")
 			}
+		.disabled(!addIsEnabled)
 		.padding(5)
 		.clipShape(Circle())
-		.foregroundColor(.white)
-		.overlay(
-			Circle()
-				.stroke(Color.white, lineWidth: 1.5)
-				.scaleEffect(CGFloat(1.2+animation))
-				.opacity(0.8-animation)
-		)
-		.onAppear {
-			withAnimation(Animation.easeOut(duration: 8).repeatForever(autoreverses: false)) {
-				animation = 1
-			}
-		}
-
+		.foregroundColor(.white).opacity(addIsEnabled ? 1 : 0.5)
 		.sheet(isPresented: $showNote) {
 			NavigationView {
 				AddTextView()
@@ -48,7 +35,7 @@ struct NoteButton: View {
 		}
 		.accessibility(label:Text("write a note"))
 		.keyboardShortcut("n", modifiers: [.command])
-		}
+
 	}
 }
 
