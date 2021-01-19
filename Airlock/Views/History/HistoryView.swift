@@ -13,8 +13,6 @@ struct HistoryView: View {
 	@Environment(\.presentationMode) var presentationMode
 	let items: FetchRequest<Item>
 	
-	@State private var showingResetConfirm = false
-	
 	init() {
 		UITableView.appearance().backgroundColor = .secondarySystemBackground
 		let request: NSFetchRequest<Item> = Item.fetchRequest()
@@ -26,56 +24,37 @@ struct HistoryView: View {
 	}
 	
 	var body: some View {
-			List {
-				ForEach(items.wrappedValue) { item in
-					Section(header: HistorySectionView(item: item)) {
-						if !item.itemText.isEmpty {
-							TextView(item: item)
-						}
+		List {
+			ForEach(items.wrappedValue) { item in
+				Section(header: HistorySectionView(item: item)) {
+					if !item.itemText.isEmpty {
+						TextView(item: item)
 					}
-					.textCase(nil)
 				}
-				.onDelete { offsets in
-					for offset in offsets {
-						let item = items.wrappedValue[offset]
-						dataController.delete(item)
-					}
-					dataController.objectWillChange.send()
-					dataController.save()
-
+				.textCase(nil)
+			}
+			.onDelete { offsets in
+				for offset in offsets {
+					let item = items.wrappedValue[offset]
+					dataController.delete(item)
 				}
+				dataController.objectWillChange.send()
+				dataController.save()
+				
 			}
-			.listStyle(InsetGroupedListStyle())
-			.navigationBarTitle("History")
-
-			.toolbar {
-//				ToolbarItem(placement: .navigationBarTrailing) {
-//					Button(action: {
-//						showingResetConfirm = true
-//					}, label: {
-//						Text("Reset")
-//					})
-//					.disabled(items.wrappedValue.isEmpty)}
-
-				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: {
-						presentationMode.wrappedValue.dismiss()
-					}, label: {
-						Text("Done")
-					})
-				}
+		}
+		.listStyle(InsetGroupedListStyle())
+		.navigationBarTitle("History")
+		
+		.toolbar {
+			ToolbarItem(placement: .navigationBarTrailing) {
+				Button(action: {
+					presentationMode.wrappedValue.dismiss()
+				}, label: {
+					Text("Done")
+				})
 			}
-
-			.alert(isPresented: $showingResetConfirm) {
-				Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
-			}
-
-	}
-	
-	func reset() {
-		dataController.objectWillChange.send()
-		try? dataController.deleteAll()
-		//presentationMode.wrappedValue.dismiss()
+		}
 	}
 }
 
