@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsButton: View {
-
 	@Binding var showModal: Bool
 
 	var body: some View {

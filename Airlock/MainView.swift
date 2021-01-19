@@ -5,7 +5,9 @@
 //  Created by Laurent B on 28/08/2020.
 //
 import AVFoundation
+import CoreData
 import SwiftUI
+
 
 extension UIDevice {
 	static func vibrate() {
@@ -13,35 +15,72 @@ extension UIDevice {
 	}
 }
 
-
 enum Settings {
 	static let vibrateIsOn = "vibrateIsOn"
 	static let meditationTimerSeconds = "meditationTimerSeconds"
+	static let lastMeditationDate = "lastMeditationDate"
 }
 
+extension Date: RawRepresentable {
+	public init?(rawValue: String) {
+		guard let data = rawValue.data(using: .utf8),
+			  let result = try? JSONDecoder().decode(Date.self, from: data)
+		else {
+			return nil
+		}
+		self = result
+	}
+	public var rawValue: String {
+		guard let data = try? JSONEncoder().encode(self),
+			  let result = String(data: data, encoding: .utf8)
+		else {
+			return "[]"
+		}
+		return result
+	}
+}
 
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
-	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
-	//@FetchRequest(entity: Log.entity(), sortDescriptors: []) var log: FetchedResults<Log>
+	//@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
+	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
+	@EnvironmentObject var dataController: DataController
+	@Environment(\.managedObjectContext) var managedObjectContext
+
 	@State var progress: Double = 0.0
 	@State var isOn: Bool = false
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
+	//@State var showAddNote: Bool = false
+	@State var isPresentingHistoryView = false
+
 
 	//#warning("After testing reset to 120")
-//	var meditationTimerSeconds: Double = 120
+	var meditationTimerSeconds: Double = 4
 	
 	var body: some View {
 		GeometryReader { geometry in
 			ZStack {
 				BackgroundGradient()
 
-				SettingsButton(showModal: $showModal)
-					.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
+				VStack {
+					HStack {
+						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
+						Spacer()
+						NoteButton()
+						SettingsButton(showModal: $showModal)
+							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
+
+					}
+					.frame(maxWidth: .infinity, alignment: .trailing)
 					.font(Font.system(size: 10 + geometry.size.width * 0.03))
-					.padding(.top, 10)
+					.padding([.horizontal], 10 + geometry.size.width * 0.03)
+					.padding(.top, 5 + geometry.size.width * 0.01)
+
+				}
+				.frame(maxHeight: .infinity, alignment: .top)
 
 				if isOn {
 					let timer = Timer.publish(every: 0.01, tolerance: 0.1, on: .main, in: .common).autoconnect()
@@ -56,11 +95,12 @@ struct MainView: View {
 								withAnimation(Animation.easeInOut(duration: 0.3)) {
 									showPopup = true
 								}
-								if vibrateIsOn == false {
-									playSound(sound: "gong.m4a")
-								} else {
+								if vibrateIsOn == true && UIDevice.current.name.contains("iPhone") {
 									UIDevice.vibrate()
 									print("vibrating!")
+								} else {
+									playSound(sound: "gong.m4a")
+									print(UIDevice.current.name)
 								}
 							}
 						}
@@ -105,6 +145,8 @@ struct MainView: View {
 	private func reset() {
 		AppReviewRequest.requestReviewIfNeeded()
 		isOn = false
+		lastMeditationDate = Date()
+		lastMeditationDuration = Int(meditationTimerSeconds/60)
 		withAnimation(Animation.easeOut(duration: 1.2)){
 			showPopup = false
 		}
@@ -123,9 +165,3 @@ struct MainView_Previews: PreviewProvider {
 	}
 }
 
-struct MainView_Previews_dark: PreviewProvider {
-	static var previews: some View {
-		MainView()
-			.preferredColorScheme(.dark)
-	}
-}
