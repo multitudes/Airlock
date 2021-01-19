@@ -10,7 +10,7 @@ import SwiftUI
 struct NoteButton: View {
 
 	@Environment(\.managedObjectContext) var managedObjectContext
-	@Binding var showNote: Bool
+	@State var showNote: Bool = false
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
 	
 	var addIsEnabled: Bool {
@@ -41,7 +41,7 @@ struct NoteButton: View {
 
 struct NoteButton_Previews: PreviewProvider {
 	static var previews: some View {
-		NoteButton(showNote: .constant(true))
+		NoteButton()
 			.background(Color.red)
 	}
 }

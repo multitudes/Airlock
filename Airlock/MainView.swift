@@ -53,7 +53,7 @@ struct MainView: View {
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
-	@State var showAddNote: Bool = false
+	//@State var showAddNote: Bool = false
 	@State var isPresentingHistoryView = false
 
 
@@ -69,7 +69,7 @@ struct MainView: View {
 					HStack {
 						HistoryButton(isPresentingHistoryView: $isPresentingHistoryView)
 						Spacer()
-						NoteButton(showNote: $showAddNote)
+						NoteButton()
 						SettingsButton(showModal: $showModal)
 							//.position(x: geometry.size.width * 0.92, y: geometry.size.width * 0.03)
 

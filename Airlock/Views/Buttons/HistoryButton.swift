@@ -16,6 +16,7 @@ struct HistoryButton: View {
 	var noItems: Bool {
 		dataController.itemCount() == 0
 	}
+
 	var body: some View {
 		Button(action: {
 			self.isPresentingHistoryView = true

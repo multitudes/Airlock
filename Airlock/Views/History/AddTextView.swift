@@ -80,7 +80,9 @@ struct AddTextView: View {
 				} label: {
 					Text("Add")
 				}
+				.keyboardShortcut(.return, modifiers: [.command])
 				.disabled(letterCount > 280 || lineCount > 14 || inputText == placeholder || inputText.count == 0)
+
 			}
 			ToolbarItem(placement: .navigationBarLeading) {
 				Button {
@@ -88,6 +90,7 @@ struct AddTextView: View {
 				} label: {
 					Text("Cancel")
 				}
+				.keyboardShortcut(.escape, modifiers: [])
 			}
 		}
 		.background(Color.systemGroupedBackground).ignoresSafeArea()

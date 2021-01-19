@@ -17,18 +17,17 @@ struct PreLaunch: View {
             if showMainView {
 				MainView()
             } else {
-                
                 ZStack {
                     BackgroundGradient()
                         .opacity(opacity)
                 }
             }
-        }.onAppear {
+        }
+		.onAppear {
             withAnimation(.linear(duration: 2)) {
                 opacity = 1
                 showMainView = true
             }
-
         }
     }
 }
