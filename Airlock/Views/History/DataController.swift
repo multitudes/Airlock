@@ -86,5 +86,26 @@ class DataController: ObservableObject {
 		try viewContext.save()
 	}
 
-	
+	@Published var items: [Item] = []
+
+	private static var documentsFolder: URL {
+		do {
+			return try FileManager.default.url(for: .documentDirectory,
+										in: .userDomainMask,
+										appropriateFor: nil,
+										create: false)
+		} catch {
+			fatalError("Can't find documents directory.")
+		}
+	}
+
+	private static var fileURL: URL {
+		return documentsFolder.appendingPathComponent("personalNotes.data")
+	}
+	func load() {
+		//DispatchQueue.global(qos: .background)
+	   }
+
 }
+
+
