@@ -124,9 +124,11 @@ struct SettingsView: View {
 					.font(.body)
 					
 					Section(header: Text("Data")){
-						Button(action: {}, label: {
+						Button(action: {
+							dataController.saveToFile()
+						}, label: {
 							Text("Export Data to CSV")
-						}).disabled(true)
+						})//.disabled(true)
 						Button("Delete All Data") {
 							showingResetConfirm.toggle()
 						}
