@@ -76,15 +76,60 @@ class DataController: ObservableObject {
 	}
 
 	func deleteAll() throws {
-
 		let viewContext = container.viewContext
-
 		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
 		let batchdeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
 		_ = try? container.viewContext.execute(batchdeleteRequest)
 		try viewContext.save()
 	}
 
-	
+	private static var documentsFolder: URL {
+		do {
+			return try FileManager.default.url(for: .documentDirectory,
+										in: .userDomainMask,
+										appropriateFor: nil,
+										create: false)
+		} catch {
+			fatalError("Can't find documents directory.")
+		}
+	}
+
+	private static var fileURL: URL {
+		return documentsFolder.appendingPathComponent("personalNotes.data")
+	}
+
+//	func load() {
+//		DispatchQueue.global(qos: .background).async { [weak self] in
+//			guard let data = try? Data(contentsOf: Self.fileURL) else {return}
+//
+//			guard let items  = try? JSONDecoder().decode([Item].self, from: data) else {
+//			fatalError()
+//		}
+//		DispatchQueue.main.async {
+//			self?.items = items
+//		}
+//	   }
+//	}
+
+	func saveToFile() {
+		let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+		fetchRequest.sortDescriptors = [
+			NSSortDescriptor(keyPath: \Item.creationDate, ascending: false)
+		]
+		let fetchedItems = FetchRequest(fetchRequest: fetchRequest)
+		var items: [Item] = []
+		for item in fetchedItems.wrappedValue {
+			items.append(item)
+		}
+		DispatchQueue.global(qos: .background).async {
+			guard let data = try? JSONEncoder().encode(items) else { fatalError()}
+			do {
+				let outfile = Self.fileURL
+				try data.write(to: outfile)
+				print(Self.fileURL)
+			} catch {
+				fatalError()
+			}
+		}
+	}
 }
