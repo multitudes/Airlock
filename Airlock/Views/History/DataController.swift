@@ -76,12 +76,9 @@ class DataController: ObservableObject {
 	}
 
 	func deleteAll() throws {
-
 		let viewContext = container.viewContext
-
 		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
 		let batchdeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
 		_ = try? container.viewContext.execute(batchdeleteRequest)
 		try viewContext.save()
 	}
@@ -126,8 +123,6 @@ class DataController: ObservableObject {
 		}
 		DispatchQueue.global(qos: .background).async {
 			guard let data = try? JSONEncoder().encode(items) else { fatalError()}
-			print(Self.fileURL)
-
 			do {
 				let outfile = Self.fileURL
 				try data.write(to: outfile)
@@ -135,10 +130,6 @@ class DataController: ObservableObject {
 			} catch {
 				fatalError()
 			}
-
 		}
-
 	}
 }
-
-

@@ -16,7 +16,7 @@ struct DataSettings: View {
 			Button(action: {
 				dataController.saveToFile()
 			}, label: {
-				Text("Export Data to CSV")
+				Text("Backup Data")
 			})
 			Button("Delete All Data") {
 				showingResetConfirm.toggle()

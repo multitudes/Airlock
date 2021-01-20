@@ -42,7 +42,7 @@ extension Date: RawRepresentable {
 
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
-	//@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
+	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
 	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
 	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
 	@EnvironmentObject var dataController: DataController
@@ -53,12 +53,10 @@ struct MainView: View {
 	@State var showPopup = false
 	@State var dismissCount: Int = 4
 	@State var showModal: Bool = false
-	//@State var showAddNote: Bool = false
 	@State var isPresentingHistoryView = false
 
-
 	//#warning("After testing reset to 120")
-	var meditationTimerSeconds: Double = 4
+	//var meditationTimerSeconds: Double = 4
 	
 	var body: some View {
 		GeometryReader { geometry in
