@@ -30,7 +30,7 @@ struct ActivityViewController: UIViewControllerRepresentable {
 
 struct SettingsView: View {
 	@EnvironmentObject var dataController: DataController
-
+	
 	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
 	@Environment(\.presentationMode) var presentationMode
 	
@@ -39,8 +39,8 @@ struct SettingsView: View {
 	@State var isShowingMailView = false
 	@State private var isRecommendAppPresented: Bool = false
 	@State var alertNoMail = false
-
-
+	@State private var showingResetConfirm = false
+	
 	let myAppStoreURL = "https://apps.apple.com/us/app/two-minutes-meditation/id1530067435"
 	
 	var isPhone: Bool {
@@ -48,16 +48,16 @@ struct SettingsView: View {
 	}
 	
 	init(){
-		UITableView.appearance().backgroundColor = .clear
+		UITableView.appearance().backgroundColor = .secondarySystemBackground
+		//UITableView.appearance().backgroundColor = .clear
 	}
 	
 	var body: some View {
 		NavigationView {
-			ZStack{
-				BackgroundGradient().opacity(0.2)
-				Form {
+			Form {
+				List {
 					Section(header: Text("General"), footer: isPhone ? AnyView(Text("")) :
-								AnyView(Text("©Laurent Brusa v1.0 2020")
+								AnyView(Text("© Laurent Brusa v1.0 2021")
 											.accessibility(label: Text("©Laurent Brusa")))
 					) {
 						NavigationLink(destination: AboutThisApp()) {
@@ -68,6 +68,15 @@ struct SettingsView: View {
 							.accessibilityElement(children: .ignore)
 							.accessibility(label: Text("AboutThisApp"))
 						}
+						
+						NavigationLink(destination: PrivacyView()) {
+							HStack {
+								Image(systemName: "doc.text.magnifyingglass").padding(5)
+								Text("Privacy")
+							}
+						}
+						.accessibilityElement(children: .ignore)
+						.accessibility(label: Text("Data Privacy"))
 						
 						Button(action: {
 							self.isRecommendAppPresented = true
@@ -83,7 +92,6 @@ struct SettingsView: View {
 							}
 						})
 						
-						
 						Link(destination: URL(string: "https://testflight.apple.com/join/rfPbYjXH")!) {
 							HStack {
 								Image(systemName: "star").padding(5)
@@ -92,7 +100,6 @@ struct SettingsView: View {
 							.accessibilityElement(children: .ignore)
 							.accessibility(label: Text("Rate this App"))
 						}
-						
 						
 						Button(action: {
 							isShowingMailView = true
@@ -112,32 +119,26 @@ struct SettingsView: View {
 								Alert(title: Text("Please set up your email account on your Apple device to send a feedback"))
 							}
 						}
-						
-						
-						NavigationLink(destination: PrivacyView()) {
-							HStack {
-								Image(systemName: "doc.text.magnifyingglass").padding(5)
-								Text("Privacy")
-							}
-						}
-						.accessibilityElement(children: .ignore)
-						.accessibility(label: Text("Data Privacy"))
-
-//						NavigationLink(destination: HistoryView()) {
-//							HStack {
-//								Image(systemName: "list.bullet.rectangle").padding(5)
-//								Text("Logs")
-//							}
-//						}
-//						.accessibilityElement(children: .ignore)
-//						.accessibility(label: Text("Logs"))
 					}
-					.listRowBackground(BackgroundGradient().opacity(0.2))
+					.textCase(nil)
+					.font(.body)
+					
+					Section(header: Text("Data")){
+						Button(action: {}, label: {
+							Text("Export Data to CSV")
+						}).disabled(true)
+						Button("Delete All Data") {
+							showingResetConfirm.toggle()
+						}
+						.disabled(dataController.itemCount() == 0)
+						.accentColor(.red)
+					}
+					.textCase(nil)
+					.font(.body)
 					
 					if isPhone {
 						Section(header: Text("Settings"), footer:
-									Text("© Laurent Brusa v1.0 2020")
-									.bold()
+									Text("© Laurent Brusa v1.0 2021").padding(.vertical)
 									.accessibility(label: Text("©Laurent Brusa")))
 						{
 							Toggle(isOn: $vibrateIsOn,
@@ -148,22 +149,30 @@ struct SettingsView: View {
 										Text("Vibrate Only")
 									}
 								   })
-							
 						}
-						.listRowBackground(BackgroundGradient().opacity(0.2))
+						.textCase(nil)
+						.font(.body)
 					}
-				}.font(.body)
-				
+				}
 			}
+			.listStyle(InsetGroupedListStyle())
+			.background(Color.systemGroupedBackground)
 			.navigationBarTitle("Settings")
 			.navigationBarItems(trailing:
 									Button("Done") {
 										presentationMode.wrappedValue.dismiss()
 									}
-									.keyboardShortcut(.escape, modifiers: [])
+									.keyboardShortcut(.return, modifiers: [.command])
 			)
-		}.accentColor(.primary)
-		.foregroundColor(.primary)
+		}
+		.alert(isPresented: $showingResetConfirm) {
+			Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
+		}
+	}
+	func reset() {
+		dataController.objectWillChange.send()
+		try? dataController.deleteAll()
+		//presentationMode.wrappedValue.dismiss()
 	}
 }
 

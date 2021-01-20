@@ -9,19 +9,19 @@ import SwiftUI
 
 struct DisplayItemView: View {
 	@ObservedObject var item: Item
+
 	var body: some View {
 		List {
 			Section(header: HistorySectionView(item: item)) {
 				Text(item.itemText)
+					.font(.body)
 			}
-			//.frame(maxWidth: .infinity, alignment: .center)
 		}
 		.background(Color.secondarySystemGroupedBackground)
 		.cornerRadius(10)
 		.shadow(color: Color.black.opacity(0.2), radius: 5)
 		.listStyle(InsetGroupedListStyle())
 		.ignoresSafeArea()
-
 	}
 }
 

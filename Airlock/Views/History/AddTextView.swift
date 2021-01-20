@@ -50,10 +50,9 @@ struct AddTextView: View {
 			Form {
 				Section(header: HeaderTextView, footer: FooterTextView) {
 					TextEditor(text: $inputText)
-						.font(.custom("HelveticaNeue", size: 13))
+						.font(.body)
 						.foregroundColor(self.inputText == placeholder ? .gray : .primary)
 						.frame(height: 230, alignment: .leading)
-						.lineLimit(3)
 						.onTapGesture {
 							if self.inputText == "This is some editable text..." {
 								self.inputText = ""
