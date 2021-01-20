@@ -32,6 +32,8 @@
 		459A66292562EE3500F2DCCF /* OpaqueOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */; };
 		45A7D7A4250510FF00E77144 /* testview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7D7A3250510FF00E77144 /* testview.swift */; };
 		45B3FF6525B88EC1001C7B84 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */; };
+		45B3FF7225B8A36B001C7B84 /* DataSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7125B8A36B001C7B84 /* DataSettings.swift */; };
+		45B3FF7A25B8A504001C7B84 /* SettingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */; };
 		45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB333F25B5CBE000778CE4 /* HistoryButton.swift */; };
 		45BD1A2D25B5A7C70013B73F /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD1A2C25B5A7C70013B73F /* NoteButton.swift */; };
 		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
@@ -97,6 +99,8 @@
 		459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueOverlayView.swift; sourceTree = "<group>"; };
 		45A7D7A3250510FF00E77144 /* testview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
 		45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
+		45B3FF7125B8A36B001C7B84 /* DataSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettings.swift; sourceTree = "<group>"; };
+		45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionView.swift; sourceTree = "<group>"; };
 		45BB333F25B5CBE000778CE4 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = "/Volumes/orico/Dhamma dvara/APPs/Airlock/Airlock/Views/Buttons/HistoryButton.swift"; sourceTree = "<absolute>"; };
 		45BD1A2C25B5A7C70013B73F /* NoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
@@ -283,6 +287,8 @@
 				45EB039324FD0BBC00ED5BE4 /* MailView.swift */,
 				45F2898E24FD19C9003370EF /* PrivacyView.swift */,
 				454CBB5F24F8FCEB001015F5 /* SettingsView.swift */,
+				45B3FF7125B8A36B001C7B84 /* DataSettings.swift */,
+				45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */,
 				45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */,
 			);
 			path = SettingsView;
@@ -466,8 +472,10 @@
 				4587595B25B5ABDC00B61CD9 /* HistoryView.swift in Sources */,
 				454CBB6024F8FCEB001015F5 /* SettingsView.swift in Sources */,
 				45BD1A2D25B5A7C70013B73F /* NoteButton.swift in Sources */,
+				45B3FF7A25B8A504001C7B84 /* SettingSectionView.swift in Sources */,
 				45D4CCEE24F10641001C6F83 /* Color+Ext.swift in Sources */,
 				45A7D7A4250510FF00E77144 /* testview.swift in Sources */,
+				45B3FF7225B8A36B001C7B84 /* DataSettings.swift in Sources */,
 				459A66292562EE3500F2DCCF /* OpaqueOverlayView.swift in Sources */,
 				450A52D924FA3F8B00639785 /* AboutThisApp.swift in Sources */,
 				454CBB6424F90778001015F5 /* BackgroundGradient.swift in Sources */,

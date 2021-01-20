@@ -29,18 +29,12 @@ struct ActivityViewController: UIViewControllerRepresentable {
 }
 
 struct SettingsView: View {
-	@EnvironmentObject var dataController: DataController
-	
-	@AppStorage("vibrateIsOn") var vibrateIsOn: Bool = false
 	@Environment(\.presentationMode) var presentationMode
-	
-	@State var toggleIsOn: Bool = false
-	@State private var showingResetConfirm = false
 
 	var isPhone: Bool {
 		UIDevice.current.userInterfaceIdiom == .phone
 	}
-
+	
 	init(){
 		UITableView.appearance().backgroundColor = .secondarySystemBackground
 		//UITableView.appearance().backgroundColor = .clear
@@ -51,42 +45,14 @@ struct SettingsView: View {
 			Form {
 				List {
 					GeneralSettings()
-					.textCase(nil)
-					.font(.body)
 					
-					Section(header: Text("Data")){
-						Button(action: {
-							dataController.saveToFile()
-						}, label: {
-							Text("Export Data to CSV")
-						})//.disabled(true)
-						Button("Delete All Data") {
-							showingResetConfirm.toggle()
-						}
-						.accentColor(.red)
-					}
-					.disabled(dataController.itemCount() == 0)
-					.textCase(nil)
-					.font(.body)
-					
+					DataSettings()
 					if isPhone {
-						Section(header: Text("Settings"), footer:
-									Text("© Laurent Brusa v1.0 2021").padding(.vertical)
-									.accessibility(label: Text("©Laurent Brusa")))
-						{
-							Toggle(isOn: $vibrateIsOn,
-								   label: {
-									HStack {
-										Image(systemName: "speaker.slash").padding(5)
-											.accessibility(hidden: true)
-										Text("Vibrate Only")
-									}
-								   })
-						}
-						.textCase(nil)
-						.font(.body)
+						SettingSectionView()
 					}
 				}
+				.textCase(nil)
+				.font(.body)
 			}
 			.listStyle(InsetGroupedListStyle())
 			.background(Color.systemGroupedBackground)
@@ -98,14 +64,6 @@ struct SettingsView: View {
 									.keyboardShortcut(.return, modifiers: [.command])
 			)
 		}
-		.alert(isPresented: $showingResetConfirm) {
-			Alert(title: Text("Reset"), message: Text("Reset will delete all entries and it is irreversible"), primaryButton: .destructive(Text("Do It!"), action: reset), secondaryButton: .cancel())
-		}
-	}
-	func reset() {
-		dataController.objectWillChange.send()
-		try? dataController.deleteAll()
-		//presentationMode.wrappedValue.dismiss()
 	}
 }
 
