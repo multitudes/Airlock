@@ -5,15 +5,36 @@ https://testflight.apple.com/join/rfPbYjXH
 
 ## A two minutes meditation app.
 
-The concept of the app is simple. 
+The concept of the app is simple. I believe the best ideas come when in a relaxed mental state.
 
-We are inviting you to close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you try to focus on your breath?  
+Research shows that the brain has two main working modes, the focused and the diffused one, and each one activates a different region in the brain.  
+The focused mode is helpful to solve a set of problems which are known beforehand and in learning and memorize things, but can be limiting in the creative approach in solving a problem.  Often you will find that you get the solution to a problem aftere a goiod night sleep or a walk. This is because your brain switched from focused to the diffuse mode and could explore different paths bringing you to different ideas.  
+
+Meditation is similar but something else again, because you do not focus on a problem but you bring your attention on something like your breath, which is observable and always there. Sensations on your body are another great way to sharpen and focus your attention.  During meditation your mind might wander away and this is ok too as long as you train your mind to come back into focus. I would call meditation a diffused focused mode, bringing some benefit of both modes.
+
+This app invites you to try out meditation in 2 minutes sessions. After meditating the app gives the option to enter a comment. 
+
+Close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you try to focus on your breath?  
 In the app two more settings are available by long pressing on the title.  
-You can select 20 min or one hour. At the end of the meditation time there will be a soft bell sound or a vibration (on iPhone only).
+You can select 20 min or one hour. At the end of the meditation time there will be a soft bell sound or a vibration (the last one on iPhone only).
 
-There are different animations in the app. The buttons, the ring slowly closing when the timer progresses and some clouds floating around when the meditation is in progress, in case you were peeking.
+## Features
 
-There is a full fledged settings page and there will be the possibility to log the times of the meditation, currently in the works.
+I developed this app because I am interested in neuroscience and meditation but also because I needed a side project.  
+
+- The technological stack used is iOS with SwiftUI universal app.
+- It is for iOS iPadOS amd macOS.
+- It accessible for Voiceover for vision impaired users.
+- I created a test suite including some UITests. In progress. 
+- Once the user has meditated the "Add A Note" button is highlighted and he/she can enter a note if he/she likes
+- I use CoreData for storing the logs and text entered by the user.
+- CloudKit syncs between devices in the background.
+- I use the AVFoundation framework to play sounds. On the iPhone I make use of the vibration mode to signal the end of the meditation.
+- There are many SwiftUI animations, on the buttons and on the main ring. Clouds will appear on the screen during the meditation.
+- In the settings page I give option to recommend the app, and to post a rating on the app store.
+- The user can send me an email from the app for support.
+- There is a soft reminder with a pop up for an app review when a new update is released, max three times per year.
+- The user can make a back up of his data in json or csv format
 
 <br>
 <p align="center">
@@ -34,7 +55,7 @@ Sometimes important decisions and conversations benefit from a fresh and mindful
 # ToDo - Work in Progress
 
 This app is being developed in SwiftUI mostly for learning purposes. I am testing and adding new features like Core Data and Combine and will try to document the journey below.  
-
+Also planned is an onboarding for first users of the app.
 
 ## Adding a log feature with Core Data
 
