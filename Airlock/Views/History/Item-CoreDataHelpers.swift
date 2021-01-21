@@ -8,9 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Item: Identifiable, Codable {
-
-	
+extension Item: Identifiable {
 
 	var isToday: Bool {
 		let date = creationDate ?? Date()

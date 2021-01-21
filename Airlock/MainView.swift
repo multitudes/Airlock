@@ -55,6 +55,8 @@ struct MainView: View {
 	@State var showModal: Bool = false
 	@State var isPresentingHistoryView = false
 
+	@StateObject var meditationTimer = MeditationTimer()
+
 	//#warning("After testing reset to 120")
 	//var meditationTimerSeconds: Double = 4
 	
