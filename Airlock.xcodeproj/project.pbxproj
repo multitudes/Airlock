@@ -100,6 +100,7 @@
 		459A66242562EB6200F2DCCF /* EndPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPopUpView.swift; sourceTree = "<group>"; };
 		459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueOverlayView.swift; sourceTree = "<group>"; };
 		45A7D7A3250510FF00E77144 /* testview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
+		45AB5EEC25BC512A00CF3D30 /* Airlock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Airlock.entitlements; sourceTree = "<group>"; };
 		45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		45B3FF7125B8A36B001C7B84 /* DataSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettings.swift; sourceTree = "<group>"; };
 		45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionView.swift; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 		45D4CCDC24F1050F001C6F83 /* Airlock */ = {
 			isa = PBXGroup;
 			children = (
+				45AB5EEC25BC512A00CF3D30 /* Airlock.entitlements */,
 				45B3FF8625B9A62D001C7B84 /* Timer */,
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
 				4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */,
@@ -717,9 +719,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Airlock/Airlock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Airlock/Preview Content\"";
 				DEVELOPMENT_TEAM = GGXD5E6AF8;
 				ENABLE_PREVIEWS = YES;
@@ -732,6 +735,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurentbrusa.Airlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -742,9 +746,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Airlock/Airlock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Airlock/Preview Content\"";
 				DEVELOPMENT_TEAM = GGXD5E6AF8;
 				ENABLE_PREVIEWS = YES;
@@ -757,6 +762,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurentbrusa.Airlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
