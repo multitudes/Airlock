@@ -5,15 +5,11 @@
 //  Created by Laurent B on 20/01/2021.
 //
 
-import MessageUI
 import SwiftUI
 
 struct GeneralSettings: View {
-	@State var isShowingMailView = false
 	@State private var isRecommendAppPresented: Bool = false
-	@State var alertNoMail = false
-	@State var result: Result<MFMailComposeResult, Error>? = nil
-	
+		
 	var isPhone: Bool {
 		UIDevice.current.userInterfaceIdiom == .phone
 	}
@@ -42,21 +38,9 @@ struct GeneralSettings: View {
 			Link(destination: URL(string: "https://testflight.apple.com/join/rfPbYjXH")!) {
 				Label("Rate App", systemImage: "star")
 			}
-			
-			Button(action: {
-				isShowingMailView = true
-			}) {
-				Label("Send Feedback", systemImage: "bubble.left")
-					.onTapGesture {
-						MFMailComposeViewController.canSendMail() ? self.isShowingMailView.toggle() : self.alertNoMail.toggle()
-					}
-					.sheet(isPresented: $isShowingMailView) {
-						MailView(result: self.$result)
-					}
-					.alert(isPresented: self.$alertNoMail) {
-						Alert(title: Text("Please set up your email account on your Apple device to send a feedback"))
-					}
-			}
+
+			ShowingMailView()
+
 		}
 	}
 }
