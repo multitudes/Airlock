@@ -11,6 +11,9 @@ import SwiftUI
 struct HistoryView: View {
 	@EnvironmentObject var dataController: DataController
 	@Environment(\.presentationMode) var presentationMode
+	@State private var showingSaveConfirm = false
+	@AppStorage("progressiveBackupInt") var progressiveBackupInt = 0
+
 	let items: FetchRequest<Item>
 	
 	init() {
@@ -19,7 +22,6 @@ struct HistoryView: View {
 		request.sortDescriptors = [
 			NSSortDescriptor(keyPath: \Item.creationDate, ascending: false)
 		]
-		request.fetchLimit = 10
 		items = FetchRequest(fetchRequest: request)
 	}
 	
@@ -54,7 +56,43 @@ struct HistoryView: View {
 					Text("Done")
 				})
 			}
+			ToolbarItem(placement: .navigationBarLeading) {
+				Button(action: {
+					saveTextToFile()
+					showingSaveConfirm = true
+				}, label: {
+					Text("Save to Text")
+				})
+			}
 		}
+		.alert(isPresented: $showingSaveConfirm) {
+			Alert(title: Text("Saved!"), message: Text("The History has been saved in your document folder. You can find it in the Files section of your ipad or connecting to a mac, it will be in the Finder window."), dismissButton: .default(Text("OK!")))
+		}
+	}
+	var textFileURL: URL {
+		progressiveBackupInt += 1
+		let file = "myNotes-\(progressiveBackupInt).txt"
+		return DataController.documentsFolder.appendingPathComponent(file)
+	}
+	func saveTextToFile() {
+		var str = "This is your private list of annotations. Enjoy reading! :) \n"
+
+
+		for item in items.wrappedValue {
+			print(item.itemDate)
+			str.append("\n*** \(item.itemDate) - " + "Time Meditated \(item.itemLength) min ***\n")
+			if !item.itemText.isEmpty {
+				str.append(item.itemText)
+			}
+		}
+
+		do {
+			print(str)
+			try str.write(to: textFileURL, atomically: true, encoding: .utf8)
+		} catch {
+			print(error.localizedDescription)
+		}
+
 	}
 }
 
