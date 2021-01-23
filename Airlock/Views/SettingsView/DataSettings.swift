@@ -13,11 +13,6 @@ struct DataSettings: View {
 
     var body: some View {
 		Section(header: Text("Data")){
-			Button(action: {
-				dataController.saveToFile()
-			}, label: {
-				Text("Backup Data")
-			})
 			Button("Delete All Data") {
 				showingResetConfirm.toggle()
 			}

@@ -31,6 +31,7 @@
 		459A66252562EB6200F2DCCF /* EndPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66242562EB6200F2DCCF /* EndPopUpView.swift */; };
 		459A66292562EE3500F2DCCF /* OpaqueOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */; };
 		45A7D7A4250510FF00E77144 /* testview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7D7A3250510FF00E77144 /* testview.swift */; };
+		45AB5F0F25BC77A700CF3D30 /* ShowingMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB5F0E25BC77A700CF3D30 /* ShowingMailView.swift */; };
 		45B3FF6525B88EC1001C7B84 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */; };
 		45B3FF7225B8A36B001C7B84 /* DataSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7125B8A36B001C7B84 /* DataSettings.swift */; };
 		45B3FF7A25B8A504001C7B84 /* SettingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */; };
@@ -101,6 +102,7 @@
 		459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueOverlayView.swift; sourceTree = "<group>"; };
 		45A7D7A3250510FF00E77144 /* testview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testview.swift; sourceTree = "<group>"; };
 		45AB5EEC25BC512A00CF3D30 /* Airlock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Airlock.entitlements; sourceTree = "<group>"; };
+		45AB5F0E25BC77A700CF3D30 /* ShowingMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingMailView.swift; sourceTree = "<group>"; };
 		45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		45B3FF7125B8A36B001C7B84 /* DataSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettings.swift; sourceTree = "<group>"; };
 		45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				45B3FF7125B8A36B001C7B84 /* DataSettings.swift */,
 				45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */,
 				45B3FF6425B88EC1001C7B84 /* GeneralSettings.swift */,
+				45AB5F0E25BC77A700CF3D30 /* ShowingMailView.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				45B3FF8225B8B189001C7B84 /* ActivityViewController.swift in Sources */,
 				45293ED9256E95BF00072FEA /* TimeIndicator.swift in Sources */,
 				45B3FF6525B88EC1001C7B84 /* GeneralSettings.swift in Sources */,
+				45AB5F0F25BC77A700CF3D30 /* ShowingMailView.swift in Sources */,
 				4587595725B5ABDC00B61CD9 /* TextView.swift in Sources */,
 				4587595A25B5ABDC00B61CD9 /* DataController.swift in Sources */,
 				45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */,

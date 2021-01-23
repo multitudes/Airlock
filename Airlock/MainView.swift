@@ -19,6 +19,7 @@ enum Settings {
 	static let vibrateIsOn = "vibrateIsOn"
 	static let meditationTimerSeconds = "meditationTimerSeconds"
 	static let lastMeditationDate = "lastMeditationDate"
+	static let lastMeditationDuration =  "lastMeditationDuration"
 }
 
 extension Date: RawRepresentable {
@@ -43,8 +44,8 @@ extension Date: RawRepresentable {
 struct MainView: View {
 	@AppStorage(Settings.vibrateIsOn) var vibrateIsOn: Bool = false
 	@AppStorage(Settings.meditationTimerSeconds) var meditationTimerSeconds: Double = 120
-	@AppStorage("lastMeditationDate") var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
-	@AppStorage("lastMeditationDuration") var lastMeditationDuration: Int = 120
+	@AppStorage(Settings.lastMeditationDate) var lastMeditationDate: Date = Date().addingTimeInterval(-100000)
+	@AppStorage(Settings.lastMeditationDuration) var lastMeditationDuration: Int = 120
 	@EnvironmentObject var dataController: DataController
 	@Environment(\.managedObjectContext) var managedObjectContext
 

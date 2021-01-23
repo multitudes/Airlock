@@ -83,7 +83,7 @@ class DataController: ObservableObject {
 		try viewContext.save()
 	}
 
-	private static var documentsFolder: URL {
+	static var documentsFolder: URL {
 		do {
 			return try FileManager.default.url(for: .documentDirectory,
 										in: .userDomainMask,
@@ -94,9 +94,6 @@ class DataController: ObservableObject {
 		}
 	}
 
-	private static var fileURL: URL {
-		return documentsFolder.appendingPathComponent("personalNotes.data")
-	}
 
 //	func load() {
 //		DispatchQueue.global(qos: .background).async { [weak self] in
@@ -111,25 +108,4 @@ class DataController: ObservableObject {
 //	   }
 //	}
 
-	func saveToFile() {
-		let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
-		fetchRequest.sortDescriptors = [
-			NSSortDescriptor(keyPath: \Item.creationDate, ascending: false)
-		]
-		let fetchedItems = FetchRequest(fetchRequest: fetchRequest)
-		var items: [Item] = []
-		for item in fetchedItems.wrappedValue {
-			items.append(item)
-		}
-		DispatchQueue.global(qos: .background).async {
-			guard let data = try? JSONEncoder().encode(items) else { fatalError()}
-			do {
-				let outfile = Self.fileURL
-				try data.write(to: outfile)
-				print(Self.fileURL)
-			} catch {
-				fatalError()
-			}
-		}
-	}
 }
