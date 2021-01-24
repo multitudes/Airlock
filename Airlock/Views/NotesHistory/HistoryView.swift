@@ -69,25 +69,26 @@ struct HistoryView: View {
 			Alert(title: Text("Saved!"), message: Text("The History has been saved in your document folder. You can find it in the Files section of your ipad or connecting to a mac, it will be in the Finder window."), dismissButton: .default(Text("OK!")))
 		}
 	}
-	var textFileURL: URL {
-		progressiveBackupInt += 1
-		let file = "myNotes-\(progressiveBackupInt).txt"
-		return DataController.documentsFolder.appendingPathComponent(file)
-	}
-	func saveTextToFile() {
-		var str = "This is your private list of annotations. Enjoy reading! :) \n"
 
+	func saveTextToFile() {
+		progressiveBackupInt += 1
+		var textFileURL: URL {
+			let file = "myNotes-\(progressiveBackupInt).txt"
+			return DataController.documentsFolder.appendingPathComponent(file)
+		}
+
+		var str = "This is your private list of annotations. Enjoy reading! :) \n"
 
 		for item in items.wrappedValue {
 			print(item.itemDate)
 			str.append("\n*** \(item.itemDate) - " + "Time Meditated \(item.itemLength) min ***\n")
 			if !item.itemText.isEmpty {
-				str.append(item.itemText)
+				str.append(item.itemText + "\n")
 			}
 		}
 
 		do {
-			print(str)
+			print("saved to \(textFileURL)")
 			try str.write(to: textFileURL, atomically: true, encoding: .utf8)
 		} catch {
 			print(error.localizedDescription)
