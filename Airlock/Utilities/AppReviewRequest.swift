@@ -16,11 +16,11 @@ enum AppReviewRequest {
 
 	static func requestReviewIfNeeded() {
 		runsSinceLastRequest += 1
-		print("Run count \(runsSinceLastRequest)")
+		//print("Run count \(runsSinceLastRequest)")
 		let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
 		let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 		let thisVersion = "\(appVersion) build: \(appBuild)"
-		print("version: \(thisVersion)")
+		//print("version: \(thisVersion)")
 
 		if thisVersion != version {
 			if runsSinceLastRequest >= threshold {

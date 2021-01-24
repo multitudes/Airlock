@@ -35,7 +35,7 @@ struct DataSettings: View {
 				try FileManager.default.removeItem(at: filePath)
 			}
 			progressiveBackupInt = 0
-			print("\ncleared! and progressiveBackupInt = \(progressiveBackupInt) \n")
+			print("\nfolder cleared! \n")
 
 		} catch {
 			print("Could not clear temp folder: \(error)")

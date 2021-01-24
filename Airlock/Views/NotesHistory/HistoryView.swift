@@ -80,7 +80,6 @@ struct HistoryView: View {
 		var str = "This is your private list of annotations. Enjoy reading! :) \n"
 
 		for item in items.wrappedValue {
-			print(item.itemDate)
 			str.append("\n*** \(item.itemDate) - " + "Time Meditated \(item.itemLength) min ***\n")
 			if !item.itemText.isEmpty {
 				str.append(item.itemText + "\n")
@@ -88,8 +87,8 @@ struct HistoryView: View {
 		}
 
 		do {
-			print("saved to \(textFileURL)")
 			try str.write(to: textFileURL, atomically: true, encoding: .utf8)
+			print("saved to \(textFileURL)")
 		} catch {
 			print(error.localizedDescription)
 		}
