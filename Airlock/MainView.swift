@@ -56,7 +56,7 @@ struct MainView: View {
 	@State var showModal: Bool = false
 	@State var isPresentingHistoryView = false
 
-	@StateObject var meditationTimer = MeditationTimer()
+
 
 	//#warning("After testing reset to 120")
 	//var meditationTimerSeconds: Double = 4
@@ -141,7 +141,10 @@ struct MainView: View {
 				}
 			}
 		}
-	}
+		#if targetEnvironment(macCatalyst)
+			//.frame(width: 100, height: 100, alignment: .center)
+		#endif
+}
 
 	private func reset() {
 		AppReviewRequest.requestReviewIfNeeded()

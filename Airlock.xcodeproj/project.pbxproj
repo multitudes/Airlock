@@ -36,7 +36,6 @@
 		45B3FF7225B8A36B001C7B84 /* DataSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7125B8A36B001C7B84 /* DataSettings.swift */; };
 		45B3FF7A25B8A504001C7B84 /* SettingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */; };
 		45B3FF8225B8B189001C7B84 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF8125B8B189001C7B84 /* ActivityViewController.swift */; };
-		45B3FF8825B9A6CC001C7B84 /* MeditationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3FF8725B9A6CC001C7B84 /* MeditationTimer.swift */; };
 		45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BB333F25B5CBE000778CE4 /* HistoryButton.swift */; };
 		45BD1A2D25B5A7C70013B73F /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BD1A2C25B5A7C70013B73F /* NoteButton.swift */; };
 		45D333DF24FCE8BA001E8EC1 /* ActivityRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */; };
@@ -107,7 +106,6 @@
 		45B3FF7125B8A36B001C7B84 /* DataSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettings.swift; sourceTree = "<group>"; };
 		45B3FF7925B8A504001C7B84 /* SettingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionView.swift; sourceTree = "<group>"; };
 		45B3FF8125B8B189001C7B84 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		45B3FF8725B9A6CC001C7B84 /* MeditationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationTimer.swift; sourceTree = "<group>"; };
 		45BB333F25B5CBE000778CE4 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryButton.swift; path = "/Volumes/orico/Dhamma dvara/APPs/Airlock/Airlock/Views/Buttons/HistoryButton.swift"; sourceTree = "<absolute>"; };
 		45BD1A2C25B5A7C70013B73F /* NoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingView.swift; sourceTree = "<group>"; };
@@ -152,6 +150,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		452F95E925BD8AD2008B8C5E /* MainViewWithTimer */ = {
+			isa = PBXGroup;
+			children = (
+				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
+				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
+				459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */,
+				459A66242562EB6200F2DCCF /* EndPopUpView.swift */,
+				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
+				45D333E424FD0149001E8EC1 /* TitleView.swift */,
+				45293ED8256E95BF00072FEA /* TimeIndicator.swift */,
+			);
+			path = MainViewWithTimer;
+			sourceTree = "<group>";
+		};
 		454FCBCF256C3D77007EA242 /* AirlockTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,15 +182,7 @@
 			path = AirlockUITests;
 			sourceTree = "<group>";
 		};
-		45B3FF8625B9A62D001C7B84 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				45B3FF8725B9A6CC001C7B84 /* MeditationTimer.swift */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
-		45BD1A3725B5AB0B0013B73F /* History */ = {
+		45BD1A3725B5AB0B0013B73F /* NotesHistory */ = {
 			isa = PBXGroup;
 			children = (
 				455D1A9B25B863EA00DE5DDE /* Item+CoreDataClass.swift */,
@@ -193,7 +197,7 @@
 				4587594C25B5ABDC00B61CD9 /* TextView.swift */,
 				4587594425B5AB5900B61CD9 /* AddTextView.swift */,
 			);
-			path = History;
+			path = NotesHistory;
 			sourceTree = "<group>";
 		};
 		45D333E624FD034A001E8EC1 /* Buttons */ = {
@@ -218,15 +222,9 @@
 		45D333E924FD03D4001E8EC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45BD1A3725B5AB0B0013B73F /* History */,
-				45D333DE24FCE8BA001E8EC1 /* ActivityRingView.swift */,
-				45DA416D251CD30700757A6E /* demoCloudsAnimation.swift */,
-				459A66282562EE3500F2DCCF /* OpaqueOverlayView.swift */,
-				459A66242562EB6200F2DCCF /* EndPopUpView.swift */,
-				45D333E424FD0149001E8EC1 /* TitleView.swift */,
-				45293ED8256E95BF00072FEA /* TimeIndicator.swift */,
+				45BD1A3725B5AB0B0013B73F /* NotesHistory */,
+				452F95E925BD8AD2008B8C5E /* MainViewWithTimer */,
 				45F0E61525680C30007ED7D6 /* SettingsView */,
-				454CBB6324F90778001015F5 /* BackgroundGradient.swift */,
 				45A7D7A3250510FF00E77144 /* testview.swift */,
 				45D333E624FD034A001E8EC1 /* Buttons */,
 			);
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				45AB5EEC25BC512A00CF3D30 /* Airlock.entitlements */,
-				45B3FF8625B9A62D001C7B84 /* Timer */,
 				45D4CCDD24F1050F001C6F83 /* AirlockApp.swift */,
 				4580BAA4251CED2C00F7FDA0 /* PreLaunch.swift */,
 				454CBB6124F8FD42001015F5 /* MainView.swift */,
@@ -498,7 +495,6 @@
 				4587595A25B5ABDC00B61CD9 /* DataController.swift in Sources */,
 				45BB334025B5CBE000778CE4 /* HistoryButton.swift in Sources */,
 				4587594525B5AB5900B61CD9 /* AddTextView.swift in Sources */,
-				45B3FF8825B9A6CC001C7B84 /* MeditationTimer.swift in Sources */,
 				45D333E124FCECE5001E8EC1 /* PushButton.swift in Sources */,
 				4587595925B5ABDC00B61CD9 /* HistorySectionView.swift in Sources */,
 			);
