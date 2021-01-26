@@ -5,18 +5,12 @@ https://testflight.apple.com/join/rfPbYjXH
 
 ## A two minutes meditation app.
 
-The concept of the app is simple. I believe the best ideas come when in a relaxed mental state.
+The best ideas are coming when the mind is relaxed and alert at the same time.  
+This app will allow you to practice, with the option to record your thoughts in a diary.  
 
-Research shows that the brain has two main working modes, the focused and the diffused one, and each one activates a different region in the brain.  
-The focused mode is helpful to solve a set of problems which are known beforehand and in learning and memorize things, but can be limiting in the creative approach in solving a problem.  Often you will find that you get the solution to a problem aftere a goiod night sleep or a walk. This is because your brain switched from focused to the diffuse mode and could explore different paths bringing you to different ideas.  
-
-Meditation is similar but something else again, because you do not focus on a problem but you bring your attention on something like your breath, which is observable and always there. Sensations on your body are another great way to sharpen and focus your attention.  During meditation your mind might wander away and this is ok too as long as you train your mind to come back into focus. I would call meditation a diffused focused mode, bringing some benefit of both modes.
-
-This app invites you to try out meditation in 2 minutes sessions. After meditating the app gives the option to enter a comment. 
-
-Close your eyes and observe your breath for two minutes, the bare minimum of a unit of time. But did you ever realise how long are two minutes when you try to focus on your breath?  
-In the app two more settings are available by long pressing on the title.  
-You can select 20 min or one hour. At the end of the meditation time there will be a soft bell sound or a vibration (the last one on iPhone only).
+Our brain works in different modes. There is the focused mode, which helps us to solve problems but is sometimes missing the big picture. There is the diffused mode, able to work in the background which is good for creativity, and then there is the meditative mode which is both alert and relaxed at the same time. This app allows you to practice short two minutes meditations. You can meditate any way you like, concentrating on your breath or sensations on your body. Try concentrating single-mindedly, remaining aware at all times. If your mind wanders, bring her back.
+Keep your equanimity. Accept the present moment and observe it. After the meditation, you can write a note to your future self, and save them to a file, visible in the Files app on your device.
+When you feel ready, a long press on the title, allows you to select a longer meditation time. I hope you enjoy using this app!
 
 ## Features
 
