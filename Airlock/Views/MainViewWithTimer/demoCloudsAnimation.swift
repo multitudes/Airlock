@@ -20,7 +20,7 @@ struct Cloud: View {
             .foregroundColor(.white)
             .opacity(0.7)
             .font(Font.system(size: 40 + offset * 0.6))
-            .offset(x: change ? offset + 140  : -offset - 200)
+            .offset(x: change ? offset + 200  : -offset - 200)
             .offset(y: altitude)
 			.accessibility(hidden: true)
             .animation(Animation.linear(duration: change ? duration + delay * 0.1 : 0).delay(change ? delay : 0))
