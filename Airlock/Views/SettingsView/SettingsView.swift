@@ -39,7 +39,7 @@ struct SettingsView: View {
 			.navigationBarItems(trailing: Button("Done") {
 				presentationMode.wrappedValue.dismiss()
 			}
-			.keyboardShortcut(.return, modifiers: [.command])
+			.keyboardShortcut(.escape, modifiers: [])
 			)
 		}
 	}
